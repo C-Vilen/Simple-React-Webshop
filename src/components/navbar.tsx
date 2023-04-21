@@ -1,8 +1,4 @@
-// CSS import
-import '../styles/index.css';
-import '../styles/styles.css';
-
-
+// Logout function
 function logout() {
   localStorage.clear();
   // Uses the non-null assertion operator !

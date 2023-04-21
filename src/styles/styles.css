@@ -101,6 +101,10 @@ a:hover {
     padding: 12px !important;
 }
 
+.footer {
+    background-color: #E8EDDF;
+}
+
 .log-in-basket{
     display: flex;
     justify-content: end;

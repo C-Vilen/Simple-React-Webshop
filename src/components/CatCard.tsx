@@ -1,7 +1,3 @@
-// CSS import
-import '../styles/index.css';
-import '../styles/styles.css';
-
 export default function CatCard(props: any) {
     return (
         <>

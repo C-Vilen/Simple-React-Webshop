@@ -1,7 +1,4 @@
-// CSS import
-import '../styles/index.css';
-import '../styles/styles.css';
-
+// Components
 import CatCard from './CatCard';
 
 export default function CatCardContainer() {

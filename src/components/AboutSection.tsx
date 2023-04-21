@@ -1,6 +1,3 @@
-// CSS import
-import '../styles/index.css';
-
 export default function AboutFunction() {
     return (
         <>
