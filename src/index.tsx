@@ -5,22 +5,13 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Navbar from './components/Navbar';
-import Header from './components/Header';
-import CatCardContainer from './components/CatCardContainer';
-
-
-
-
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Navbar />
-    <Header />
-    <CatCardContainer />
+  <App />
   </React.StrictMode>
 );
 
