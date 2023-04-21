@@ -1,3 +1,4 @@
+import AboutSection from "../../components/AboutSection";
 import CatCardContainer from "../../components/CatCardContainer";
 import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
@@ -8,6 +9,7 @@ export default function Home() {
             <Navbar />
             <Header />
             <CatCardContainer />
+            <AboutSection />
         </>
     )
 }
