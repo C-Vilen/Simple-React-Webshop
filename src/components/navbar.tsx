@@ -18,7 +18,7 @@ function logout() {
 export default function Navbar() {
     return (
       <>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg">
           <div className="container px-4 px-lg-5">
               <img className="logo-img" src="assets/images/Badeanden_logo-02.png" alt=""></img>
               <a className="navbar-brand" href="./index.html"> The Rubber Duck</a>
