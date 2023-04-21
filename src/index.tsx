@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import Navbar from './components/navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import Header from './components/header';
 
 
 
@@ -15,6 +16,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Navbar />
+    <Header />
   </React.StrictMode>
 );
 
