@@ -1,17 +1,23 @@
-export default function CatCard(props: any) {
+interface CatCardProps {
+    catImg:string;
+    catName:String;
+    priceRange:String;
+}
+
+export default function CatCard({catImg, catName, priceRange}: CatCardProps) {
     return (
         <>
             <div className="col">
                 <div className="card">
                     {/* Product image */}
-                    <img className="product-img" src={props.catImg} alt="..." />
+                    <img className="product-img" src={catImg} alt="..." />
                     {/* Product details */}
                     <div className="card-body">
                         <div className="text-center">
                             {/* Product name */}
-                            <h5 className="fw-bolder">{props.catName}</h5>
+                            <h5 className="fw-bolder">{catName}</h5>
                             {/* Product price */}
-                            {props.priceRange}
+                            {priceRange}
                         </div>
                     </div>
                     {/* Product actions */}
