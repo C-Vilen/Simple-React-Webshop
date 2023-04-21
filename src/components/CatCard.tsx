@@ -1,7 +1,7 @@
 interface CatCardProps {
     catImg:string;
-    catName:String;
-    priceRange:String;
+    catName:string;
+    priceRange:string;
 }
 
 export default function CatCard({catImg, catName, priceRange}: CatCardProps) {
