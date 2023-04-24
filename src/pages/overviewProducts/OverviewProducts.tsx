@@ -11,7 +11,7 @@ export default function OverviewProducts(){
     return (
         <>
             <ProdCardContainer 
-            heading= "All Products"
+            heading= ""
             />
             <Footer />
         </>

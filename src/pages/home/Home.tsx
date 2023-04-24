@@ -13,7 +13,8 @@ export default function Home() {
     return (
         <>
             <Header />
-            <CatCardContainer />
+            <CatCardContainer 
+            catName = "" />
             <AboutSection />
             <Footer />
         </>
