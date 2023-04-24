@@ -50,12 +50,12 @@ export default function Navbar() {
                             </form>
                         </ul>
                         <h6 className="welcome-text" id="welcome-text">error</h6>
-                        <form action="./pages/loginPage/login.html" className="d-flex">
+                        <Link to="/Login" className="d-flex">
                             <button className="login-btn btn YellowButton" type="submit" id="login-btn">
                                 <i className="bi-cart-fill me-1"></i>
                                 Login
                             </button>
-                        </form>
+                        </Link>
                         <button className="logout-btn btn YellowButton" id="logout-btn" onClick={logout}>
                             <i className="bi-cart-fill me-1"></i>
                             Logout
