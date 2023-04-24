@@ -1,5 +1,5 @@
 // Components
-import CatCard from './CatCard';
+import CatCard from "./CatCard";
 
 export default function CatCardContainer() {
     return (
