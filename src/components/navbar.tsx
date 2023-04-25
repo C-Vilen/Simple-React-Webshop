@@ -60,13 +60,13 @@ export default function Navbar() {
                             <i className="bi-cart-fill me-1"></i>
                             Logout
                         </button>
-                        <form action="./pages/cartPage/cart.html" className="d-flex">
+                        <Link to="/Basket" className="d-flex">
                             <button className="btn YellowButton" type="submit">
                                 <i className="bi-cart-fill me-1"></i>
                                 Basket
                                 <span className="badge bg-dark text-white ms-1 rounded-pill" id="basketNumber">0</span>
                             </button>
-                        </form>
+                        </Link>
                     </div>
                 </div>
             </nav>
