@@ -5,10 +5,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/home/Home';
 import OverviewProducts from './pages/overviewProducts/OverviewProducts';
 import NoPage from './pages/noPage/NoPage';
-import Navbar from './components/Navbar';
 import Login from './pages/login/Login';
 import Basket from './pages/basket/Basket';
 import Signup from "./pages/signup/signup";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
