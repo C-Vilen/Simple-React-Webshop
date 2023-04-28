@@ -1,6 +1,8 @@
+import { Fragment } from "react";
+
 export default function AboutFunction() {
     return (
-        <>
+        <Fragment>
             <section className="about-section">
             <h3 className='text-center'>About rubber ducks?</h3>
                 <div className="row row-cols-1 row-cols-md-1 row-cols-lg-2">
@@ -29,6 +31,6 @@ export default function AboutFunction() {
                     </div>
                 </div>
             </section>
-        </>
+        </Fragment>
     )
 }

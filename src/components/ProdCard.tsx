@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+
 interface ProdCardProps {
     prodImg:string;
     prodName:string;
@@ -6,7 +8,7 @@ interface ProdCardProps {
 
 export default function ProdCard({prodImg, prodName, prodPrice}:ProdCardProps) {
     return (
-        <>
+        <Fragment>
             <div className="card">
                 <img className="product-img" src={prodImg} alt="..." />
                 <div className="card-body">
@@ -20,6 +22,6 @@ export default function ProdCard({prodImg, prodName, prodPrice}:ProdCardProps) {
                     </div>
                 </div>
             </div>
-        </>
+        </Fragment>
     )
 }

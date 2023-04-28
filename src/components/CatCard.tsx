@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+
 interface CatCardProps {
     catImg:string;
     catName:string;
@@ -6,7 +8,7 @@ interface CatCardProps {
 
 export default function CatCard({catImg, catName, priceRange}: CatCardProps) {
     return (
-        <>
+        <Fragment>
             <div className="col">
                 <div className="card">
                     {/* Product image */}
@@ -27,6 +29,6 @@ export default function CatCard({catImg, catName, priceRange}: CatCardProps) {
                     </div>
                 </div>
             </div>
-        </>
+        </Fragment>
     )
 }

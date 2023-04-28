@@ -1,4 +1,5 @@
-import { Outlet, Link } from "react-router-dom";
+import { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 // Logout function
 function logout() {
@@ -14,7 +15,7 @@ function logout() {
 
 export default function Navbar() {
   return (
-    <>
+    <Fragment>
       <nav className="navbar navbar-expand-lg">
         <div className="container px-4 px-lg-5">
           <img
@@ -95,39 +96,26 @@ export default function Navbar() {
             </Link>
             <h6 className="welcome-text" id="welcome-text">
               error
-            </h6>
-            <form action="./pages/loginPage/login.html" className="d-flex">
-              <button
-                className="login-btn btn YellowButton"
-                type="submit"
-                id="login-btn">
+            </h6><Link to="/Login" className="d-flex">
+              <button className="login-btn btn YellowButton" type="submit" id="login-btn">
                 <i className="bi-cart-fill me-1"></i>
                 Login
               </button>
-            </form>
-
-            <button
-              className="logout-btn btn YellowButton"
-              id="logout-btn"
-              onClick={logout}>
+            </Link>
+            <button className="logout-btn btn YellowButton" id="logout-btn" onClick={logout}>
               <i className="bi-cart-fill me-1"></i>
               Logout
             </button>
-            <form action="./pages/cartPage/cart.html" className="d-flex">
+            <Link to="/Basket" className="d-flex">
               <button className="btn YellowButton" type="submit">
                 <i className="bi-cart-fill me-1"></i>
                 Basket
-                <span
-                  className="badge bg-dark text-white ms-1 rounded-pill"
-                  id="basketNumber">
-                  0
-                </span>
+                <span className="badge bg-dark text-white ms-1 rounded-pill" id="basketNumber">0</span>
               </button>
-            </form>
+            </Link>
           </div>
         </div>
       </nav>
-      <Outlet />
-    </>
-  );
+    </Fragment>
+  )
 }
