@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import React, { useState } from "react";
 import "./signup.css";
-import { JsonObjectExpression } from "typescript";
 
 export default function Signup() {
   interface CustomerValues {
