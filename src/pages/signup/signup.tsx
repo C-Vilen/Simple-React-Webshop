@@ -3,14 +3,28 @@ import React, { useState } from "react";
 import "./signup.css";
 
 export default function Signup() {
-  interface FormValues {
+  interface CustomerValues {
     name: string;
     lastname: string;
     email: string;
     password: string;
   }
 
-  const [formValues, setFormValues] = useState<FormValues>({
+  const postCustomer = async (customer: CustomerValues) => {
+    const response = await fetch("/customers", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(customer),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to post customer data");
+    }
+  };
+
+  const [CustomerValues, setCustomerValues] = useState<CustomerValues>({
     name: "",
     lastname: "",
     email: "",
@@ -19,13 +33,14 @@ export default function Signup() {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
+    setCustomerValues({ ...CustomerValues, [name]: value });
   };
 
   const handleSignup = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    console.log(formValues); // Do something with form values here
-    setFormValues({
+    console.log(CustomerValues);
+    postCustomer(CustomerValues); // Do something with form values here
+    setCustomerValues({
       name: "",
       lastname: "",
       email: "",
@@ -51,7 +66,7 @@ export default function Signup() {
                 type="text"
                 id="name"
                 name="name"
-                value={formValues.name}
+                value={CustomerValues.name}
                 onChange={handleInputChange}
                 placeholder="fname"
               />
@@ -63,7 +78,7 @@ export default function Signup() {
                 type="text"
                 id="lastname"
                 name="lastname"
-                value={formValues.lastname}
+                value={CustomerValues.lastname}
                 onChange={handleInputChange}
                 placeholder="lname"
               />
@@ -75,7 +90,7 @@ export default function Signup() {
                 type="email"
                 id="email"
                 name="email"
-                value={formValues.email}
+                value={CustomerValues.email}
                 onChange={handleInputChange}
                 placeholder="email"
               />
@@ -87,7 +102,7 @@ export default function Signup() {
                 type="password"
                 id="password"
                 name="password"
-                value={formValues.password}
+                value={CustomerValues.password}
                 onChange={handleInputChange}
                 placeholder="password"
               />
