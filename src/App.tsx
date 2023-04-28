@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Components
@@ -8,7 +8,8 @@ import NoPage from './pages/noPage/NoPage';
 import Navbar from './components/Navbar';
 import Login from './pages/login/Login';
 import Basket from './pages/basket/Basket';
-import OneProduct from './pages/oneProduct/OneProduct';
+import OneProduct from "./pages/oneProduct/OneProduct";
+import Signup from "./pages/signup/signup";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="Basket" element={<Basket />} />
           <Route path="Product" element={<OneProduct />} />
           <Route path="*" element={<NoPage />} />
+          <Route path="signup" element={<Signup />} />
         </Route>
       </Routes>
     </BrowserRouter>
