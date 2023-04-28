@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 // Logout function
 function logout() {
@@ -116,6 +116,7 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
+      <Outlet />
     </Fragment>
-  )
+  );
 }
