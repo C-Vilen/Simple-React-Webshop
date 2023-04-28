@@ -1,16 +1,17 @@
 import { Fragment } from "react";
 import React, { useState } from "react";
 import "./signup.css";
+import { JsonObjectExpression } from "typescript";
 
 export default function Signup() {
   interface CustomerValues {
-    name: string;
-    lastname: string;
+    firstName: string;
+    lastName: string;
     email: string;
     password: string;
   }
 
-  const postCustomer = async (customer: CustomerValues) => {
+  const postCustomer = async (customer: string) => {
     const response = await fetch("/customers", {
       method: "POST",
       headers: {
@@ -25,8 +26,8 @@ export default function Signup() {
   };
 
   const [CustomerValues, setCustomerValues] = useState<CustomerValues>({
-    name: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
   });
@@ -39,10 +40,11 @@ export default function Signup() {
   const handleSignup = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     console.log(CustomerValues);
-    postCustomer(CustomerValues); // Do something with form values here
+    const customerJSON = JSON.stringify(CustomerValues);
+    postCustomer(customerJSON);
     setCustomerValues({
-      name: "",
-      lastname: "",
+      firstName: "",
+      lastName: "",
       email: "",
       password: "",
     }); // Reset form values after submission
@@ -64,25 +66,25 @@ export default function Signup() {
               <input
                 className="form-control"
                 type="text"
-                id="name"
-                name="name"
-                value={CustomerValues.name}
+                id="firstName"
+                name="firstName"
+                value={CustomerValues.firstName}
                 onChange={handleInputChange}
                 placeholder="fname"
               />
-              <label htmlFor="name">Name:</label>
+              <label htmlFor="firstName">Name:</label>
             </div>
             <div className="form-floating">
               <input
                 className="form-control"
                 type="text"
-                id="lastname"
-                name="lastname"
-                value={CustomerValues.lastname}
+                id="lastName"
+                name="lastName"
+                value={CustomerValues.lastName}
                 onChange={handleInputChange}
                 placeholder="lname"
               />
-              <label htmlFor="lastname">Lastname:</label>
+              <label htmlFor="lastName">Lastname:</label>
             </div>
             <div className="form-floating">
               <input
