@@ -1,9 +1,7 @@
 .login-main {
     display: flex;
     align-items: center;
-    height: 100%;
     text-align: center;
-    background-color: #E8ECEA;
 }
 
 /* Form in the main body */

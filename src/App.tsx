@@ -8,6 +8,7 @@ import NoPage from './pages/noPage/NoPage';
 import Navbar from './components/Navbar';
 import Login from './pages/login/Login';
 import Basket from './pages/basket/Basket';
+import OneProduct from './pages/oneProduct/OneProduct';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="All-Products" element={<OverviewProducts />} />
           <Route path="Login" element={<Login />} />
           <Route path="Basket" element={<Basket />} />
+          <Route path="Product" element={<OneProduct />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

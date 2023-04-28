@@ -169,14 +169,15 @@ a:hover {
 html, body{
     height:100%;
 }
+
+.page-main {
+    height: inherit;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100%;
-}
-
-.content {
-    flex-grow: 1;
 }
 
 .welcome-text{

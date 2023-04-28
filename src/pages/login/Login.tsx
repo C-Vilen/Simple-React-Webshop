@@ -10,8 +10,10 @@ import Footer from '../../components/Footer';
 export default function Login() {
     return (
         <Fragment>
-            <LoginForm/>
-            <Footer/>
+            <main className="login-main page-main">
+                <LoginForm />
+            </main>
+            <Footer />
         </Fragment>
     );
 }

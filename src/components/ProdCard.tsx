@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 interface ProdCardProps {
     prodImg:string;
@@ -18,7 +19,7 @@ export default function ProdCard({prodImg, prodName, prodPrice}:ProdCardProps) {
                     </div>
                 </div>
                 <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div className="text-center"><a className="btn BlackButton" href="../productPage/product.html">See product</a>
+                    <div className="text-center"><Link className="btn BlackButton" to="/Product">See product</Link>
                     </div>
                 </div>
             </div>
