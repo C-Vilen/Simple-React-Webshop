@@ -12,16 +12,22 @@ export default function Signup() {
   }
 
   const postCustomer = async (customer: string) => {
-    const response = await fetch("/customers", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(customer),
-    });
+    try {
+      const response = await fetch("http://localhost:3000/customers", {
+        mode: "cors",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: customer,
+      });
 
-    if (!response.ok) {
-      throw new Error("Failed to post customer data");
+      if (!response.ok) {
+        throw new Error("Failed to post customer data");
+      }
+    } catch (error) {
+      alert("You have not been signed up. Please try again later");
+      throw new Error("Could not connect to ServerAPI " + error);
     }
   };
 
@@ -39,7 +45,6 @@ export default function Signup() {
 
   const handleSignup = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    console.log(CustomerValues);
     const customerJSON = JSON.stringify(CustomerValues);
     postCustomer(customerJSON);
     setCustomerValues({
