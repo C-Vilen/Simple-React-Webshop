@@ -12,7 +12,7 @@ export default function Navbar(props: {
     //implement logout function, set context customer to guest again.
     props.updateCustomer({
       customerid: 0,
-      firstName: "guest",
+      firstName: "Guest",
       lastName: "",
       password: "",
       email: "",
@@ -21,7 +21,7 @@ export default function Navbar(props: {
   }
 
   function showName() {
-    if (customer?.firstName !== "guest") {
+    if (customer?.firstName !== "Guest") {
       return (
         <div>
           <button
