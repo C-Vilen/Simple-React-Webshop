@@ -14,7 +14,7 @@ import { Customer, CustomerContext } from "./CustomerContext";
 function App() {
   const [customer, setCustomer] = useState<Customer>({
     customerid: 0,
-    firstName: "guest",
+    firstName: "Guest",
     lastName: "",
     password: "",
     email: "",

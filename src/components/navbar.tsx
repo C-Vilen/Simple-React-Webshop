@@ -128,9 +128,6 @@ export default function Navbar(props: {
                 </button>
               </form>
             </ul>
-            <Link className="YellowButton btn" to="/signup">
-              Signup
-            </Link>
             <h6 className="welcome-text" id="welcome-text">
               {customer?.firstName}
             </h6>

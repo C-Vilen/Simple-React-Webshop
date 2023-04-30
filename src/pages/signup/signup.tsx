@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import React, { useState } from "react";
 import "./signup.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
   interface CustomerValues {
@@ -9,6 +10,15 @@ export default function Signup() {
     email: string;
     password: string;
   }
+
+  const [CustomerValues, setCustomerValues] = useState<CustomerValues>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+
+  const navigate = useNavigate();
 
   const postCustomer = async (customer: string) => {
     try {
@@ -30,13 +40,6 @@ export default function Signup() {
     }
   };
 
-  const [CustomerValues, setCustomerValues] = useState<CustomerValues>({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-  });
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
     setCustomerValues({ ...CustomerValues, [name]: value });
@@ -52,6 +55,7 @@ export default function Signup() {
       email: "",
       password: "",
     }); // Reset form values after submission
+    navigate("/Login");
   };
 
   return (

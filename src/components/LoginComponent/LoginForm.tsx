@@ -1,4 +1,5 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Customer, CustomerContext } from "../../CustomerContext";
 
 // CSS imports
@@ -10,7 +11,7 @@ export default function LoginForm(props: {
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
   const [customers, setCustomers] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     async function fetchCustomers() {
       const response = await fetch("http://localhost:3000/customers", {
@@ -33,6 +34,7 @@ export default function LoginForm(props: {
       props.updateCustomer(customerExists);
       setUserEmail("");
       setPassword("");
+      navigate("/");
     } else {
       alert("email and password does not exist");
     }
@@ -63,7 +65,7 @@ export default function LoginForm(props: {
               alt=""
               width="72px"
             />
-            <h1>Become a member!</h1>
+            <h1>Welcome, login here!</h1>
             <div className="form-floating">
               <input
                 type="text"
@@ -90,16 +92,22 @@ export default function LoginForm(props: {
               />
               <label htmlFor="password">Enter password:</label>
             </div>
-            <div className="checkbox m-3">
-              <input type="checkbox" id="checkbox" value="remember-me" />
-              <label htmlFor="checkbox">Remember me</label>
-            </div>
+
             <button type="submit" className="BlackButton btn">
               Login
             </button>
           </form>
+          <div className="signup-text">
+            Don't have an account yet?
+            <Link className="signup-link" to="/signup">
+              Signup
+            </Link>
+          </div>
         </section>
       </main>
     </Fragment>
   );
+}
+function useHistory() {
+  throw new Error("Function not implemented.");
 }
