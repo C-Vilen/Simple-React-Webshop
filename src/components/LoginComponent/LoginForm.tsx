@@ -1,31 +1,22 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
+import { Customer, CustomerContext } from "../../CustomerContext";
 
 // CSS imports
 import "./LoginForm.css";
 
-export default function LoginForm() {
-  //   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //     event.preventDefault();
-  //     const inputName = document.getElementById("email") as HTMLInputElement;
-  //     localStorage.setItem("name", inputName.value);
-  //     const inputPassword = document.getElementById(
-  //       "password"
-  //     ) as HTMLInputElement;
-  //     localStorage.setItem("password", inputPassword.value);
-  //   };
+export default function LoginForm(props: {
+  updateCustomer: (newCustomer: Customer) => void;
+}) {
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
   const [customers, setCustomers] = useState([]);
 
   useEffect(() => {
     async function fetchCustomers() {
-      const response = await fetch(
-        `http://localhost:3000/customers/${userEmail}`,
-        {
-          mode: "cors",
-          method: "GET",
-        }
-      );
+      const response = await fetch("http://localhost:3000/customers", {
+        mode: "cors",
+        method: "GET",
+      });
       const data = await response.json();
       setCustomers(data);
     }
@@ -34,12 +25,17 @@ export default function LoginForm() {
   }, []);
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const customerExists = customers.find((customer: any) => {
+    const customerExists = customers.find((customer: Customer) => {
       return customer.email === userEmail && customer.password === password;
     });
-    console.log(customerExists);
-    setUserEmail("");
-    setPassword("");
+
+    if (customerExists !== undefined) {
+      props.updateCustomer(customerExists);
+      setUserEmail("");
+      setPassword("");
+    } else {
+      alert("email and password does not exist");
+    }
   };
 
   //   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -99,7 +95,7 @@ export default function LoginForm() {
               <label htmlFor="checkbox">Remember me</label>
             </div>
             <button type="submit" className="BlackButton btn">
-              Register now!
+              Login
             </button>
           </form>
         </section>

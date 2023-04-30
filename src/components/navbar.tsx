@@ -1,19 +1,56 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { NodeFlags } from "typescript";
+import { Customer, CustomerContext } from "../CustomerContext";
 
-// Logout function
-function logout() {
-  localStorage.clear();
-  // Uses the non-null assertion operator !
-  let x = document.getElementById("login-btn")!;
-  x.style.display = "block";
-  // Uses the non-null assertion operator !
-  let y = document.getElementById("logout-btn")!;
-  y.style.display = "none";
-  window.location.reload();
-}
+export default function Navbar(props: {
+  updateCustomer: (newCustomer: Customer) => void;
+}) {
+  const customer = useContext(CustomerContext);
 
-export default function Navbar() {
+  function logout() {
+    //implement logout function, set context customer to guest again.
+    props.updateCustomer({
+      customerid: 0,
+      firstName: "guest",
+      lastName: "",
+      password: "",
+      email: "",
+      basketId: 0,
+    });
+  }
+
+  function showName() {
+    if (customer?.firstName !== "guest") {
+      return (
+        <div>
+          <button
+            className="login-btn btn YellowButton"
+            type="submit"
+            onClick={logout}
+            id="login-btn">
+            <i className="bi-cart-fill me-1"></i>
+            Logout
+          </button>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Link to="/Login" className="d-flex">
+            <button
+              className="login-btn btn YellowButton"
+              type="submit"
+              id="login-btn">
+              <i className="bi-cart-fill me-1"></i>
+              Login
+            </button>
+          </Link>
+        </div>
+      );
+    }
+  }
+
   return (
     <Fragment>
       <nav className="navbar navbar-expand-lg">
@@ -95,22 +132,19 @@ export default function Navbar() {
               Signup
             </Link>
             <h6 className="welcome-text" id="welcome-text">
-              error
-            </h6><Link to="/Login" className="d-flex">
-              <button className="login-btn btn YellowButton" type="submit" id="login-btn">
-                <i className="bi-cart-fill me-1"></i>
-                Login
-              </button>
-            </Link>
-            <button className="logout-btn btn YellowButton" id="logout-btn" onClick={logout}>
-              <i className="bi-cart-fill me-1"></i>
-              Logout
-            </button>
+              {customer?.firstName}
+            </h6>
+            {showName()}
+
             <Link to="/Basket" className="d-flex">
               <button className="btn YellowButton" type="submit">
                 <i className="bi-cart-fill me-1"></i>
                 Basket
-                <span className="badge bg-dark text-white ms-1 rounded-pill" id="basketNumber">0</span>
+                <span
+                  className="badge bg-dark text-white ms-1 rounded-pill"
+                  id="basketNumber">
+                  0
+                </span>
               </button>
             </Link>
           </div>

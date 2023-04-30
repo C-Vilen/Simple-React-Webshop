@@ -29,7 +29,7 @@ function App() {
     <BrowserRouter>
       <CustomerContext.Provider value={customer}>
         <Routes>
-          <Route path="/" element={<Navbar />}>
+          <Route path="/" element={<Navbar updateCustomer={updateCustomer} />}>
             <Route index element={<Home />} />
             <Route path="All-Products" element={<OverviewProducts />} />
             <Route
