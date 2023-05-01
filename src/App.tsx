@@ -4,9 +4,9 @@ import './App.css';
 import Home from './pages/home/Home';
 import OverviewProducts from './pages/overviewProducts/OverviewProducts';
 import NoPage from './pages/noPage/NoPage';
-import Navbar from './components/Navbar';
 import OverCat from './pages/categories/OverCat';
 import UnderCat from './pages/categories/UnderCat';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
