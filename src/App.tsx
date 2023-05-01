@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Components
 import Home from './pages/home/Home';
@@ -10,7 +11,8 @@ import UnderCat from './pages/categories/UnderCat';
 import Login from './pages/login/Login';
 import Basket from './pages/basket/Basket';
 import Signup from "./pages/signup/signup";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar";
+
 
 function App() {
   return (

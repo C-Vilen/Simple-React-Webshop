@@ -9,7 +9,8 @@ import AboutSection from "../../components/AboutSection";
 import CatCardContainer from "../../components/CatCardContainer";
 import Footer from "../../components/Footer";
 import CardCarrousel from '../../components/CardCarrousel';
-import Header from '../../components/Header';
+import Header from '../../components/header'
+
 
 export default function Home() {
     return (
@@ -17,7 +18,11 @@ export default function Home() {
             <Header />
             <CatCardContainer 
             catName = "" />
-            <CardCarrousel items={[""]} ProdCardWidth={0} ProdCardHeight={0} gap={0} />
+            <CardCarrousel items={[
+                {prodImg:"assets/images/products/profProductsImage.png", prodName:"A", prodPrice:"100"},
+                {prodImg:"assets/images/products/profProductsImage.png", prodName:"B", prodPrice:"100"},
+                {prodImg:"assets/images/products/profProductsImage.png", prodName:"C", prodPrice:"100"}
+                ]} ProdCardWidth={0} ProdCardHeight={0} gap={0} />
             <AboutSection />
             <Footer />
         </Fragment>
