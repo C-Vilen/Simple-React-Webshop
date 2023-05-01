@@ -20,12 +20,12 @@ export interface Customer {
   basketId: number;
 }
 
-export interface iCustomerContext {
+export interface CustomerContext {
   customer: Customer;
-  updateCustomer: (c: Customer) => void;
+  updateCustomer: (customer: Customer) => void;
 }
 
-export const CustomerContext = createContext<iCustomerContext | undefined>(
+export const CustomerContext = createContext<CustomerContext | undefined>(
   undefined
 );
 
