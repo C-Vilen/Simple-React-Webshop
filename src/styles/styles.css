@@ -164,6 +164,24 @@ a:hover {
     color: #333533;
 }
 
+.CardCarrousel {
+    display:flex;
+    flex-direction: row;
+    list-style:none;
+    padding: 1rem 0 0;
+    margin: 0 auto;
+    margin-top: 20%;
+    position: relative;
+    max-height: fit-content;
+}
+
+.CardCarrousel.item {
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 /*General styling*/
 
 html, body{
