@@ -45,6 +45,7 @@ return (
         }}
         >
             {items.map((item, i) =>(
+                //HOW TO GET THE CARDS IN HERE IN STEAD OF THIS CRAP
                 <ProdCard key={i} prodImg="{prodImg}" prodName="{prodName}" prodPrice="{prodPrice}" />
             ))}
         </div>
