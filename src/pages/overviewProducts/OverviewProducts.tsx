@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import "../../styles/styles.css";
 import "../../styles/overviewProducts.css";
-import Footer from "../../Components/Footer";
-import ProdCardContainer from "../../Components/ProdCardContainer";
-import { useParams } from "react-router-dom";
+import Footer from "../../components/Footer";
+import ProdCardContainer from "../../components/ProdCardContainer";
 
 export default function OverviewProducts() {
   const [products, setProducts] = useState([]);
@@ -21,9 +20,9 @@ export default function OverviewProducts() {
   //       .then((data) => setProducts(data));
   //   }, []);
   return (
-    <>
+    <Fragment>
       <ProdCardContainer heading="All Products" products={products} />
       <Footer />
-    </>
+    </Fragment>
   );
 }

@@ -1,9 +1,11 @@
+import { Fragment } from 'react';
+
 // Components
 import CatCard from "./CatCard";
 
 export default function CatCardContainer() {
     return (
-        <>
+        <Fragment>
             <section className="py-5">
                 <h2 className="category-heading text-center">Categories</h2>
                 <div className="container px-4 px-lg-5">
@@ -26,6 +28,6 @@ export default function CatCardContainer() {
                     </div>
                 </div>
             </section>
-        </>
-    )
+        </Fragment>
+    );
 }
