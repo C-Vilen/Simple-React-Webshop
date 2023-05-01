@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import {ProdCard} from "./ProdCard";
+import ProdCard from "./ProdCard";
 
 interface ProdCardContainerProps {
     heading: String;

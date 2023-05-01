@@ -1,5 +1,4 @@
 import { Fragment } from "react";
-import Carousel from 'react-bootstrap/Carousel';
 
 export interface CarouselProductCardProps {
     prodImg:string;
@@ -11,6 +10,7 @@ export function CarouselProductCard({prodImg, prodName, prodPrice}:CarouselProdu
     return (
         <Fragment>
             <div className="card w-100 d-flex flex-column justify-content-center align-items-center" 
+            //because lolz
             style={{backgroundImage: "linear-gradient(#fff,#F2BD2C, #fff)"}}>
                 <img className="product-img" src={prodImg} alt="..." />
                 <div className="card-body">

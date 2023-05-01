@@ -1,5 +1,4 @@
-//react import
-import React, { useState } from "react";
+// import
 import Carousel from 'react-bootstrap/Carousel';
 
 //Components import
@@ -7,14 +6,9 @@ import {CarouselProductCard, CarouselProductCardProps} from "./CarouselProductCa
 
 interface CardCarrouselProps {
     items: CarouselProductCardProps[];
-    ProdCardWidth: number;
-    ProdCardHeight: number;
-    gap: number;
 }
 
-export default function CardCarousel({items, ProdCardWidth, ProdCardHeight, gap}:CardCarrouselProps){
- {
-
+export default function CardCarousel({items}:CardCarrouselProps){
     return (
         <Carousel variant="dark">
             {items.map((item, i) =>(
@@ -24,5 +18,4 @@ export default function CardCarousel({items, ProdCardWidth, ProdCardHeight, gap}
             ))}
         </Carousel>
     );
-    }
 }

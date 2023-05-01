@@ -20,9 +20,9 @@ export default function Home() {
             catName = "" />
             <CardCarrousel items={[
                 {prodImg:"assets/images/products/profProductsImage.png", prodName:"A", prodPrice:"100"},
-                {prodImg:"assets/images/products/profProductsImage.png", prodName:"B", prodPrice:"100"},
-                {prodImg:"assets/images/products/profProductsImage.png", prodName:"C", prodPrice:"100"}
-                ]} ProdCardWidth={0} ProdCardHeight={0} gap={0} />
+                {prodImg:"assets/images/products/profProductsImage.png", prodName:"B", prodPrice:"10"},
+                {prodImg:"assets/images/products/profProductsImage.png", prodName:"C", prodPrice:"1"}
+                ]}  />
             <AboutSection />
             <Footer />
         </Fragment>

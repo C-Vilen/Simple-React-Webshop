@@ -1,12 +1,12 @@
 import { Fragment } from "react";
 
-export interface ProdCardProps {
+interface ProdCardProps {
     prodImg:string;
     prodName:string;
     prodPrice:string;
 }
 
-export function ProdCard({prodImg, prodName, prodPrice}:ProdCardProps) {
+export default function ProdCard({prodImg, prodName, prodPrice}:ProdCardProps) {
     return (
         <Fragment>
             <div className="card">
