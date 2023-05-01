@@ -1,17 +1,17 @@
 import { Fragment } from "react";
 
 export interface CarouselProductCardProps {
-    prodImg:string;
-    prodName:string;
-    prodPrice:string;
+    prodImg: string;
+    prodName: string;
+    prodPrice: string;
 }
 
-export function CarouselProductCard({prodImg, prodName, prodPrice}:CarouselProductCardProps) {
+export function CarouselProductCard({ prodImg, prodName, prodPrice }: CarouselProductCardProps) {
     return (
         <Fragment>
-            <div className="card w-100 d-flex flex-column justify-content-center align-items-center" 
-            //because lolz
-            style={{backgroundImage: "linear-gradient(#fff,#F2BD2C, #fff)"}}>
+            <div className="card w-100 d-flex flex-column justify-content-center align-items-center"
+                //because lolz
+                style={{ backgroundImage: "linear-gradient(#fff,#F2BD2C, #fff)" }}>
                 <img className="product-img" src={prodImg} alt="..." />
                 <div className="card-body">
                     <div className="text-center">

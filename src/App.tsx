@@ -11,7 +11,7 @@ import UnderCat from './pages/categories/UnderCat';
 import Login from './pages/login/Login';
 import Basket from './pages/basket/Basket';
 import Signup from "./pages/signup/signup";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 
 
 function App() {
