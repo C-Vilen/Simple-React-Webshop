@@ -22,6 +22,7 @@ export default function ProdCardContainer({
                   prodImg={"./assets/images/" + product.imgSrc}
                   prodName={product.productName}
                   prodPrice={product.productPrice + " DKK"}
+                  prodId={product.productId}
                 />
               </div>
             ))}

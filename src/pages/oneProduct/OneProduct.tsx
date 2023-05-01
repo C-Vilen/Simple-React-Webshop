@@ -1,21 +1,46 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from "react";
 
-//CSS 
-import '../../styles/styles.css';
+//CSS
+import "../../styles/styles.css";
 
 // Components
 import Footer from "../../components/Footer";
-import OneProductSection from '../../components/OneProductComponent/OneProductSection';
+import OneProductSection from "../../components/OneProductComponent/OneProductSection";
+import { useParams } from "react-router-dom";
 
+interface ProductInterface {
+  productId: number;
+  productName: string;
+  productDescription: string;
+  productPrice: number;
+  imgSrc: string;
+}
 
 export default function OneProduct() {
-    return (
-        <Fragment>
-            <main className="page-main">
-                <OneProductSection prodImg={'assets/images/products/duck1.png'} prodName={"Viking"} prodPrice={"49"} prodDescription={"A duck ready for battle! Yes, that's how it can go when a rubber duck dresses up as a Viking. Play along! It can be a tough fight when all the enemies attack. \n \n This Viking rubber duck, measures 8.5 x 7.5 x 8.5 cm is made of plastic and sold individually."}            // heading= "All Products"
-                />
-            </main>
-            <Footer />
-        </Fragment>
-    );
+  const [product, setProducts] = useState<ProductInterface | null>(null);
+  //   const category = useParams();
+  const { prodId: routeProdId } = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/products/${routeProdId}`)
+      .then((response) => response.json())
+      .then((data) => setProducts(data));
+  }, []);
+
+  return (
+    <Fragment>
+      <main className="page-main">
+        {product && (
+          <OneProductSection
+            prodImg={product.imgSrc}
+            prodName={product.productName}
+            prodPrice={product.productPrice.toString()}
+            prodDescription={product.productDescription}
+            // heading= "All Products"
+          />
+        )}
+      </main>
+      <Footer />
+    </Fragment>
+  );
 }

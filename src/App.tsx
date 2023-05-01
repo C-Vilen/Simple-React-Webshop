@@ -2,11 +2,11 @@ import React, { createContext, useMemo, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Components
-import Home from './pages/home/Home';
-import OverviewProducts from './pages/overviewProducts/OverviewProducts';
-import NoPage from './pages/noPage/NoPage';
-import Login from './pages/login/Login';
-import Basket from './pages/basket/Basket';
+import Home from "./pages/home/Home";
+import OverviewProducts from "./pages/overviewProducts/OverviewProducts";
+import NoPage from "./pages/noPage/NoPage";
+import Login from "./pages/login/Login";
+import Basket from "./pages/basket/Basket";
 import OneProduct from "./pages/oneProduct/OneProduct";
 import Signup from "./pages/signup/signup";
 import Navbar from "./components/Navbar";
@@ -29,7 +29,6 @@ export interface CustomerContext {
 export const CustomerContext = createContext<CustomerContext | undefined>(
   undefined
 );
-
 
 function App() {
   const [customer, setCustomer] = useState<Customer>({
@@ -54,7 +53,7 @@ function App() {
             <Route path="All-Products" element={<OverviewProducts />} />
             <Route path="Login" element={<Login />} />
             <Route path="Basket" element={<Basket />} />
-            <Route path="Product" element={<OneProduct />} />
+            <Route path="Product/:prodId" element={<OneProduct />} />
             <Route path="*" element={<NoPage />} />
             <Route path="signup" element={<Signup />} />
           </Route>
