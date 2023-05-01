@@ -1,5 +1,3 @@
-import { Fragment } from 'react';
-
 // Components
 import { Fragment } from 'react';
 import CatCard from './CatCard';
