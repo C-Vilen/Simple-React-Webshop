@@ -6,7 +6,6 @@ import "../../styles/styles.css";
 // Components
 import BasketItemContainer from "../../components/BasketComponent/BasketItemContainer";
 import Footer from "../../components/Footer";
-import { CustomerContext } from "../../CustomerContext";
 
 export default function Basket() {
   return (

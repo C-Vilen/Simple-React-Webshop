@@ -3,7 +3,7 @@ import BasketItem from "./BasketItem";
 
 // CSS
 import "./Basket.css";
-import { CustomerContext } from "../../CustomerContext";
+import { CustomerContext } from "../../App";
 
 interface BasketItemContainerProps {
   customerName: String;
@@ -14,11 +14,15 @@ export default function BasketItemContainer({
   customerName,
   basketAmount,
 }: BasketItemContainerProps) {
-  const customer = useContext(CustomerContext);
+  const context = useContext(CustomerContext);
+  if (!context) {
+    throw new Error("customer context is undefined");
+  }
+  const { customer } = context;
 
   let outputName = "";
   if (customerName == "") {
-    outputName = customer?.firstName + "'s basket";
+    outputName = customer.firstName + "'s basket";
   } else {
     outputName = customerName + "'s basket";
   }

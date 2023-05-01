@@ -6,14 +6,11 @@ import "../../styles/styles.css";
 // Components
 import LoginForm from "../../components/LoginComponent/LoginForm";
 import Footer from "../../components/Footer";
-import { Customer } from "../../CustomerContext";
 
-export default function Login(props: {
-  updateCustomer: (newCustomer: Customer) => void;
-}) {
+export default function Login() {
   return (
     <Fragment>
-      <LoginForm updateCustomer={props.updateCustomer} />
+      <LoginForm />
       <Footer />
     </Fragment>
   );

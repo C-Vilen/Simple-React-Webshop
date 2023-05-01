@@ -9,7 +9,7 @@ import AboutSection from "../../components/AboutSection";
 import CatCardContainer from "../../components/CatCardContainer";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import { CustomerContext } from "../../CustomerContext";
+import { CustomerContext } from "../../App";
 
 export default function Home() {
   const customer = useContext(CustomerContext);

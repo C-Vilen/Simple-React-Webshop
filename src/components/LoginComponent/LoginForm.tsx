@@ -1,17 +1,22 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Customer, CustomerContext } from "../../CustomerContext";
+import { Customer, CustomerContext } from "../../App";
+// import { Customer, CustomerContext } from "../../CustomerContext";
 
 // CSS imports
 import "./LoginForm.css";
 
-export default function LoginForm(props: {
-  updateCustomer: (newCustomer: Customer) => void;
-}) {
+export default function LoginForm() {
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
   const [customers, setCustomers] = useState([]);
   const navigate = useNavigate();
+
+  const context = useContext(CustomerContext);
+  if (!context) {
+    throw new Error("customer context is undefined");
+  }
+  const { customer, updateCustomer } = context;
   useEffect(() => {
     async function fetchCustomers() {
       const response = await fetch("http://localhost:3000/customers", {
@@ -31,7 +36,8 @@ export default function LoginForm(props: {
     });
 
     if (customerExists !== undefined) {
-      props.updateCustomer(customerExists);
+      updateCustomer(customerExists);
+      // updateCustomer(customerExists);
       setUserEmail("");
       setPassword("");
       navigate("/");

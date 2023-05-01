@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { createContext, useMemo, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Components
@@ -9,7 +9,25 @@ import Login from "./pages/login/Login";
 import Basket from "./pages/basket/Basket";
 import Signup from "./pages/signup/signup";
 import Navbar from "./components/Navbar";
-import { Customer, CustomerContext } from "./CustomerContext";
+// import { Customer, CustomerContext } from "./CustomerContext";
+
+export interface Customer {
+  customerid: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  basketId: number;
+}
+
+export interface iCustomerContext {
+  customer: Customer;
+  updateCustomer: (c: Customer) => void;
+}
+
+export const CustomerContext = createContext<iCustomerContext | undefined>(
+  undefined
+);
 
 function App() {
   const [customer, setCustomer] = useState<Customer>({
@@ -27,15 +45,12 @@ function App() {
 
   return (
     <BrowserRouter>
-      <CustomerContext.Provider value={customer}>
+      <CustomerContext.Provider value={{ customer, updateCustomer }}>
         <Routes>
-          <Route path="/" element={<Navbar updateCustomer={updateCustomer} />}>
+          <Route path="/" element={<Navbar />}>
             <Route index element={<Home />} />
             <Route path="All-Products" element={<OverviewProducts />} />
-            <Route
-              path="Login"
-              element={<Login updateCustomer={updateCustomer} />}
-            />
+            <Route path="Login" element={<Login />} />
             <Route path="Basket" element={<Basket />} />
             <Route path="*" element={<NoPage />} />
             <Route path="signup" element={<Signup />} />

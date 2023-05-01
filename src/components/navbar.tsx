@@ -1,16 +1,17 @@
 import { Fragment, useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { NodeFlags } from "typescript";
-import { Customer, CustomerContext } from "../CustomerContext";
+import { CustomerContext } from "../App";
 
-export default function Navbar(props: {
-  updateCustomer: (newCustomer: Customer) => void;
-}) {
-  const customer = useContext(CustomerContext);
+export default function Navbar() {
+  const context = useContext(CustomerContext);
+  if (!context) {
+    throw new Error("customer context is undefined");
+  }
+  const { customer, updateCustomer } = context;
 
   function logout() {
     //implement logout function, set context customer to guest again.
-    props.updateCustomer({
+    updateCustomer({
       customerid: 0,
       firstName: "Guest",
       lastName: "",
@@ -21,7 +22,7 @@ export default function Navbar(props: {
   }
 
   function showName() {
-    if (customer?.firstName !== "Guest") {
+    if (customer.firstName !== "Guest") {
       return (
         <div>
           <button
