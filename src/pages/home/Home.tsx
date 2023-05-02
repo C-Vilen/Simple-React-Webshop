@@ -9,7 +9,7 @@ import AboutSection from "../../components/AboutSection";
 import CatCardContainer from "../../components/CatCardContainer";
 import Footer from "../../components/Footer";
 import CardCarrousel from '../../components/CardCarrousel';
-import Header from '../../components/header';
+import Header from '../../components/Header';
 
 
 export default function Home() {
