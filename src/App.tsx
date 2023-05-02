@@ -13,7 +13,7 @@ import Navbar from "./components/Navbar";
 // import { Customer, CustomerContext } from "./CustomerContext";
 
 export interface Customer {
-  customerid: number;
+  customerId: number;
   firstName: string;
   lastName: string;
   email: string;
@@ -32,7 +32,7 @@ export const CustomerContext = createContext<CustomerContext | undefined>(
 
 function App() {
   const [customer, setCustomer] = useState<Customer>({
-    customerid: 0,
+    customerId: 0,
     firstName: "Guest",
     lastName: "",
     password: "",

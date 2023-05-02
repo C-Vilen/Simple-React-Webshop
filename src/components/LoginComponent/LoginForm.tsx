@@ -45,22 +45,6 @@ export default function LoginForm() {
       alert("email and password does not exist");
     }
   };
-
-  //   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //     async function fetchCustomers() {
-  //       const response = await fetch(
-  //         `http://localhost:3000/customers/:${userEmail}`,
-  //         {
-  //           mode: "cors",
-  //           method: "GET",
-  //         }
-  //       );
-  //       const data = await response.json();
-  //       setCustomers(data);
-  //     }
-  //     console.log(customers);
-  //     fetchCustomers();
-  //   };
   return (
     <Fragment>
       <main className="content login-main">
@@ -113,7 +97,4 @@ export default function LoginForm() {
       </main>
     </Fragment>
   );
-}
-function useHistory() {
-  throw new Error("Function not implemented.");
 }

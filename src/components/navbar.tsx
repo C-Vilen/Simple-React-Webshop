@@ -12,7 +12,7 @@ export default function Navbar() {
   function logout() {
     //implement logout function, set context customer to guest again.
     updateCustomer({
-      customerid: 0,
+      customerId: 0,
       firstName: "Guest",
       lastName: "",
       password: "",

@@ -1,5 +1,6 @@
-import { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Fragment, useContext, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { CustomerContext } from "../../App";
 import "./OneProductSection.css";
 
 interface OneProductSectionProps {
@@ -15,7 +16,23 @@ export default function OneProductSection({
   prodPrice,
   prodDescription,
 }: OneProductSectionProps) {
-  console.log(prodImg);
+  const context = useContext(CustomerContext);
+  if (!context) {
+    throw new Error("customer context is undefined");
+  }
+  const { customer, updateCustomer } = context;
+  const { prodId: routeProdId } = useParams();
+
+  async function buyProduct() {
+    const response = await fetch(
+      `http://localhost:3000/baskets/${customer.customerId}/${routeProdId}`,
+      {
+        mode: "cors",
+        method: "PUT",
+      }
+    );
+  }
+
   return (
     <Fragment>
       <div className="container px-4 px-lg-5">
@@ -62,7 +79,8 @@ export default function OneProductSection({
                 <button
                   id="AddProduct"
                   className="BlackButton btn mt-auto"
-                  type="submit">
+                  type="submit"
+                  onClick={buyProduct}>
                   <i className="bi-cart-fill me-1"></i> Buy duck
                   <span className="badge bg-dark text-white ms-1 rounded-pill"></span>
                 </button>
