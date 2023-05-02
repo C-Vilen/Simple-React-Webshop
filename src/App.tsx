@@ -10,7 +10,6 @@ import Basket from "./pages/basket/Basket";
 import OneProduct from "./pages/oneProduct/OneProduct";
 import Signup from "./pages/signup/signup";
 import Navbar from "./components/Navbar";
-import OneProductSection from "./components/OneProductComponent/OneProductSection";
 
 export interface Customer {
   customerId: number;
@@ -64,6 +63,10 @@ function App() {
     }
   }, [customer, productCount]);
 
+  function updateProductCount(count: number) {
+    setProductCount(count);
+  }
+
   return (
     <BrowserRouter>
       <CustomerContext.Provider value={{ customer, updateCustomer }}>
@@ -73,7 +76,10 @@ function App() {
             <Route path="All-Products" element={<OverviewProducts />} />
             <Route path="Login" element={<Login />} />
             <Route path="Basket" element={<Basket />} />
-            <Route path="Product/:prodId" element={<OneProduct />} />
+            <Route
+              path="Product/:prodId"
+              element={<OneProduct updateProductCount={updateProductCount} />}
+            />
             <Route path="*" element={<NoPage />} />
             <Route path="signup" element={<Signup />} />
           </Route>

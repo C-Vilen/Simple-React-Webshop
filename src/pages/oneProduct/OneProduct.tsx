@@ -16,10 +16,11 @@ interface ProductInterface {
   imgSrc: string;
 }
 
-export default function OneProduct() {
+export default function OneProduct(props: any) {
   const [product, setProducts] = useState<ProductInterface | null>(null);
   //   const category = useParams();
   const { prodId: routeProdId } = useParams();
+  const { updateProductCount } = props;
 
   useEffect(() => {
     fetch(`http://localhost:3000/products/${routeProdId}`)
@@ -36,6 +37,7 @@ export default function OneProduct() {
             prodName={product.productName}
             prodPrice={product.productPrice.toString()}
             prodDescription={product.productDescription}
+            updateProductCount={updateProductCount}
             // heading= "All Products"
           />
         )}

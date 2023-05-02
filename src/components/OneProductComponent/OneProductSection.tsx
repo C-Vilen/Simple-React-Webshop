@@ -1,3 +1,4 @@
+import { Method } from "@testing-library/react";
 import { Fragment, useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { CustomerContext } from "../../App";
@@ -8,6 +9,7 @@ interface OneProductSectionProps {
   prodName: string;
   prodPrice: string;
   prodDescription: string;
+  updateProductCount: (count: number) => void;
 }
 
 export default function OneProductSection({
@@ -15,6 +17,7 @@ export default function OneProductSection({
   prodName,
   prodPrice,
   prodDescription,
+  updateProductCount,
 }: OneProductSectionProps) {
   const context = useContext(CustomerContext);
   if (!context) {
@@ -31,6 +34,18 @@ export default function OneProductSection({
         method: "PUT",
       }
     );
+    async function getBasketCount() {
+      const response = await fetch(
+        `http://localhost:3000/baskets/${customer.customerId}`,
+        {
+          mode: "cors",
+          method: "GET",
+        }
+      );
+      const data = await response.json();
+      updateProductCount(data.length);
+    }
+    getBasketCount();
   }
 
   return (
