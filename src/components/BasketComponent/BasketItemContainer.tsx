@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import BasketItem from "./BasketItem";
 
 // CSS
@@ -20,6 +20,16 @@ export default function BasketItemContainer({
   }
   const { customer } = context;
 
+  const [products, setProducts] = useState([]);
+  if (!products) {
+    throw new Error("couldn't get products");
+  }
+  useEffect(() => {
+    fetch(`http://localhost:3000/baskets/${customer.customerId}`)
+      .then((response) => response.json())
+      .then((data) => setProducts(data));
+  }, []);
+
   let outputName = "";
   if (customerName == "") {
     outputName = customer.firstName + "'s basket";
@@ -40,7 +50,14 @@ export default function BasketItemContainer({
             <span className="text-muted">{outputName}</span>
           </h4>
           <ul className="list-group mb-3">
-            <BasketItem prodName={""} prodAmount={0} prodPrice={0} />
+            {products.map((product: any) => (
+              <BasketItem
+                prodName={product.productName}
+                prodAmount={0}
+                prodPrice={product.productPrice}
+                prodImg={"./assets/images" + product.imgSrc}
+              />
+            ))}
 
             {/* Inserting items of products in the below div */}
             <div id="product-update-script"></div>

@@ -27,6 +27,10 @@
     padding-right: 10px;
 }
 
+.product-img{
+    width: 40px;
+}
+
 .buy-li {
     display: flex;
     margin-top: 10px;
