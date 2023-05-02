@@ -1,4 +1,4 @@
-import React, { createContext, useMemo, useState } from "react";
+import React, { createContext, useEffect, useMemo, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Components
@@ -10,7 +10,7 @@ import Basket from "./pages/basket/Basket";
 import OneProduct from "./pages/oneProduct/OneProduct";
 import Signup from "./pages/signup/signup";
 import Navbar from "./components/Navbar";
-// import { Customer, CustomerContext } from "./CustomerContext";
+import OneProductSection from "./components/OneProductComponent/OneProductSection";
 
 export interface Customer {
   customerId: number;
@@ -39,16 +39,36 @@ function App() {
     email: "",
     basketId: 0,
   });
+  const [productCount, setProductCount] = useState(0);
 
   const updateCustomer = (newCustomer: Customer) => {
     setCustomer(newCustomer);
   };
 
+  useEffect(() => {
+    async function getBasketCount() {
+      const response = await fetch(
+        `http://localhost:3000/baskets/${customer.customerId}`,
+        {
+          mode: "cors",
+          method: "GET",
+        }
+      );
+      const data = await response.json();
+      setProductCount(data.length);
+    }
+    if (customer.firstName !== "Guest") {
+      getBasketCount();
+    } else {
+      setProductCount(0);
+    }
+  }, [customer, productCount]);
+
   return (
     <BrowserRouter>
       <CustomerContext.Provider value={{ customer, updateCustomer }}>
         <Routes>
-          <Route path="/" element={<Navbar />}>
+          <Route path="/" element={<Navbar productCount={productCount} />}>
             <Route index element={<Home />} />
             <Route path="All-Products" element={<OverviewProducts />} />
             <Route path="Login" element={<Login />} />

@@ -2,7 +2,7 @@ import { Fragment, useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { CustomerContext } from "../App";
 
-export default function Navbar() {
+export default function Navbar(props: any) {
   const context = useContext(CustomerContext);
   if (!context) {
     throw new Error("customer context is undefined");
@@ -141,7 +141,7 @@ export default function Navbar() {
                 <span
                   className="badge bg-dark text-white ms-1 rounded-pill"
                   id="basketNumber">
-                  0
+                  {props.productCount}
                 </span>
               </button>
             </Link>
