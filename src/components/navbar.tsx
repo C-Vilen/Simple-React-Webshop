@@ -1,5 +1,5 @@
 import { Fragment, useContext } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { CustomerContext } from "../App";
 
 export default function Navbar(props: any) {
@@ -8,6 +8,7 @@ export default function Navbar(props: any) {
     throw new Error("customer context is undefined");
   }
   const { customer, updateCustomer } = context;
+  const navigate = useNavigate();
 
   function logout() {
     //implement logout function, set context customer to guest again.
@@ -19,6 +20,7 @@ export default function Navbar(props: any) {
       email: "",
       basketId: 0,
     });
+    navigate("/");
   }
 
   function showName() {
