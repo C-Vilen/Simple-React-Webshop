@@ -23,11 +23,11 @@ export default function OneProductSection({
   if (!context) {
     throw new Error("customer context is undefined");
   }
-  const { customer, updateCustomer } = context;
+  const { customer } = context;
   const { prodId: routeProdId } = useParams();
 
   async function buyProduct() {
-    const response = await fetch(
+    await fetch(
       `http://localhost:3000/baskets/${customer.customerId}/${routeProdId}`,
       {
         mode: "cors",
