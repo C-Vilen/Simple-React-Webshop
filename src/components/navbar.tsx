@@ -1,24 +1,26 @@
 import { Fragment, useContext } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { CustomerContext } from "../App";
 
-export default function Navbar() {
+export default function Navbar(props: any) {
   const context = useContext(CustomerContext);
   if (!context) {
     throw new Error("customer context is undefined");
   }
   const { customer, updateCustomer } = context;
+  const navigate = useNavigate();
 
   function logout() {
     //implement logout function, set context customer to guest again.
     updateCustomer({
-      customerid: 0,
+      customerId: 0,
       firstName: "Guest",
       lastName: "",
       password: "",
       email: "",
       basketId: 0,
     });
+    navigate("/");
   }
 
   function showName() {
@@ -141,7 +143,7 @@ export default function Navbar() {
                 <span
                   className="badge bg-dark text-white ms-1 rounded-pill"
                   id="basketNumber">
-                  0
+                  {props.productCount}
                 </span>
               </button>
             </Link>

@@ -1,19 +1,22 @@
 import { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 interface ProdCardProps {
   prodImg: string;
   prodName: string;
   prodPrice: string;
+  prodId: string;
 }
 
 export default function ProdCard({
   prodImg,
   prodName,
   prodPrice,
+  prodId,
 }: ProdCardProps) {
   return (
     <Fragment>
-      <div className="card">
+      <div className="card" id={prodId}>
         <img className="product-img" src={prodImg} alt="..." />
         <div className="card-body">
           <div className="text-center">
@@ -27,9 +30,9 @@ export default function ProdCard({
         </div>
         <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
           <div className="text-center">
-            <a className="btn BlackButton" href="../productPage/product.html">
+            <Link className="btn BlackButton" to={`/Product/${prodId}`}>
               See product
-            </a>
+            </Link>
           </div>
         </div>
       </div>
