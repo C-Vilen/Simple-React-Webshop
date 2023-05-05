@@ -2,6 +2,7 @@ import { Fragment, useContext } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { CustomerContext } from "../App";
 
+
 export default function Navbar(props: any) {
   const context = useContext(CustomerContext);
   if (!context) {
@@ -75,6 +76,7 @@ export default function Navbar(props: any) {
             aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
+
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
               <li className="nav-item dropdown">
@@ -87,40 +89,26 @@ export default function Navbar(props: any) {
                   aria-expanded="false">
                   Categories
                 </a>
+                {/* Drop Down:  */}
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <Link className="dropdown-item" to="/All-Products">
+                    <a className="dropdown-item" href="/All-Products">
                       All products
-                    </Link>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a
-                      className="dropdown-item"
-                      href="./pages/productOverviewPage/erhvervOverview.html">
-                      Professions
                     </a>
                   </li>
                   <li>
-                    <a
-                      className="dropdown-item"
-                      href="./pages/productOverviewPage/fastelavnOverview.html">
-                      Carnival
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="dropdown-item"
-                      href="./pages/productOverviewPage/diverseOverview.html">
-                      Various ducks
-                    </a>
+                    <div className="dropdown-divider"></div>
+                    <a className="dropdown-item dropdown-toggle" href="#">Submenu</a>
+                    <ul className="dropdown-menu">
+                      <li><a className="dropdown-item" href="#">Submenu item 1</a></li>
+                      <li><a className="dropdown-item" href="#">Submenu item 2</a></li>
+                    </ul>
                   </li>
                 </ul>
               </li>
-              <form 
-              action="/About" className="d-flex"
+
+              <form
+                action="/About" className="d-flex"
               >
                 <button
                   className="about-btn btn YellowButton"
@@ -149,6 +137,10 @@ export default function Navbar(props: any) {
             </Link>
           </div>
         </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+  <script src="your-script.js"></script>
+
       </nav>
       <Outlet />
     </Fragment>
