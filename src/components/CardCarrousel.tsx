@@ -12,6 +12,7 @@ interface CardCarrouselProps {
 export default function CardCarousel({ items }: CardCarrouselProps) {
     return (
         <Fragment>
+            <h2 className="category-heading text-center">Newly added</h2>
             <Carousel variant="dark">
                 {items.map((item, i) => (
                     <Carousel.Item>
