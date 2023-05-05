@@ -56,7 +56,7 @@ export default function Navbar(props: any) {
 
   return (
     <Fragment>
-      <nav className="navbar navbar-expand-lg">
+      <nav className="navbar navbar-expand-lg bd-navbar sticky-top">
         <div className="container px-4 px-lg-5">
           <img
             className="logo-img"
