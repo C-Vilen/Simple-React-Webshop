@@ -9,6 +9,12 @@ interface BasketItemContainerProps {
   customerName: String;
   basketAmount: number;
 }
+interface Product {
+  productName: string;
+  productPrice: number;
+  imgSrc: string;
+  // add any other properties here
+}
 
 export default function BasketItemContainer({
   customerName,
@@ -20,7 +26,7 @@ export default function BasketItemContainer({
   }
   const { customer } = context;
 
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
   if (!products) {
     throw new Error("couldn't get products");
   }
@@ -31,16 +37,26 @@ export default function BasketItemContainer({
   }, []);
 
   let outputName = "";
-  if (customerName == "") {
-    outputName = customer.firstName + "'s basket";
+  if (customerName === "") {
+    outputName = `${customer.firstName}'s basket`;
   } else {
-    outputName = customerName + "'s basket";
+    outputName = `${customerName}'s basket`;
   }
 
   let outputAmount = 0;
   if (basketAmount > 0) {
     outputAmount = basketAmount;
   }
+
+  // Count the number of each product in the basket
+  const productCount = products.reduce((acc: any, product: Product) => {
+    if (acc[product.productName]) {
+      acc[product.productName]++;
+    } else {
+      acc[product.productName] = 1;
+    }
+    return acc;
+  }, {});
 
   return (
     <Fragment>
@@ -50,14 +66,22 @@ export default function BasketItemContainer({
             <span className="text-muted">{outputName}</span>
           </h4>
           <ul className="list-group mb-3">
-            {products.map((product: any) => (
-              <BasketItem
-                prodName={product.productName}
-                prodAmount={0}
-                prodPrice={product.productPrice}
-                prodImg={"./assets/images" + product.imgSrc}
-              />
-            ))}
+            {Object.keys(productCount).map((productName) => {
+              const product = products.find(
+                (p) => p.productName === productName
+              );
+              return product ? (
+                <BasketItem
+                  key={productName}
+                  prodName={productName}
+                  prodAmount={productCount[productName]}
+                  prodPrice={product.productPrice * productCount[productName]}
+                  prodImg={`./assets/images${product.imgSrc}`}
+                />
+              ) : (
+                <div>Error: No items in the basket</div>
+              );
+            })}
 
             {/* Inserting items of products in the below div */}
             <div id="product-update-script"></div>
