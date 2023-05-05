@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { CustomerContext } from "../App";
 
@@ -9,17 +9,19 @@ export default function Navbar(props: any) {
   }
   const { customer, updateCustomer } = context;
   const navigate = useNavigate();
+  const { updateProductCount } = props;
 
-  function logout() {
+  async function logout() {
     //implement logout function, set context customer to guest again.
-    updateCustomer({
-      customerId: 0,
-      firstName: "Guest",
-      lastName: "",
-      password: "",
-      email: "",
-      basketId: 0,
-    });
+    // Try to get guest from database
+    try {
+      const response = await fetch(`http://localhost:3000/customers/guest`);
+      const data = await response.json();
+      updateCustomer(data);
+      console.log(customer);
+    } catch (error) {
+      console.error("there was an error fetching guest customers: " + error);
+    }
     navigate("/");
   }
 
@@ -52,6 +54,20 @@ export default function Navbar(props: any) {
         </div>
       );
     }
+  }
+  useEffect(() => {
+    getBasketCount();
+  });
+  async function getBasketCount() {
+    const response = await fetch(
+      `http://localhost:3000/baskets/${customer.customerId}`,
+      {
+        mode: "cors",
+        method: "GET",
+      }
+    );
+    const data = await response.json();
+    updateProductCount(data.length);
   }
 
   return (
