@@ -1,36 +1,61 @@
 import { Fragment } from "react";
 import React, { useState } from "react";
 import "./signup.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
-  interface FormValues {
-    name: string;
-    lastname: string;
+  interface CustomerValues {
+    firstName: string;
+    lastName: string;
     email: string;
     password: string;
   }
 
-  const [formValues, setFormValues] = useState<FormValues>({
-    name: "",
-    lastname: "",
+  const [CustomerValues, setCustomerValues] = useState<CustomerValues>({
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
   });
 
+  const navigate = useNavigate();
+
+  const postCustomer = async (customer: string) => {
+    try {
+      const response = await fetch("http://localhost:3000/customers", {
+        mode: "cors",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: customer,
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to post customer data");
+      }
+    } catch (error) {
+      alert("You have not been signed up. Please try again later");
+      throw new Error("Could not connect to ServerAPI " + error);
+    }
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
+    setCustomerValues({ ...CustomerValues, [name]: value });
   };
 
   const handleSignup = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    console.log(formValues); // Do something with form values here
-    setFormValues({
-      name: "",
-      lastname: "",
+    const customerJSON = JSON.stringify(CustomerValues);
+    postCustomer(customerJSON);
+    setCustomerValues({
+      firstName: "",
+      lastName: "",
       email: "",
       password: "",
     }); // Reset form values after submission
+    navigate("/Login");
   };
 
   return (
@@ -49,25 +74,25 @@ export default function Signup() {
               <input
                 className="form-control"
                 type="text"
-                id="name"
-                name="name"
-                value={formValues.name}
+                id="firstName"
+                name="firstName"
+                value={CustomerValues.firstName}
                 onChange={handleInputChange}
                 placeholder="fname"
               />
-              <label htmlFor="name">Name:</label>
+              <label htmlFor="firstName">Name:</label>
             </div>
             <div className="form-floating">
               <input
                 className="form-control"
                 type="text"
-                id="lastname"
-                name="lastname"
-                value={formValues.lastname}
+                id="lastName"
+                name="lastName"
+                value={CustomerValues.lastName}
                 onChange={handleInputChange}
                 placeholder="lname"
               />
-              <label htmlFor="lastname">Lastname:</label>
+              <label htmlFor="lastName">Lastname:</label>
             </div>
             <div className="form-floating">
               <input
@@ -75,7 +100,7 @@ export default function Signup() {
                 type="email"
                 id="email"
                 name="email"
-                value={formValues.email}
+                value={CustomerValues.email}
                 onChange={handleInputChange}
                 placeholder="email"
               />
@@ -87,7 +112,7 @@ export default function Signup() {
                 type="password"
                 id="password"
                 name="password"
-                value={formValues.password}
+                value={CustomerValues.password}
                 onChange={handleInputChange}
                 placeholder="password"
               />

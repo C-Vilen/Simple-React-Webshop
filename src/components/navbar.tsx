@@ -1,5 +1,6 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { CustomerContext } from "../App";
 
 // Logout function
 function logout() {
@@ -14,6 +15,55 @@ function logout() {
 }
 
 export default function Navbar() {
+  const context = useContext(CustomerContext);
+  if (!context) {
+    throw new Error("customer context is undefined");
+  }
+  const { customer, updateCustomer } = context;
+
+  function logout() {
+    //implement logout function, set context customer to guest again.
+    updateCustomer({
+      customerid: 0,
+      firstName: "Guest",
+      lastName: "",
+      password: "",
+      email: "",
+      basketId: 0,
+    });
+  }
+
+  function showName() {
+    if (customer.firstName !== "Guest") {
+      return (
+        <div>
+          <button
+            className="login-btn btn YellowButton"
+            type="submit"
+            onClick={logout}
+            id="login-btn">
+            <i className="bi-cart-fill me-1"></i>
+            Logout
+          </button>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Link to="/Login" className="d-flex">
+            <button
+              className="login-btn btn YellowButton"
+              type="submit"
+              id="login-btn">
+              <i className="bi-cart-fill me-1"></i>
+              Login
+            </button>
+          </Link>
+        </div>
+      );
+    }
+  }
+
   return (
     <Fragment>
       <nav className="navbar navbar-expand-lg">
@@ -91,26 +141,20 @@ export default function Navbar() {
                 </button>
               </form>
             </ul>
-            <Link className="YellowButton btn" to="/signup">
-              Signup
-            </Link>
             <h6 className="welcome-text" id="welcome-text">
-              error
-            </h6><Link to="/Login" className="d-flex">
-              <button className="login-btn btn YellowButton" type="submit" id="login-btn">
-                <i className="bi-cart-fill me-1"></i>
-                Login
-              </button>
-            </Link>
-            <button className="logout-btn btn YellowButton" id="logout-btn" onClick={logout}>
-              <i className="bi-cart-fill me-1"></i>
-              Logout
-            </button>
+              {customer?.firstName}
+            </h6>
+            {showName()}
+
             <Link to="/Basket" className="d-flex">
               <button className="btn YellowButton" type="submit">
                 <i className="bi-cart-fill me-1"></i>
                 Basket
-                <span className="badge bg-dark text-white ms-1 rounded-pill" id="basketNumber">0</span>
+                <span
+                  className="badge bg-dark text-white ms-1 rounded-pill"
+                  id="basketNumber">
+                  0
+                </span>
               </button>
             </Link>
           </div>
