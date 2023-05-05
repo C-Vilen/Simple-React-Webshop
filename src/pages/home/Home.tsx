@@ -24,9 +24,9 @@ export default function Home() {
       <CatCardContainer
         catName="" />
       <CardCarrousel items={[
-        { prodImg: "assets/images/products/profProductsImage.png", prodName: "A", prodPrice: "100" },
-        { prodImg: "assets/images/products/profProductsImage.png", prodName: "B", prodPrice: "10" },
-        { prodImg: "assets/images/products/profProductsImage.png", prodName: "C", prodPrice: "1" }
+        { prodImg: "assets/images/profProductsImage.png", prodName: "A", prodPrice: "100" },
+        { prodImg: "assets/images/profProductsImage.png", prodName: "B", prodPrice: "10" },
+        { prodImg: "assets/images/profProductsImage.png", prodName: "C", prodPrice: "1" }
         ]} />
       <AboutSection />
       <Footer />

@@ -18,7 +18,7 @@ export default function OverCat() {
   return (
     <Fragment>
       <CatCardContainer catName="" />
-      <ProdCardContainer heading=""/>
+      <ProdCardContainer heading="" products={[]}/>
       <Footer />
     </Fragment>
   );

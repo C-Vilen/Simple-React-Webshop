@@ -17,17 +17,17 @@ export default function CatCardContainer({ catName }: CatCardContainerProps) {
                 <div className="container px-4 px-lg-5">
                     <div className="container row row-cols-1 row-cols-md-2 row-cols-lg-3">
                         <CatCard
-                            catImg="assets/images/products/profProductsImage.png"
+                            catImg="assets/images/profProductsImage.png"
                             catName="Proffession"
                             priceRange="40 - 80 DKK"
                         />
                         <CatCard
-                            catImg="assets/images/products/profProductsImage.png"
+                            catImg="assets/images/profProductsImage.png"
                             catName="Test2"
                             priceRange="40 - 80 DKK"
                         />
                         <CatCard
-                            catImg="assets/images/products/profProductsImage.png"
+                            catImg="assets/images/profProductsImage.png"
                             catName="Test3"
                             priceRange="40 - 80 DKK"
                         />
