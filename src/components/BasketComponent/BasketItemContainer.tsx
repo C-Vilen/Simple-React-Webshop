@@ -13,6 +13,7 @@ interface Product {
   productName: string;
   productPrice: number;
   imgSrc: string;
+  productId: number;
   // add any other properties here
 }
 
@@ -75,8 +76,9 @@ export default function BasketItemContainer({
                   key={productName}
                   prodName={productName}
                   prodAmount={productCount[productName]}
-                  prodPrice={product.productPrice * productCount[productName]}
+                  prodPrice={product.productPrice}
                   prodImg={`./assets/images${product.imgSrc}`}
+                  prodId={product.productId}
                 />
               ) : (
                 <div>Error: No items in the basket</div>
