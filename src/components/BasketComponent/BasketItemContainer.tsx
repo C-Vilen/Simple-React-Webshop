@@ -1,9 +1,11 @@
 import { Fragment, useContext, useEffect, useState } from "react";
 import BasketItem from "./BasketItem";
 
+
 // CSS
 import "./Basket.css";
 import { CustomerContext } from "../../App";
+import { Link } from "react-router-dom";
 
 interface BasketItemContainerProps {
   customerName: String;
@@ -42,6 +44,17 @@ export default function BasketItemContainer({
     outputAmount = basketAmount;
   }
 
+  async function buyBasketProducts() {
+    try{
+      await fetch(`http://localhost:3000/baskets/${customer.customerId}`, { 
+      method: "DELETE", 
+      });
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <Fragment>
       <div className="row cart-box">
@@ -66,7 +79,7 @@ export default function BasketItemContainer({
               <strong id="totalAmount">{outputAmount} DKK</strong>
             </li>
             <li className="buy-li">
-              <button className="buy-btn btn BlackButton">Buy</button>
+              <Link className="buy-btn btn BlackButton" to={`/`} onClick={buyBasketProducts}>Buy</Link>
             </li>
           </ul>
         </div>
