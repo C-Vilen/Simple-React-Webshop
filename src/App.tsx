@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useMemo, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -32,7 +32,7 @@ export const CustomerContext = createContext<CustomerContext | undefined>(
   undefined
 );
 
-function App() {
+export default function App() {
   const [customer, setCustomer] = useState<Customer>({
     customerId: 0,
     firstName: "Guest",
@@ -47,24 +47,33 @@ function App() {
     setCustomer(newCustomer);
   };
 
-  useEffect(() => {
-    async function getBasketCount() {
-      const response = await fetch(
-        `http://localhost:3000/baskets/${customer.customerId}`,
-        {
-          mode: "cors",
-          method: "GET",
-        }
-      );
+  async function postCustomer() {
+    // Try to get guest from database
+    try {
+      const response = await fetch(`http://localhost:3000/customers/guest`);
       const data = await response.json();
-      setProductCount(data.length);
+      setCustomer(data);
+      console.log(customer);
+    } catch (error) {
+      console.error("there was an error fetching guest customers: " + error);
     }
-    if (customer.firstName !== "Guest") {
-      getBasketCount();
-    } else {
-      setProductCount(0);
+  }
+
+  const deleteGuestBasket = async () => {
+    try {
+      // deletes the data for the Guest account
+      await fetch(`http://localhost:3000/baskets/5`, {
+        method: "DELETE",
+      });
+    } catch (error) {
+      console.error("Error deleting basket data:", error);
     }
-  }, [customer, productCount]);
+  };
+
+  useEffect(() => {
+    deleteGuestBasket();
+    postCustomer();
+  }, []);
 
   function updateProductCount(count: number) {
     setProductCount(count);
@@ -74,7 +83,14 @@ function App() {
     <BrowserRouter>
       <CustomerContext.Provider value={{ customer, updateCustomer }}>
         <Routes>
-          <Route path="/" element={<Navbar productCount={productCount} />}>
+          <Route
+            path="/"
+            element={
+              <Navbar
+                productCount={productCount}
+                updateProductCount={updateProductCount}
+              />
+            }>
             <Route index element={<Home />} />
             <Route path="All-Products" element={<OverviewProducts />} />
             <Route path="Over-Category" element={<OverCat />} />
@@ -93,5 +109,3 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;
