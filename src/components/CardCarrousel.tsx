@@ -2,21 +2,29 @@
 import Carousel from 'react-bootstrap/Carousel';
 
 //Components import
-import { CarouselProductCard, CarouselProductCardProps } from "./CarouselProductCard";
 import { Fragment } from 'react';
+import CarouselProductCard from './CarouselProductCard'
 
 interface CardCarrouselProps {
-    items: CarouselProductCardProps[];
+    heading: string;
+    products: never[];
 }
 
-export default function CardCarousel({ items }: CardCarrouselProps) {
+export default function CardCarousel({ 
+    products,
+    heading
+}: CardCarrouselProps) {
     return (
         <Fragment>
-            <h2 className="category-heading text-center">Newly added</h2>
+            <h2 className="category-heading text-center">{heading}</h2>
             <Carousel variant="dark">
-                {items.map((item, i) => (
+                {products.map((product: any) => (
                     <Carousel.Item>
-                        <CarouselProductCard key={i} prodImg={item.prodImg} prodName={item.prodName} prodPrice={item.prodPrice} />
+                        <CarouselProductCard
+                        prodImg={"./assets/images/" + product.imgSrc}
+                        prodName={product.productName}
+                        prodPrice={product.productPrice + " DKK"} 
+                        prodId={product.productId} />
                     </Carousel.Item>
                 ))}
             </Carousel>
