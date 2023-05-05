@@ -10,6 +10,7 @@ import Basket from './pages/basket/Basket';
 import OneProduct from "./pages/oneProduct/OneProduct";
 import Signup from "./pages/signup/signup";
 import Navbar from "./components/Navbar";
+import AboutPage from "./pages/aboutPage/AboutPage";
 // import { Customer, CustomerContext } from "./CustomerContext";
 
 export interface Customer {
@@ -57,6 +58,7 @@ function App() {
             <Route path="Product" element={<OneProduct />} />
             <Route path="*" element={<NoPage />} />
             <Route path="signup" element={<Signup />} />
+            <Route path="About" element={<AboutPage />} />
           </Route>
         </Routes>
       </CustomerContext.Provider>

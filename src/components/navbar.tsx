@@ -117,15 +117,15 @@ export default function Navbar() {
                   </li>
                 </ul>
               </li>
-              <form
-                action="https://en.wikipedia.org/wiki/Rubber_duck"
-                className="d-flex">
+              <form 
+              action="/About" className="d-flex"
+              >
                 <button
                   className="about-btn btn YellowButton"
                   type="submit"
                   id="about-btn">
                   <i className="bi-cart-fill me-1"></i>
-                  About Rubber Ducks
+                  About Ducktastic
                 </button>
               </form>
             </ul>
