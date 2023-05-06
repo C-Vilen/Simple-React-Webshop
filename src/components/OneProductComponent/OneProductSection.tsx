@@ -27,8 +27,9 @@ export default function OneProductSection({
   }
   const { customer } = context;
   const { prodId: routeProdId } = useParams();
-  const [itemCount, setItemCount] = useState(0);
+  const [itemCount, setItemCount] = useState(1);
 
+  //add product(s) to basket
   async function buyProduct() {
     for (let i = 0; i < itemCount; i++) {
       await fetch(
@@ -39,6 +40,7 @@ export default function OneProductSection({
         }
       );
     }
+    //updates the productCounter in navbar
     async function getBasketCount() {
       const response = await fetch(
         `http://localhost:3000/baskets/${customer.customerId}`,
@@ -51,6 +53,8 @@ export default function OneProductSection({
       updateProductCount(data.length);
     }
     getBasketCount();
+
+    //displays a toast with success message
     toast.success("You just added the product to your basket!", {
       position: "bottom-right",
       autoClose: 3000,
@@ -61,9 +65,11 @@ export default function OneProductSection({
     });
   }
 
+  //increment the amount of products you want to add to the basket
   function incrementCount() {
     setItemCount(itemCount + 1);
   }
+  //decrement the amount of products you want to add to the basket
   function decrementCount() {
     if (itemCount > 0) {
       setItemCount(itemCount - 1);
