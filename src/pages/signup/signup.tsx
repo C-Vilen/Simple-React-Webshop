@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import React, { useState } from "react";
 import "./signup.css";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 export default function Signup() {
   interface CustomerValues {
@@ -124,6 +125,7 @@ export default function Signup() {
           </form>
         </section>
       </main>
+      <Footer />
     </Fragment>
   );
 }

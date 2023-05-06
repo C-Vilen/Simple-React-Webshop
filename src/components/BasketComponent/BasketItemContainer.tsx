@@ -84,6 +84,18 @@ export default function BasketItemContainer({
     return total;
   }
 
+  async function buyAll() {
+    try {
+      // deletes the data for the Guest account
+      await fetch(`http://localhost:3000/baskets/${customer.customerId}`, {
+        method: "DELETE",
+      });
+    } catch (error) {
+      console.error("Error deleting basket data:", error);
+    }
+    getBasketCount();
+  }
+
   //fetches the products from API
   useEffect(() => {
     fetch(`http://localhost:3000/baskets/${customer.customerId}`)
@@ -148,7 +160,11 @@ export default function BasketItemContainer({
               <strong id="totalAmount">{totalAmount} DKK</strong>
             </li>
             <li className="buy-li">
-              <button className="buy-btn btn BlackButton">Buy</button>
+              <button
+                className="buy-btn btn BlackButton"
+                onClick={() => buyAll()}>
+                Buy
+              </button>
             </li>
           </ul>
         </div>
