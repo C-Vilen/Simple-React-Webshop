@@ -56,7 +56,9 @@ export default function Navbar(props: any) {
     }
   }
   useEffect(() => {
-    getBasketCount();
+    if (customer.customerId !== 0) {
+      getBasketCount();
+    }
   });
   async function getBasketCount() {
     const response = await fetch(
