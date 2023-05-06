@@ -1,6 +1,6 @@
 import { Fragment, useContext } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { CustomerContext } from "../App";
+import { CustomerContext } from "../../App";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 
 export default function CustomNavbar(props: any) {

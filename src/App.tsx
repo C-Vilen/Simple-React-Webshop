@@ -13,7 +13,7 @@ import OneProduct from "./pages/oneProduct/OneProduct";
 import Signup from "./pages/signup/signup";
 
 import AboutPage from "./pages/aboutPage/AboutPage";
-import Navbar from "./components/CustomNavbar";
+import Navbar from "./components/StandardComponents/CustomNavbar";
 // import { Customer, CustomerContext } from "./CustomerContext";
 
 export interface Customer {

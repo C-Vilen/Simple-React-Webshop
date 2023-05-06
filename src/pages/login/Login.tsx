@@ -5,7 +5,7 @@ import "../../styles/styles.css";
 
 // Components
 import LoginForm from "../../components/LoginComponent/LoginForm";
-import Footer from "../../components/Footer";
+import Footer from "../../components/StandardComponents/Footer";
 
 export default function Login() {
     return (

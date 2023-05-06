@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import "../../styles/styles.css";
 import "../../styles/overviewProducts.css";
-import Footer from "../../components/Footer";
+import Footer from "../../components/StandardComponents/Footer";
 import ProdCardContainer from "../../components/ProdCardContainer";
 
 export default function OverviewProducts() {

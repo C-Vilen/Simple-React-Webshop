@@ -5,7 +5,7 @@ import "../../styles/styles.css";
 
 // Components
 import BasketItemContainer from "../../components/BasketComponent/BasketItemContainer";
-import Footer from "../../components/Footer";
+import Footer from "../../components/StandardComponents/Footer";
 
 export default function Basket() {
   return (

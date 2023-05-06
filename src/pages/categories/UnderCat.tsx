@@ -4,7 +4,7 @@ import "../../styles/styles.css";
 
 //Import components
 import ProdCardContainer from "../../components/ProdCardContainer";
-import Footer from "../../components/Footer";
+import Footer from "../../components/StandardComponents/Footer";
 import { Fragment } from "react";
 
 //export function

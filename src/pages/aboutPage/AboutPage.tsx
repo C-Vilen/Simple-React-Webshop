@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import '../../styles/styles.css';
 
 // Components
-import Footer from "../../components/Footer";
+import Footer from "../../components/StandardComponents/Footer";
 import AboutPageSection from "../../components/AboutPageSection";
 
 export default function AboutDuck() {

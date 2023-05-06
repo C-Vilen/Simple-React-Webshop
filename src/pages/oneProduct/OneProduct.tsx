@@ -4,7 +4,7 @@ import { Fragment, useEffect, useState } from "react";
 import "../../styles/styles.css";
 
 // Components
-import Footer from "../../components/Footer";
+import Footer from "../../components/StandardComponents/Footer";
 import OneProductSection from "../../components/OneProductComponent/OneProductSection";
 import { useParams } from "react-router-dom";
 
