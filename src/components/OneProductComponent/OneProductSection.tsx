@@ -1,5 +1,4 @@
-import { Method } from "@testing-library/react";
-import { Fragment, useContext, useEffect } from "react";
+import { Fragment, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { CustomerContext } from "../../App";
 import "./OneProductSection.css";
