@@ -2,7 +2,6 @@ import { Fragment, useContext } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { CustomerContext } from "../App";
 
-
 export default function Navbar(props: any) {
   const context = useContext(CustomerContext);
   if (!context) {
@@ -57,7 +56,7 @@ export default function Navbar(props: any) {
 
   return (
     <Fragment>
-      <nav className="navbar navbar-expand-lg bd-navbar sticky-top">
+      <nav className="navbar navbar-expand-lg sticky-top">
         <div className="container px-4 px-lg-5">
           <img
             className="logo-img"
@@ -76,7 +75,6 @@ export default function Navbar(props: any) {
             aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
               <li className="nav-item dropdown">
@@ -137,10 +135,6 @@ export default function Navbar(props: any) {
             </Link>
           </div>
         </div>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
-  <script src="your-script.js"></script>
-
       </nav>
       <Outlet />
     </Fragment>
