@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { CustomerContext } from "../../App";
 
 // CSS
@@ -10,6 +10,8 @@ interface BasketItemProps {
   prodPrice: number;
   prodImg: string;
   prodId: number;
+  buyProduct: (prodId: number) => void;
+  removeProduct: (prodId: number) => void;
 }
 
 export default function BasketItem({
@@ -18,23 +20,9 @@ export default function BasketItem({
   prodPrice,
   prodImg,
   prodId,
+  buyProduct,
+  removeProduct,
 }: BasketItemProps) {
-  const context = useContext(CustomerContext);
-  if (!context) {
-    throw new Error("customer context is undefined");
-  }
-  const { customer } = context;
-  const [itemCount, setItemCount] = useState(prodAmount);
-  async function buyProduct() {
-    await fetch(
-      `http://localhost:3000/baskets/${customer.customerId}/${prodId}`,
-      {
-        mode: "cors",
-        method: "PUT",
-      }
-    );
-    setItemCount(itemCount + 1);
-  }
   return (
     <Fragment>
       <li className="list-group-item d-flex justify-content-between cart-title-header">
@@ -47,21 +35,24 @@ export default function BasketItem({
             <div className="col-md-6 col-lg-6 align-self-center">
               <div className="container text-center">
                 <div className="row justify-content-between align-items-center">
-                  <button type="button" className="btn-danger btn col-2">
-                    -
-                  </button>
-                  <strong className="quantity col-3">{itemCount}</strong>
                   <button
                     type="button"
-                    className="btn-danger btn col-2"
-                    onClick={buyProduct}>
+                    className="btn-light btn col-2"
+                    onClick={() => removeProduct(prodId)}>
+                    -
+                  </button>
+                  <strong className="quantity col-3">{prodAmount}</strong>
+                  <button
+                    type="button"
+                    className="btn-light btn col-2"
+                    onClick={() => buyProduct(prodId)}>
                     +
                   </button>
                   <strong
                     className="col-3"
                     style={{ whiteSpace: "nowrap", overflow: "hidden" }}>
                     {" "}
-                    {prodPrice * itemCount} DKK
+                    {prodPrice * prodAmount} DKK
                   </strong>
                 </div>
               </div>

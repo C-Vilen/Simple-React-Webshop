@@ -8,6 +8,7 @@ import { CustomerContext } from "../../App";
 interface BasketItemContainerProps {
   customerName: String;
   basketAmount: number;
+  updateProductCount: (count: number) => void;
 }
 interface Product {
   productName: string;
@@ -20,6 +21,7 @@ interface Product {
 export default function BasketItemContainer({
   customerName,
   basketAmount,
+  updateProductCount,
 }: BasketItemContainerProps) {
   const context = useContext(CustomerContext);
   if (!context) {
@@ -27,15 +29,67 @@ export default function BasketItemContainer({
   }
   const { customer } = context;
 
+  const [itemCount, setItemCount] = useState(0);
+  const [totalAmount, setTotalAmount] = useState(0);
   const [products, setProducts] = useState<Product[]>([]);
-  if (!products) {
-    throw new Error("couldn't get products");
+
+  useEffect(() => {
+    setTotalAmount(sumPrices());
+    getBasketCount();
+  });
+
+  //Helper function to update the count in Navbar
+  async function getBasketCount() {
+    const response = await fetch(
+      `http://localhost:3000/baskets/${customer.customerId}`,
+      {
+        mode: "cors",
+        method: "GET",
+      }
+    );
+    const data = await response.json();
+    updateProductCount(data.length);
+    setItemCount(data.length);
   }
+
+  //puts a product in the basket, and increment itemCount
+  async function buyProduct(prodId: number) {
+    await fetch(
+      `http://localhost:3000/baskets/${customer.customerId}/${prodId}`,
+      {
+        mode: "cors",
+        method: "PUT",
+      }
+    );
+    getBasketCount();
+  }
+
+  //removes a product from basket, and decrement itemCount
+  async function removeProduct(prodId: number) {
+    await fetch(
+      `http://localhost:3000/baskets/${customer.customerId}/${prodId}`,
+      {
+        mode: "cors",
+        method: "DELETE",
+      }
+    );
+    getBasketCount();
+  }
+  //Sums up all the productPrices
+  function sumPrices(): number {
+    const total = products.reduce(
+      (acc, product) => acc + product.productPrice,
+      0
+    );
+    return total;
+  }
+
+  //fetches the products from API
   useEffect(() => {
     fetch(`http://localhost:3000/baskets/${customer.customerId}`)
       .then((response) => response.json())
       .then((data) => setProducts(data));
-  }, []);
+  }, [itemCount]);
 
   let outputName = "";
   if (customerName === "") {
@@ -79,6 +133,8 @@ export default function BasketItemContainer({
                   prodPrice={product.productPrice}
                   prodImg={`./assets/images${product.imgSrc}`}
                   prodId={product.productId}
+                  buyProduct={buyProduct}
+                  removeProduct={removeProduct}
                 />
               ) : (
                 <div>Error: No items in the basket</div>
@@ -89,7 +145,7 @@ export default function BasketItemContainer({
             <div id="product-update-script"></div>
             <li className="list-group-item d-flex justify-content-between">
               <span>Total</span>
-              <strong id="totalAmount">{outputAmount} DKK</strong>
+              <strong id="totalAmount">{totalAmount} DKK</strong>
             </li>
             <li className="buy-li">
               <button className="buy-btn btn BlackButton">Buy</button>

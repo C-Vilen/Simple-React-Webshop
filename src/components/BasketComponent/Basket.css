@@ -38,6 +38,10 @@ width: 150px;
 
 }
 
+.btn-up{
+    background-color: yellow;
+}
+
 .container-cart {
     border: solid red 2px;
     margin-right: 20%;

@@ -7,10 +7,18 @@ import "../../styles/styles.css";
 import BasketItemContainer from "../../components/BasketComponent/BasketItemContainer";
 import Footer from "../../components/Footer";
 
-export default function Basket() {
+interface BasketProps {
+  updateProductCount: (count: number) => void;
+}
+export default function Basket(props: BasketProps) {
+  const { updateProductCount } = props;
   return (
     <Fragment>
-      <BasketItemContainer customerName={""} basketAmount={0} />
+      <BasketItemContainer
+        customerName={""}
+        basketAmount={0}
+        updateProductCount={updateProductCount}
+      />
       <Footer />
     </Fragment>
   );

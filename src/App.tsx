@@ -96,7 +96,10 @@ export default function App() {
             <Route path="Over-Category" element={<OverCat />} />
             <Route path="Under-Category" element={<UnderCat />} />
             <Route path="Login" element={<Login />} />
-            <Route path="Basket" element={<Basket />} />
+            <Route
+              path="Basket"
+              element={<Basket updateProductCount={updateProductCount} />}
+            />
             <Route
               path="Product/:prodId"
               element={<OneProduct updateProductCount={updateProductCount} />}
