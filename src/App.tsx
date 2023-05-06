@@ -12,8 +12,9 @@ import Login from "./pages/login/Login";
 import Basket from "./pages/basket/Basket";
 import OneProduct from "./pages/oneProduct/OneProduct";
 import Signup from "./pages/signup/signup";
-import Navbar from "./components/Navbar";
+
 import AboutPage from "./pages/aboutPage/AboutPage";
+import Navbar from "./components/Navbar";
 // import { Customer, CustomerContext } from "./CustomerContext";
 
 export interface Customer {
