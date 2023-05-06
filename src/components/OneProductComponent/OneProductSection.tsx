@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -27,15 +27,18 @@ export default function OneProductSection({
   }
   const { customer } = context;
   const { prodId: routeProdId } = useParams();
+  const [itemCount, setItemCount] = useState(0);
 
   async function buyProduct() {
-    await fetch(
-      `http://localhost:3000/baskets/${customer.customerId}/${routeProdId}`,
-      {
-        mode: "cors",
-        method: "PUT",
-      }
-    );
+    for (let i = 0; i < itemCount; i++) {
+      await fetch(
+        `http://localhost:3000/baskets/${customer.customerId}/${routeProdId}`,
+        {
+          mode: "cors",
+          method: "PUT",
+        }
+      );
+    }
     async function getBasketCount() {
       const response = await fetch(
         `http://localhost:3000/baskets/${customer.customerId}`,
@@ -56,6 +59,15 @@ export default function OneProductSection({
       pauseOnHover: false,
       draggable: true,
     });
+  }
+
+  function incrementCount() {
+    setItemCount(itemCount + 1);
+  }
+  function decrementCount() {
+    if (itemCount > 0) {
+      setItemCount(itemCount - 1);
+    }
   }
 
   return (
@@ -99,6 +111,25 @@ export default function OneProductSection({
                     <span id="productPrice">{prodPrice}</span> DKK
                   </span>
                 </h3>
+              </div>
+              <div className="col-md-6 col-lg-6 align-self-center">
+                <div className="container text-center">
+                  <div className="row justify-content-between align-items-center">
+                    <button
+                      type="button"
+                      className="btn-dark btn col-2"
+                      onClick={decrementCount}>
+                      -
+                    </button>
+                    <strong className="quantity col-3">{itemCount}</strong>
+                    <button
+                      type="button"
+                      className="btn-dark btn col-2"
+                      onClick={incrementCount}>
+                      +
+                    </button>
+                  </div>
+                </div>
               </div>
               <div className="col col-12 align-self-end">
                 <button
