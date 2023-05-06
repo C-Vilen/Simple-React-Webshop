@@ -43,7 +43,7 @@ export default function CustomNavbar(props: any) {
 
   return (
     <Fragment>
-      <Navbar collapseOnSelect expand="lg" sticky="top">
+      <Navbar collapseOnSelect expand="lg" sticky="top" className="px-4 px-lg-5">
         <Container>
           <Navbar.Brand as={Link} to="/">
             <img className="logo-img" src="assets/images/Badeanden_logo-02.png" alt="" />
