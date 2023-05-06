@@ -30,7 +30,7 @@ export default function OneProduct(props: any) {
 
   return (
     <Fragment>
-      <main className="page-main">
+      <main className="content">
         {product && (
           <OneProductSection
             prodImg={product.imgSrc}
@@ -41,8 +41,8 @@ export default function OneProduct(props: any) {
             // heading= "All Products"
           />
         )}
+        <Footer />
       </main>
-      <Footer />
     </Fragment>
   );
 }

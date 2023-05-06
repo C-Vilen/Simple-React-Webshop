@@ -9,9 +9,11 @@ import AboutPageSection from "../../components/AboutPageSection";
 
 export default function AboutDuck() {
 	return (
-	  <Fragment>
-		<AboutPageSection />
-		<Footer />
-	  </Fragment>
+		<Fragment>
+			<main className="content">
+				<AboutPageSection />
+				<Footer />
+			</main>
+		</Fragment>
 	);
-  }
+}

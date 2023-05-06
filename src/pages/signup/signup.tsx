@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import React, { useState } from "react";
 import "./signup.css";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../components/StandardComponents/Footer";
 
 export default function Signup() {
   interface CustomerValues {
@@ -60,69 +61,72 @@ export default function Signup() {
 
   return (
     <Fragment>
-      <main className="login-main">
-        <section className="login-section">
-          <form onSubmit={handleSignup}>
-            <div>
-              <img
-                src="./assets/images/logo/duck_logo_placeholder.svg"
-                width="72px"
-              />
-              <h1>Become a member!</h1>{" "}
-            </div>
-            <div className="form-floating">
-              <input
-                className="form-control"
-                type="text"
-                id="firstName"
-                name="firstName"
-                value={CustomerValues.firstName}
-                onChange={handleInputChange}
-                placeholder="fname"
-              />
-              <label htmlFor="firstName">Name:</label>
-            </div>
-            <div className="form-floating">
-              <input
-                className="form-control"
-                type="text"
-                id="lastName"
-                name="lastName"
-                value={CustomerValues.lastName}
-                onChange={handleInputChange}
-                placeholder="lname"
-              />
-              <label htmlFor="lastName">Lastname:</label>
-            </div>
-            <div className="form-floating">
-              <input
-                className="form-control"
-                type="email"
-                id="email"
-                name="email"
-                value={CustomerValues.email}
-                onChange={handleInputChange}
-                placeholder="email"
-              />
-              <label htmlFor="email">Email:</label>
-            </div>
-            <div className="form-floating">
-              <input
-                className="form-control"
-                type="password"
-                id="password"
-                name="password"
-                value={CustomerValues.password}
-                onChange={handleInputChange}
-                placeholder="password"
-              />
-              <label htmlFor="password">Password:</label>
-            </div>
-            <button type="submit" className="BlackButton btn">
-              Signup
-            </button>
-          </form>
+      <main className="content">
+        <section className="form-section">
+          <section className="login-section">
+            <form onSubmit={handleSignup}>
+              <div>
+                <img
+                  src="./assets/images/logo/duck_logo_placeholder.svg"
+                  width="72px"
+                />
+                <h1>Become a member!</h1>{" "}
+              </div>
+              <div className="form-floating">
+                <input
+                  className="form-control"
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={CustomerValues.firstName}
+                  onChange={handleInputChange}
+                  placeholder="fname"
+                />
+                <label htmlFor="firstName">Name:</label>
+              </div>
+              <div className="form-floating">
+                <input
+                  className="form-control"
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={CustomerValues.lastName}
+                  onChange={handleInputChange}
+                  placeholder="lname"
+                />
+                <label htmlFor="lastName">Lastname:</label>
+              </div>
+              <div className="form-floating">
+                <input
+                  className="form-control"
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={CustomerValues.email}
+                  onChange={handleInputChange}
+                  placeholder="email"
+                />
+                <label htmlFor="email">Email:</label>
+              </div>
+              <div className="form-floating">
+                <input
+                  className="form-control"
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={CustomerValues.password}
+                  onChange={handleInputChange}
+                  placeholder="password"
+                />
+                <label htmlFor="password">Password:</label>
+              </div>
+              <button type="submit" className="BlackButton btn">
+                Signup
+              </button>
+            </form>
+          </section>
         </section>
+        <Footer />
       </main>
     </Fragment>
   );

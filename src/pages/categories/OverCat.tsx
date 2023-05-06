@@ -10,16 +10,18 @@ import { Fragment } from "react";
 
 //Interface to allow us to have variable cat names. Maybe. Doesn't work tho.
 interface OverCatProps {
-    heading:String;
+  heading: String;
 }
 
 //export function
 export default function OverCat() {
   return (
     <Fragment>
-      <CatCardContainer catName="" />
-      <ProdCardContainer heading="" products={[]}/>
-      <Footer />
+      <main className="content">
+        <CatCardContainer catName="" />
+        <ProdCardContainer heading="" products={[]} />
+        <Footer />
+      </main>
     </Fragment>
   );
 }

@@ -20,16 +20,18 @@ export default function Home() {
   });
   return (
     <Fragment>
-      <Header />            
-      <CatCardContainer
-        catName="" />
-      <CardCarrousel items={[
-        { prodImg: "assets/images/profProductsImage.png", prodName: "A", prodPrice: "100" },
-        { prodImg: "assets/images/profProductsImage.png", prodName: "B", prodPrice: "10" },
-        { prodImg: "assets/images/profProductsImage.png", prodName: "C", prodPrice: "1" }
+      <main className="content">
+        <Header />
+        <CatCardContainer
+          catName="" />
+        <CardCarrousel items={[
+          { prodImg: "assets/images/profProductsImage.png", prodName: "A", prodPrice: "100" },
+          { prodImg: "assets/images/profProductsImage.png", prodName: "B", prodPrice: "10" },
+          { prodImg: "assets/images/profProductsImage.png", prodName: "C", prodPrice: "1" }
         ]} />
-      <AboutSection />
-      <Footer />
+        <AboutSection />
+        <Footer />
+      </main>
     </Fragment>
   );
 }

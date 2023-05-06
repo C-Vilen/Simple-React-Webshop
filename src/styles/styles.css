@@ -63,6 +63,16 @@ a:hover {
     color: #f4965be0;
 }
 
+/* View to 100 */
+
+html, body{
+    height:100%;
+}
+
+.content {
+    height: 100vh;
+}
+
 /* Navigation bar*/
 
 .navbar-brand {
@@ -96,6 +106,8 @@ a:hover {
     font-family: 'Mynerve', cursive;
     font-size: 19px;
 }
+
+/* Footer */
 
 .footer {
     background-color: #E8EDDF;
@@ -161,20 +173,6 @@ a:hover {
 }
 
 /*General styling*/
-
-html, body{
-    height:100%;
-}
-
-.page-main {
-    height: inherit;
-}
-
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-}
 
 .logout-btn{
     margin-right: 5px;

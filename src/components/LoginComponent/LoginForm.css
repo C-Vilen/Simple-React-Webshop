@@ -1,7 +1,6 @@
-.login-main {
-    display: flex;
-    align-items: center;
+.form-section {
     text-align: center;
+    height: inherit;
 }
 
 /* Form in the main body */

@@ -11,8 +11,10 @@ import { Fragment } from "react";
 export default function UnderCat() {
   return (
     <Fragment>
-      <ProdCardContainer heading="" products={[]} />
-      <Footer />
+      <main className="content">
+        <ProdCardContainer heading="" products={[]} />
+        <Footer />
+      </main>
     </Fragment>
   );
 }

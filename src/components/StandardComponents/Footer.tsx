@@ -1,14 +1,14 @@
 import { Fragment } from "react";
+import { Container, Navbar } from "react-bootstrap";
 
 export default function Footer() {
     return (
         <Fragment>
-            <footer className="footer text-center text-lg-start">
-                <div className="text-center p-3 h6">
-                    © 2023 Copyright:
-                    <span>TheRubberDuck.dk</span>
-                </div>
-            </footer>
+            <Navbar className="footer" expand="lg">
+            <Container className="d-flex justify-content-center">
+                    <Navbar.Brand>© 2023 Copyright: Ducktastic.dk</Navbar.Brand>
+                </Container>
+            </Navbar>
         </Fragment>
     )
-}
+};

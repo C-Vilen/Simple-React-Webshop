@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 
 // CSS import
 import "../../styles/styles.css";
@@ -10,8 +10,10 @@ import Footer from "../../components/StandardComponents/Footer";
 export default function Basket() {
   return (
     <Fragment>
-      <BasketItemContainer customerName={""} basketAmount={0} />
-      <Footer />
+      <main className="content">
+        <BasketItemContainer customerName={""} basketAmount={0} />
+        <Footer />
+      </main>
     </Fragment>
   );
 }

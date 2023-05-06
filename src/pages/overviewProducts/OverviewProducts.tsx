@@ -21,8 +21,8 @@ export default function OverviewProducts() {
   //   }, []);
   return (
     <Fragment>
-      <ProdCardContainer heading="All Products" products={products} />
-      <Footer />
+        <ProdCardContainer heading="All Products" products={products} />
+        <Footer />
     </Fragment>
   );
 }
