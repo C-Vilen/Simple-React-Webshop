@@ -46,7 +46,7 @@ export default function CustomNavbar(props: any) {
       <Navbar collapseOnSelect expand="lg" sticky="top" className="px-4 px-lg-5">
         <Container>
           <Navbar.Brand as={Link} to="/">
-            <img className="logo-img" src="assets/images/Badeanden_logo-02.png" alt="" />
+            <img className="logo-img" src="assets/images/Badeanden_logo-01.png" alt="" />
           </Navbar.Brand>
           <Navbar.Brand as={Link} to="/">Ducktastic</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
