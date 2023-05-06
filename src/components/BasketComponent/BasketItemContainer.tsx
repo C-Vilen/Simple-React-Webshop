@@ -1,4 +1,7 @@
 import { Fragment, useContext, useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import BasketItem from "./BasketItem";
 
 // CSS
@@ -94,6 +97,14 @@ export default function BasketItemContainer({
       console.error("Error deleting basket data:", error);
     }
     getBasketCount();
+    toast.success("You just bought all your products in the basket", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+    });
   }
 
   //fetches the products from API
@@ -167,6 +178,7 @@ export default function BasketItemContainer({
               </button>
             </li>
           </ul>
+          <ToastContainer />
         </div>
       </div>
     </Fragment>

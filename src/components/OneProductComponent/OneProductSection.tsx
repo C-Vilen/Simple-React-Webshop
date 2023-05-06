@@ -1,5 +1,7 @@
-import { Method } from "@testing-library/react";
-import { Fragment, useContext, useEffect } from "react";
+import { Fragment, useContext } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { Link, useParams } from "react-router-dom";
 import { CustomerContext } from "../../App";
 import "./OneProductSection.css";
@@ -46,6 +48,14 @@ export default function OneProductSection({
       updateProductCount(data.length);
     }
     getBasketCount();
+    toast.success("You just added the product to your basket!", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+    });
   }
 
   return (
@@ -109,6 +119,7 @@ export default function OneProductSection({
         <br></br>
         <hr></hr>
       </div>
+      <ToastContainer />
     </Fragment>
   );
 }
