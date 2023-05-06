@@ -1,6 +1,5 @@
 import React, { createContext, useEffect, useMemo, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 // Components
 import Home from "./pages/home/Home";
@@ -14,7 +13,7 @@ import OneProduct from "./pages/oneProduct/OneProduct";
 import Signup from "./pages/signup/signup";
 
 import AboutPage from "./pages/aboutPage/AboutPage";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/CustomNavbar";
 // import { Customer, CustomerContext } from "./CustomerContext";
 
 export interface Customer {
