@@ -57,7 +57,7 @@ export default function CustomNavbar(props: any) {
               <NavDropdown title="Categories">
                 <NavDropdown.Item onClick={() => setExpanded(false)} as={Link} to="/All-Products">All Products</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item onClick={() => setExpanded(false)} as={Link} to="/All-Products">All Categories</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => setExpanded(false)} as={Link} to="/Categories">All Categories</NavDropdown.Item>
                 <NavDropdown title="Item Category 1" drop="end">
                   <NavDropdown.Item onClick={() => setExpanded(false)} as={Link} to="/">Sub-cat 1</NavDropdown.Item>
                   <NavDropdown.Item onClick={() => setExpanded(false)} as={Link} to="/">Sub-cat 2</NavDropdown.Item>

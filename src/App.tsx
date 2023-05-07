@@ -79,7 +79,7 @@ function App() {
           <Route path="/" element={<Navbar productCount={productCount} />}>
             <Route index element={<Home />} />
             <Route path="All-Products" element={<OverviewProducts />} />
-            <Route path="Over-Category" element={<OverviewCategory />} />
+            <Route path="Categories" element={<OverviewCategory />} />
             <Route path="Under-Category" element={<SubCategory />} />
             <Route path="Login" element={<Login />} />
             <Route path="Basket" element={<Basket />} />

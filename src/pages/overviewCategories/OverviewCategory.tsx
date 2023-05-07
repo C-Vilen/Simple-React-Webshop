@@ -3,10 +3,9 @@ import "../../styles/index.css";
 import "../../styles/styles.css";
 
 //Import components
-import CatCardContainer from "../../components/CatCardContainer";
-import ProdCardContainer from "../../components/ProdCardContainer";
 import Footer from "../../components/StandardComponents/Footer";
 import { Fragment } from "react";
+import CatCardContainer from "../../components/CategoryComponent/CatCardContainer";
 
 //Interface to allow us to have variable cat names. Maybe. Doesn't work tho.
 interface OverviewCategoryProps {
@@ -19,7 +18,6 @@ export default function OverviewCategory() {
     <Fragment>
       <main className="content">
         <CatCardContainer catName="" />
-        <ProdCardContainer heading="" products={[]} />
         <Footer />
       </main>
     </Fragment>
