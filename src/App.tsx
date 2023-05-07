@@ -12,8 +12,8 @@ import Signup from "./pages/signup/signup";
 import AboutPage from "./pages/aboutPage/AboutPage";
 import Navbar from "./components/StandardComponents/CustomNavbar";
 import OverviewProducts from "./pages/overviewProducts/overviewProducts";
-import SubCategory from "./pages/overviewCategories/SubCategory";
-import OverviewCategory from "./pages/overviewCategories/OverviewCategory";
+import OverviewCategory from "./pages/overviewCategories/overviewCategory";
+import SubCategory from "./pages/overviewCategories/subCategory";
 // import { Customer, CustomerContext } from "./CustomerContext";
 
 export interface Customer {

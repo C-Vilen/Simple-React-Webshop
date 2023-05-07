@@ -22,8 +22,7 @@ export default function Home() {
     <Fragment>
       <main className="content">
         <Header />
-        <CatCardContainer
-          catName="" />
+        <CatCardContainer heading="All Categories" />
         <CardCarrousel items={[
           { prodImg: "assets/images/profProductsImage.png", prodName: "A", prodPrice: "100" },
           { prodImg: "assets/images/profProductsImage.png", prodName: "B", prodPrice: "10" },

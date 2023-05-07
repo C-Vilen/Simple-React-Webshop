@@ -1,15 +1,20 @@
 import { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 interface CatCardProps {
-    catImg: string;
     catName: string;
+    ocId: string;
     priceRange: string;
+    catImg: string;
 }
 
-export default function CatCard({ catImg, catName, priceRange }: CatCardProps) {
+export default function CatCard({ catName, ocId, catImg, priceRange }: CatCardProps) {
+    // Removes the space from the overCategory name:
+    const formattedCatName = catName.replace(/ /g, '-');
+
     return (
         <Fragment>
-            <div className="col">
+            <div className="col" id={ocId}>
                 <div className="card">
                     {/* Product image */}
                     <img className="product-img" src={catImg} alt="..." />
@@ -24,7 +29,10 @@ export default function CatCard({ catImg, catName, priceRange }: CatCardProps) {
                     </div>
                     {/* Product actions */}
                     <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div className="text-center"><a className="BlackButton btn mt-auto" href="./pages/productOverviewPage/erhvervOverview.html">See category</a>
+                        <div className="text-center">
+                            <Link className="BlackButton btn mt-auto" to={`/${formattedCatName}`}>
+                                See category
+                            </Link>
                         </div>
                     </div>
                 </div>

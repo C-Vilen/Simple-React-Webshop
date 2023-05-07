@@ -1,36 +1,36 @@
 // Components
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import CatCard from './CatCard';
 
 interface CatCardContainerProps {
-    catName: String;
+    heading: String;
+
 }
 
-export default function CatCardContainer({ catName }: CatCardContainerProps) {
-    if (catName == "") {
-        catName = "Categories";
-    }
+export default function CatCardContainer({ heading }: CatCardContainerProps) {
+    // Fetch API data for overcategories
+    const [overviewCategories, setoverviewCategories] = useState([]);
+    useEffect(() => {
+      fetch("http://localhost:3000/categories/overcategories")
+        .then((response) => response.json())
+        .then((data) => setoverviewCategories(data));
+    }, []);
+
     return (
         <Fragment>
             <section className="py-5">
-                <h2 className="category-heading text-center">{catName}</h2>
+                <h2 className="category-heading text-center">{heading}</h2>
                 <div className="container px-4 px-lg-5">
                     <div className="container row row-cols-1 row-cols-md-2 row-cols-lg-3">
-                        <CatCard
-                            catImg="assets/images/profProductsImage.png"
-                            catName="Proffession"
-                            priceRange="40 - 80 DKK"
+                        {overviewCategories.map((overviewCategories:any) => (
+                            <CatCard
+                            catName={overviewCategories.overCategory}
+                            ocId={overviewCategories.ocId}
+                            catImg={"./assets/images/" + overviewCategories.imgSrc}
+                            priceRange={overviewCategories.priceRange + " DKK"}
+                            key={overviewCategories.ocId}
                         />
-                        <CatCard
-                            catImg="assets/images/profProductsImage.png"
-                            catName="Test2"
-                            priceRange="40 - 80 DKK"
-                        />
-                        <CatCard
-                            catImg="assets/images/profProductsImage.png"
-                            catName="Test3"
-                            priceRange="40 - 80 DKK"
-                        />
+                        ))}
                     </div>
                 </div>
             </section>
