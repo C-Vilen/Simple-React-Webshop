@@ -1,6 +1,7 @@
 // CSS import
 import "../../styles/index.css";
 import "../../styles/styles.css";
+import "./CategoryPage.css";
 
 //Import components
 import Footer from "../../components/StandardComponents/Footer";
@@ -17,7 +18,9 @@ export default function OverviewCategory() {
   return (
     <Fragment>
       <main className="content">
-        <CatCardContainer catName="" />
+        <div className="category-height">
+          <CatCardContainer catName="" />
+        </div>
         <Footer />
       </main>
     </Fragment>

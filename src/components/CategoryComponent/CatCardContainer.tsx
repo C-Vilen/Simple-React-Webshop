@@ -2,9 +2,6 @@
 import { Fragment } from 'react';
 import CatCard from './CatCard';
 
-// CSS
-import "./Category.css";
-
 interface CatCardContainerProps {
     catName: String;
 }
@@ -15,7 +12,7 @@ export default function CatCardContainer({ catName }: CatCardContainerProps) {
     }
     return (
         <Fragment>
-            <section className="category-height py-5">
+            <section className="py-5">
                 <h2 className="category-heading text-center">{catName}</h2>
                 <div className="container px-4 px-lg-5">
                     <div className="container row row-cols-1 row-cols-md-2 row-cols-lg-3">
