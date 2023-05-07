@@ -8,7 +8,7 @@ import Footer from "../../components/StandardComponents/Footer";
 import { Fragment } from "react";
 
 //export function
-export default function UnderCat() {
+export default function SubCategory() {
   return (
     <Fragment>
       <main className="content">
