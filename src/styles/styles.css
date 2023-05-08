@@ -63,30 +63,31 @@ a:hover {
     color: #f4965be0;
 }
 
-/* Navigation bar*/
+/* View to 100 */
 
-.logo-type{
-    color: #000;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+html, body{
+    height:100%;
 }
 
+.content {
+    height: 100vh;
+}
+
+/* Navigation bar*/
+
 .navbar-brand {
-    color: rgb(0, 0, 0) !important;
-    font-family: 'Mynerve', cursive !important;
+    font-family: 'Mynerve', cursive;
     font-style: oblique;
     font-size: 24px;
 }
 
-
 .navbar{
-    background-color: #F2BD2C !important;
+    background-color: #F2BD2C;
     box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.2);
 }
 
 .nav-link {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #000 !important;
-    margin-right: 5px;
+    color: #000;
     border-radius: 30px;
     padding: 12px !important;
 
@@ -96,10 +97,17 @@ a:hover {
     background-color: #F7D778;
     color: #000;
     border-radius: 30px;
-    font-weight: 400;
-    margin-right: 5px;
+    font-weight: 500;
     padding: 12px !important;
 }
+
+.customnavbar-name{
+    color: #ED5A00 !important;
+    font-family: 'Mynerve', cursive;
+    font-size: 19px;
+}
+
+/* Footer */
 
 .footer {
     background-color: #E8EDDF;
@@ -166,24 +174,6 @@ a:hover {
 
 /*General styling*/
 
-html, body{
-    height:100%;
-}
-
-.page-main {
-    height: inherit;
-}
-
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-}
-
-.welcome-text{
-    margin-right: 10px;
-    margin-top: 10px;
-}
 .logout-btn{
     margin-right: 5px;
     display: none;

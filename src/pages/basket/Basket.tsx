@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 
 // CSS import
 import "../../styles/index.css";
@@ -6,7 +6,7 @@ import "../../styles/styles.css";
 
 // Components
 import BasketItemContainer from "../../components/BasketComponent/BasketItemContainer";
-import Footer from "../../components/Footer";
+import Footer from "../../components/StandardComponents/Footer";
 
 interface BasketProps {
   updateProductCount: (count: number) => void;
@@ -15,15 +15,14 @@ export default function Basket(props: BasketProps) {
   const { updateProductCount } = props;
   return (
     <Fragment>
-      <div className="page-main">
+      <main className="content">
         <BasketItemContainer
           customerName={""}
           basketAmount={0}
           updateProductCount={updateProductCount}
         />
-      </div>
-
-      <Footer />
+        <Footer />
+      </main>
     </Fragment>
   );
 }

@@ -47,7 +47,7 @@ export default function LoginForm() {
   };
   return (
     <Fragment>
-      <main className="content login-main">
+      <section className="form-section">
         <section className="login-section">
           <form action="" onSubmit={handleFormSubmit}>
             <img
@@ -94,7 +94,7 @@ export default function LoginForm() {
             </Link>
           </div>
         </section>
-      </main>
+      </section>
     </Fragment>
   );
 }

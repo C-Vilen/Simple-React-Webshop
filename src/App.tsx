@@ -1,6 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 // Components
 import Home from "./pages/home/Home";
@@ -12,7 +11,10 @@ import Login from "./pages/login/Login";
 import Basket from "./pages/basket/Basket";
 import OneProduct from "./pages/oneProduct/OneProduct";
 import Signup from "./pages/signup/signup";
-import Navbar from "./components/Navbar";
+
+import AboutPage from "./pages/aboutPage/AboutPage";
+import Navbar from "./components/StandardComponents/CustomNavbar";
+// import { Customer, CustomerContext } from "./CustomerContext";
 
 export interface Customer {
   customerId: number;
@@ -106,6 +108,7 @@ export default function App() {
             />
             <Route path="*" element={<NoPage />} />
             <Route path="signup" element={<Signup />} />
+            <Route path="About" element={<AboutPage />} />
           </Route>
         </Routes>
       </CustomerContext.Provider>

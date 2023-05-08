@@ -78,84 +78,86 @@ export default function OneProductSection({
 
   return (
     <Fragment>
-      <div className="container px-4 px-lg-5">
-        <nav>
-          <ol className="breadcrumbs">
-            <li className="breadcrumb-item">
-              <Link to="/All-products">All products</Link>
-            </li>
-            <li className="active breadcrumb-item">
-              <a id="breadcrumb-update" href="#">
-                {prodName}
-              </a>
-            </li>
-          </ol>
-        </nav>
-        <div className="row">
-          {/* Product picture */}
-          <div className="col-xs-12 col-md-7">
-            <div>
-              <img
-                className="product-img product-image"
-                id="product-Img"
-                src={"../assets/images/" + prodImg}
-                alt="..."
-              />
-            </div>
-          </div>
-
-          {/* Text box with description, prices and buy button */}
-          <div className="col-xs-12 col-md-5 second-box">
-            <div className="row">
-              <div className="col col-12">
-                <h1 id="productName">{prodName}</h1>
-                <p id="productDescrption">{prodDescription}</p>
-                <h3>
-                  {" "}
-                  <span>
-                    {" "}
-                    <span id="productPrice">{prodPrice}</span> DKK
-                  </span>
-                </h3>
+      <section className="content">
+        <div className="container px-4 px-lg-5">
+          <nav>
+            <ol className="breadcrumbs">
+              <li className="breadcrumb-item">
+                <Link to="/All-products">All products</Link>
+              </li>
+              <li className="active breadcrumb-item">
+                <a id="breadcrumb-update" href="#">
+                  {prodName}
+                </a>
+              </li>
+            </ol>
+          </nav>
+          <div className="row">
+            {/* Product picture */}
+            <div className="col-xs-12 col-md-7">
+              <div>
+                <img
+                  className="product-img product-image"
+                  id="product-Img"
+                  src={"../assets/images/" + prodImg}
+                  alt="..."
+                />
               </div>
-              <div className="col-md-6 col-lg-6 align-self-center">
-                <div className="container text-center">
-                  <div className="row justify-content-between align-items-center">
-                    <button
-                      type="button"
-                      className="btn-dark btn col-2"
-                      onClick={decrementCount}>
-                      -
-                    </button>
-                    <strong className="quantity col-3">{itemCount}</strong>
-                    <button
-                      type="button"
-                      className="btn-dark btn col-2"
-                      onClick={incrementCount}>
-                      +
-                    </button>
+            </div>
+
+            {/* Text box with description, prices and buy button */}
+            <div className="col-xs-12 col-md-5 second-box">
+              <div className="row">
+                <div className="col col-12">
+                  <h1 id="productName">{prodName}</h1>
+                  <p id="productDescrption">{prodDescription}</p>
+                  <h3>
+                    {" "}
+                    <span>
+                      {" "}
+                      <span id="productPrice">{prodPrice}</span> DKK
+                    </span>
+                  </h3>
+                </div>
+                <div className="col-md-6 col-lg-6 align-self-center">
+                  <div className="container text-center">
+                    <div className="row justify-content-between align-items-center">
+                      <button
+                        type="button"
+                        className="btn-dark btn col-2"
+                        onClick={decrementCount}>
+                        -
+                      </button>
+                      <strong className="quantity col-3">{itemCount}</strong>
+                      <button
+                        type="button"
+                        className="btn-dark btn col-2"
+                        onClick={incrementCount}>
+                        +
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="col col-12 align-self-end">
-                <button
-                  id="AddProduct"
-                  className="BlackButton btn mt-auto"
-                  type="submit"
-                  onClick={buyProduct}>
-                  <i className="bi-cart-fill me-1"></i> Buy duck
-                  <span className="badge bg-dark text-white ms-1 rounded-pill"></span>
-                </button>
+                <div className="col col-12 align-self-end">
+                  <button
+                    id="AddProduct"
+                    className="BlackButton btn mt-auto"
+                    type="submit"
+                    onClick={buyProduct}>
+                    <i className="bi-cart-fill me-1"></i> Buy duck
+                    <span className="badge bg-dark text-white ms-1 rounded-pill"></span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      {/* Horizontal line breaker */}
-      <div className="col-12 px-4 px-lg-5">
-        <br></br>
-        <hr></hr>
-      </div>
+        {/* Horizontal line breaker */}
+        <div className="col-12 px-4 px-lg-5">
+          <br></br>
+          <hr></hr>
+        </div>
+      </section>
       <ToastContainer />
     </Fragment>
   );
