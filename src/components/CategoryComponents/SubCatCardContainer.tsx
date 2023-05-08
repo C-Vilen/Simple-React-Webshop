@@ -1,0 +1,47 @@
+import { Fragment, useEffect, useState } from 'react';
+import CatCard from './CatCard';
+
+interface SubCatCardContainerProps {
+  heading: string;
+  ocId: number;
+}
+export default function SubCatCardContainer({ heading, ocId }: SubCatCardContainerProps) {
+    const [subCategories, setSubCategories] = useState([]);
+  
+    useEffect(() => {
+      fetch(`http://localhost:3000/categories/overcategories/${ocId}`)
+        .then((response) => response.json())
+        .then((data) => {
+          const { subCategories: receivedSubCategories, overCategory } = data;
+          const updatedSubCategories = receivedSubCategories.map((subCategory: any) => ({
+            ...subCategory,
+            overCategory: overCategory,
+          }));
+          setSubCategories(updatedSubCategories);
+        });
+    }, []);
+    
+  
+    return (
+      <Fragment>
+        <section className="py-5">
+          <h2 className="category-heading text-center">{heading}</h2>
+          <div className="container px-4 px-lg-5">
+            <div className="container row row-cols-1 row-cols-md-2 row-cols-lg-3">
+              {subCategories.map((subCategory: any) => (
+                <CatCard
+                  catName={`${subCategory.overCategory} - ${subCategory.categoryName}`}
+                  ocId={subCategory.categoryId}
+                  catImg={"./assets/images/" + subCategory.imgSrc}
+                  priceRange={subCategory.priceRange + " DKK"}
+                  key={subCategory.categoryId}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      </Fragment>
+    );
+  }
+  
+  

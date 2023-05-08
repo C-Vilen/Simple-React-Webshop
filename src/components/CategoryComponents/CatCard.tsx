@@ -8,13 +8,13 @@ interface CatCardProps {
     catImg: string;
 }
 
-export default function CatCard({ catName, ocId, catImg, priceRange }: CatCardProps) {
+export default function CatCard({ catName, catImg, priceRange }: CatCardProps) {
     // Removes the space from the overCategory name:
     const formattedCatName = catName.replace(/ /g, '-');
 
     return (
         <Fragment>
-            <div className="col" id={ocId}>
+            <div className="col">
                 <div className="card">
                     {/* Product image */}
                     <img className="product-img" src={catImg} alt="..." />
@@ -30,7 +30,7 @@ export default function CatCard({ catName, ocId, catImg, priceRange }: CatCardPr
                     {/* Product actions */}
                     <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
                         <div className="text-center">
-                            <Link className="BlackButton btn mt-auto" to={`/${formattedCatName}`}>
+                            <Link className="BlackButton btn mt-auto" to={`/Categories/${formattedCatName}`}>
                                 See category
                             </Link>
                         </div>

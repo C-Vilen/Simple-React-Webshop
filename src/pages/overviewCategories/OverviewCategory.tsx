@@ -6,7 +6,7 @@ import "./categoryPage.css";
 //Import components
 import Footer from "../../components/StandardComponents/Footer";
 import { Fragment } from "react";
-import CatCardContainer from "../../components/CategoryComponent/CatCardContainer";
+import CatCardContainer from "../../components/CategoryComponents/CatCardContainer";
 
 //export function
 export default function OverviewCategory() {

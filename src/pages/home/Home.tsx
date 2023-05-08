@@ -10,7 +10,7 @@ import Footer from "../../components/StandardComponents/Footer";
 import CardCarrousel from '../../components/CardCarrousel';
 import Header from '../../components/Header';
 import { CustomerContext } from "../../App";
-import CatCardContainer from "../../components/CategoryComponent/CatCardContainer";
+import CatCardContainer from "../../components/CategoryComponents/CatCardContainer";
 
 
 export default function Home() {

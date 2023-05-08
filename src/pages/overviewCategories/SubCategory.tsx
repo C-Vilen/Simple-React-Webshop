@@ -6,15 +6,23 @@ import "../../styles/styles.css";
 import ProdCardContainer from "../../components/ProdCardContainer";
 import Footer from "../../components/StandardComponents/Footer";
 import { Fragment } from "react";
+import SubCatCardContainer from "../../components/CategoryComponents/SubCatCardContainer";
+
+interface SubCategoryProps {
+  heading: string;
+
+}
 
 //export function
-export default function SubCategory() {
+export default function SubCategory({heading} : SubCategoryProps) {
+  heading = "tmp heading";
   return (
     <Fragment>
       <main className="content">
-        <ProdCardContainer heading="" products={[]} />
-        <Footer />
+        <SubCatCardContainer heading={heading} ocId={1} />
+        <ProdCardContainer heading="" products={[]} />        
       </main>
+      <Footer />
     </Fragment>
   );
 }
