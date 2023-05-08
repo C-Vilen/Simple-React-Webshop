@@ -4,7 +4,7 @@ import { Fragment, useEffect, useState } from "react";
 import "../../styles/styles.css";
 
 // Components
-import Footer from "../../components/Footer";
+import Footer from "../../components/StandardComponents/Footer";
 import OneProductSection from "../../components/OneProductComponent/OneProductSection";
 import { useParams } from "react-router-dom";
 
@@ -30,7 +30,7 @@ export default function OneProduct(props: any) {
 
   return (
     <Fragment>
-      <main className="page-main">
+      <main className="content">
         {product && (
           <OneProductSection
             prodImg={product.imgSrc}
@@ -41,8 +41,8 @@ export default function OneProduct(props: any) {
             // heading= "All Products"
           />
         )}
+        <Footer />
       </main>
-      <Footer />
     </Fragment>
   );
 }

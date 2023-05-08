@@ -1,4 +1,7 @@
 import { Fragment, useContext, useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import BasketItem from "./BasketItem";
 
 
@@ -10,11 +13,20 @@ import { Link } from "react-router-dom";
 interface BasketItemContainerProps {
   customerName: String;
   basketAmount: number;
+  updateProductCount: (count: number) => void;
+}
+interface Product {
+  productName: string;
+  productPrice: number;
+  imgSrc: string;
+  productId: number;
+  // add any other properties here
 }
 
 export default function BasketItemContainer({
   customerName,
   basketAmount,
+  updateProductCount,
 }: BasketItemContainerProps) {
   const context = useContext(CustomerContext);
   if (!context) {
@@ -22,21 +34,93 @@ export default function BasketItemContainer({
   }
   const { customer } = context;
 
-  const [products, setProducts] = useState([]);
-  if (!products) {
-    throw new Error("couldn't get products");
+  const [itemCount, setItemCount] = useState(0);
+  const [totalAmount, setTotalAmount] = useState(0);
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    setTotalAmount(sumPrices());
+    getBasketCount();
+  });
+
+  //Helper function to update the count in Navbar
+  async function getBasketCount() {
+    const response = await fetch(
+      `http://localhost:3000/baskets/${customer.customerId}`,
+      {
+        mode: "cors",
+        method: "GET",
+      }
+    );
+    const data = await response.json();
+    updateProductCount(data.length);
+    setItemCount(data.length);
   }
+
+  //puts a product in the basket, and increment itemCount
+  async function buyProduct(prodId: number) {
+    await fetch(
+      `http://localhost:3000/baskets/${customer.customerId}/${prodId}`,
+      {
+        mode: "cors",
+        method: "PUT",
+      }
+    );
+    getBasketCount();
+  }
+
+  //removes a product from basket, and decrement itemCount
+  async function removeProduct(prodId: number) {
+    await fetch(
+      `http://localhost:3000/baskets/${customer.customerId}/${prodId}`,
+      {
+        mode: "cors",
+        method: "DELETE",
+      }
+    );
+    getBasketCount();
+  }
+  //Sums up all the productPrices
+  function sumPrices(): number {
+    const total = products.reduce(
+      (acc, product) => acc + product.productPrice,
+      0
+    );
+    return total;
+  }
+
+  async function buyAll() {
+    try {
+      // deletes the data for the Guest account
+      await fetch(`http://localhost:3000/baskets/${customer.customerId}`, {
+        method: "DELETE",
+      });
+    } catch (error) {
+      console.error("Error deleting basket data:", error);
+    }
+    getBasketCount();
+    toast.success("You just bought all your products in the basket", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+    });
+  }
+
+  //fetches the products from API
   useEffect(() => {
     fetch(`http://localhost:3000/baskets/${customer.customerId}`)
       .then((response) => response.json())
       .then((data) => setProducts(data));
-  }, []);
+  }, [itemCount]);
 
   let outputName = "";
-  if (customerName == "") {
-    outputName = customer.firstName + "'s basket";
+  if (customerName === "") {
+    outputName = `${customer.firstName}'s basket`;
   } else {
-    outputName = customerName + "'s basket";
+    outputName = `${customerName}'s basket`;
   }
 
   let outputAmount = 0;
@@ -44,16 +128,15 @@ export default function BasketItemContainer({
     outputAmount = basketAmount;
   }
 
-  async function buyBasketProducts() {
-    try{
-      await fetch(`http://localhost:3000/baskets/${customer.customerId}`, { 
-      method: "DELETE", 
-      });
+  // Count the number of each product in the basket
+  const productCount = products.reduce((acc: any, product: Product) => {
+    if (acc[product.productName]) {
+      acc[product.productName]++;
+    } else {
+      acc[product.productName] = 1;
     }
-    catch (error) {
-      console.log(error);
-    }
-  }
+    return acc;
+  }, {});
 
   return (
     <Fragment>
@@ -63,25 +146,41 @@ export default function BasketItemContainer({
             <span className="text-muted">{outputName}</span>
           </h4>
           <ul className="list-group mb-3">
-            {products.map((product: any) => (
-              <BasketItem
-                prodName={product.productName}
-                prodAmount={0}
-                prodPrice={product.productPrice}
-                prodImg={"./assets/images" + product.imgSrc}
-              />
-            ))}
+            {Object.keys(productCount).map((productName) => {
+              const product = products.find(
+                (p) => p.productName === productName
+              );
+              return product ? (
+                <BasketItem
+                  key={productName}
+                  prodName={productName}
+                  prodAmount={productCount[productName]}
+                  prodPrice={product.productPrice}
+                  prodImg={`./assets/images${product.imgSrc}`}
+                  prodId={product.productId}
+                  buyProduct={buyProduct}
+                  removeProduct={removeProduct}
+                />
+              ) : (
+                <div>Error: No items in the basket</div>
+              );
+            })}
 
             {/* Inserting items of products in the below div */}
             <div id="product-update-script"></div>
             <li className="list-group-item d-flex justify-content-between">
               <span>Total</span>
-              <strong id="totalAmount">{outputAmount} DKK</strong>
+              <strong id="totalAmount">{totalAmount} DKK</strong>
             </li>
             <li className="buy-li">
-              <Link className="buy-btn btn BlackButton" to={`/`} onClick={buyBasketProducts}>Buy</Link>
+              <button
+                className="buy-btn btn BlackButton"
+                onClick={() => buyAll()}>
+                Buy
+              </button>
             </li>
           </ul>
+          <ToastContainer />
         </div>
       </div>
     </Fragment>
