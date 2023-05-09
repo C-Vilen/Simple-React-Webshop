@@ -165,7 +165,7 @@ export default function BasketItemContainer({
             })}
 
             {/* Inserting items of products in the below div */}
-            <div id="product-update-script"></div>
+            <div id="product-update-script" ></div>
             <li className="list-group-item d-flex justify-content-between">
               <span>Total</span>
               <strong id="totalAmount">{totalAmount} DKK</strong>
