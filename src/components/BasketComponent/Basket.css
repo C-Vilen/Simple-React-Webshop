@@ -65,3 +65,9 @@ width: 150px;
     margin-left: 20%;
     margin-top: 80px;
 }
+
+.thisisredundant {
+    position: absolute; 
+    bottom: 5%;
+    right: 2%;
+}

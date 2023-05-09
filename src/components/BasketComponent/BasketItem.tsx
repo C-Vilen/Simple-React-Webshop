@@ -54,13 +54,14 @@ export default function BasketItem({
                     className="col-3"
                     style={{ whiteSpace: "nowrap", overflow: "hidden" }}>
                     {" "}
-                    {prodPrice * prodAmount} DKK
+                    
                   </strong>
                 </div>
               </div>
             </div>
           </div>
         </div>
+                  <div className="thisisredundant">{prodPrice * prodAmount} DKK</div>
       </li>
     </Fragment>
   );
