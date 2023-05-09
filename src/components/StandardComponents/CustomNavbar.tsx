@@ -22,7 +22,6 @@ export default function CustomNavbar(props: any) {
       const response = await fetch(`http://localhost:3000/customers/guest`);
       const data = await response.json();
       updateCustomer(data);
-      console.log(customer);
     } catch (error) {
       console.error("there was an error fetching guest customers: " + error);
     }
@@ -78,11 +77,7 @@ export default function CustomNavbar(props: any) {
         className="px-4 px-lg-5">
         <Container>
           <Navbar.Brand as={Link} to="/">
-            <img
-              className="logo-img"
-              src="assets/images/Badeanden_logo-01.png"
-              alt=""
-            />
+            <img className="logo-img" src="/assets/images/Badeanden_logo-01.png" alt="" />
           </Navbar.Brand>
           <Navbar.Brand as={Link} to="/">
             Ducktastic
@@ -101,71 +96,21 @@ export default function CustomNavbar(props: any) {
                   All Products
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item
-                  onClick={() => setExpanded(false)}
-                  as={Link}
-                  to="/All-Products">
-                  All Categories
-                </NavDropdown.Item>
-                <NavDropdown title="Item Category 1" drop="end">
-                  <NavDropdown.Item
-                    onClick={() => setExpanded(false)}
-                    as={Link}
-                    to="/">
-                    Sub-cat 1
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    onClick={() => setExpanded(false)}
-                    as={Link}
-                    to="/">
-                    Sub-cat 2
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    onClick={() => setExpanded(false)}
-                    as={Link}
-                    to="/">
-                    Sub-cat 3
-                  </NavDropdown.Item>
+                <NavDropdown.Item onClick={() => setExpanded(false)} as={Link} to="/Categories">All Categories</NavDropdown.Item>
+                <NavDropdown title="Rubber Ducks" drop="end">
+                  <NavDropdown.Item onClick={() => setExpanded(false)} as={Link} to="/">Sub-cat 1</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setExpanded(false)} as={Link} to="/">Sub-cat 2</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setExpanded(false)} as={Link} to="/">Sub-cat 3</NavDropdown.Item>
                 </NavDropdown>
-                <NavDropdown title="Item Category 2" drop="end">
-                  <NavDropdown.Item
-                    onClick={() => setExpanded(false)}
-                    as={Link}
-                    to="/">
-                    Sub-cat 1
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    onClick={() => setExpanded(false)}
-                    as={Link}
-                    to="/">
-                    Sub-cat 2
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    onClick={() => setExpanded(false)}
-                    as={Link}
-                    to="/">
-                    Sub-cat 3
-                  </NavDropdown.Item>
+                <NavDropdown title="Accessories" drop="end">
+                  <NavDropdown.Item onClick={() => setExpanded(false)} as={Link} to="/">Sub-cat 1</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setExpanded(false)} as={Link} to="/">Sub-cat 2</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setExpanded(false)} as={Link} to="/">Sub-cat 3</NavDropdown.Item>
                 </NavDropdown>
-                <NavDropdown title="Item Category 3" drop="end">
-                  <NavDropdown.Item
-                    onClick={() => setExpanded(false)}
-                    as={Link}
-                    to="/">
-                    Sub-cat 1
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    onClick={() => setExpanded(false)}
-                    as={Link}
-                    to="/">
-                    Sub-cat 2
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    onClick={() => setExpanded(false)}
-                    as={Link}
-                    to="/">
-                    Sub-cat 3
-                  </NavDropdown.Item>
+                <NavDropdown title="Clothes" drop="end">
+                  <NavDropdown.Item onClick={() => setExpanded(false)} as={Link} to="/">Sub-cat 1</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setExpanded(false)} as={Link} to="/">Sub-cat 2</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setExpanded(false)} as={Link} to="/">Sub-cat 3</NavDropdown.Item>
                 </NavDropdown>
               </NavDropdown>
               <Nav.Link

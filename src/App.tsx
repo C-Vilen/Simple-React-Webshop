@@ -1,20 +1,20 @@
-import React, { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Components
 import Home from "./pages/home/Home";
-import OverviewProducts from "./pages/overviewProducts/OverviewProducts";
 import NoPage from "./pages/noPage/NoPage";
-import OverCat from "./pages/categories/OverCat";
-import UnderCat from "./pages/categories/UnderCat";
 import Login from "./pages/login/Login";
 import Basket from "./pages/basket/Basket";
 import OneProduct from "./pages/oneProduct/OneProduct";
 import Signup from "./pages/signup/signup";
-
 import AboutPage from "./pages/aboutPage/AboutPage";
 import Navbar from "./components/StandardComponents/CustomNavbar";
-// import { Customer, CustomerContext } from "./CustomerContext";
+import SpecificProducts from "./pages/specificProducts/specificProducts";
+import OverviewProducts from "./pages/overviewProducts/OverviewProducts";
+import OverviewCategory from "./pages/overviewCategories/OverviewCategory";
+import SubCategory from "./pages/overviewCategories/SubCategory";
+
 
 export interface Customer {
   customerId: number;
@@ -55,7 +55,6 @@ export default function App() {
       const response = await fetch(`http://localhost:3000/customers/guest`);
       const data = await response.json();
       setCustomer(data);
-      console.log(customer);
     } catch (error) {
       console.error("there was an error fetching guest customers: " + error);
     }
@@ -95,8 +94,9 @@ export default function App() {
             }>
             <Route index element={<Home />} />
             <Route path="All-Products" element={<OverviewProducts />} />
-            <Route path="Over-Category" element={<OverCat />} />
-            <Route path="Under-Category" element={<UnderCat />} />
+            <Route path="Categories" element={<OverviewCategory />} />
+            <Route path="Categories/:overCategoryName" element={<SubCategory />} />
+            <Route path="Categories/:overCategoryName/:subCategoryName" element={<SpecificProducts />} />
             <Route path="Login" element={<Login />} />
             <Route
               path="Basket"

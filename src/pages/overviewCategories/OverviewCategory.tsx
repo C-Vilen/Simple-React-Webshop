@@ -3,16 +3,16 @@ import "../../styles/index.css";
 import "../../styles/styles.css";
 
 //Import components
-import ProdCardContainer from "../../components/ProdCardContainer";
 import Footer from "../../components/StandardComponents/Footer";
 import { Fragment } from "react";
+import CatCardContainer from "../../components/OverviewCategoryComponent/CatCardContainer";
 
 //export function
-export default function UnderCat() {
+export default function OverviewCategory() {
   return (
     <Fragment>
       <main className="content">
-        <ProdCardContainer heading="" products={[]} />
+          <CatCardContainer heading="All Categories" />
         <Footer />
       </main>
     </Fragment>

@@ -27,7 +27,7 @@ export default function OverviewProducts() {
   //     fetch(`http://localhost:3000/categories/${category}`)
   //       .then((response) => response.json())
   //       .then((data) => setProducts(data));
-  //   }, []);
+  //   }, []);ˇ
   return (
     <Fragment>
         <ProdCardContainer heading="All Products" products={products} />
