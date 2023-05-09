@@ -66,13 +66,13 @@ export default function Signup() {
       return;
     }
 
-    if(firstName.trim().endsWith(' ')){
+    if(firstName.endsWith(' ')){
       alert('First name cannot end with blank spaces')
       return;
     }
 
     // Check if password is at least 4 characters
-    if (password.length < 6) {
+    if (password.length < 4) {
       alert('Passwors must be at least 4 characters')
       return;
     }
