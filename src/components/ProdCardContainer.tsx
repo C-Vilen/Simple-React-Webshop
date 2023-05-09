@@ -19,7 +19,7 @@ export default function ProdCardContainer({
             {products.map((product: any) => (
               <div className="col" id={product.id}>
                 <ProdCard
-                  prodImg={"./assets/images/" + product.imgSrc}
+                  prodImg={"/assets/images/" + product.imgSrc}
                   prodName={product.productName}
                   prodPrice={product.productPrice + " DKK"}
                   prodId={product.productId}

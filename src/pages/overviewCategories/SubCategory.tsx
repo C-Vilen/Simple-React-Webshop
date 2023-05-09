@@ -5,21 +5,22 @@ import "../../styles/styles.css";
 //Import components
 import ProdCardContainer from "../../components/ProdCardContainer";
 import Footer from "../../components/StandardComponents/Footer";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import SubCatCardContainer from "../../components/CategoryComponents/SubCatCardContainer";
+import { useLocation, useParams } from "react-router-dom";
 
-interface SubCategoryProps {
-  heading: string;
-
-}
 
 //export function
-export default function SubCategory({heading} : SubCategoryProps) {
-  heading = "tmp heading";
+export default function SubCategory() {
+  // Getting overCategoryName and its ID from the overviewCategory page
+  const { state } = useLocation();
+  const ocId = state.ocId;
+  const overCatName = state.overCatName;
+
   return (
     <Fragment>
       <main className="content">
-        <SubCatCardContainer heading={heading} ocId={1} />
+        <SubCatCardContainer heading={overCatName} ocId={ocId} />
         <ProdCardContainer heading="" products={[]} />        
       </main>
       <Footer />

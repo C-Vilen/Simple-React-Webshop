@@ -1,5 +1,6 @@
 import { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 
 interface CatCardProps {
     catName: string;
@@ -8,9 +9,17 @@ interface CatCardProps {
     catImg: string;
 }
 
-export default function CatCard({ catName, catImg, priceRange }: CatCardProps) {
-    // Removes the space from the overCategory name:
-    const formattedCatName = catName.replace(/ /g, '-');
+export default function CatCard({ catName, ocId, catImg, priceRange }: CatCardProps) {
+
+    // Sends route, ID and catName to subCategory page
+    const navigate = useNavigate();
+    function navigateSubCatPage(overCatName: String, ocId: String) {
+        // Removes the space from the overCategory name:
+        const formattedCatName = overCatName.replace(/ /g, '-');
+        navigate(`/Categories/${formattedCatName}`, {
+            state: { ocId: ocId, overCatName: overCatName }
+        })
+    }
 
     return (
         <Fragment>
@@ -30,9 +39,9 @@ export default function CatCard({ catName, catImg, priceRange }: CatCardProps) {
                     {/* Product actions */}
                     <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
                         <div className="text-center">
-                            <Link className="BlackButton btn mt-auto" to={`/Categories/${formattedCatName}`}>
+                            <Button className="BlackButton btn mt-auto" onClick={() => navigateSubCatPage(catName, ocId)}>
                                 See category
-                            </Link>
+                            </Button>
                         </div>
                     </div>
                 </div>

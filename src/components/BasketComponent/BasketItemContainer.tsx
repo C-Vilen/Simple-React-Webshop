@@ -55,7 +55,7 @@ export default function BasketItemContainer({
                 prodName={product.productName}
                 prodAmount={0}
                 prodPrice={product.productPrice}
-                prodImg={"./assets/images" + product.imgSrc}
+                prodImg={"/assets/images" + product.imgSrc}
               />
             ))}
 

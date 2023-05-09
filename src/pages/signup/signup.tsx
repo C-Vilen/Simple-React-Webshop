@@ -67,7 +67,7 @@ export default function Signup() {
             <form onSubmit={handleSignup}>
               <div>
                 <img
-                  src="./assets/images/logo/duck_logo_placeholder.svg"
+                  src="/assets/images/logo/duck_logo_placeholder.svg"
                   width="72px"
                 />
                 <h1>Become a member!</h1>{" "}

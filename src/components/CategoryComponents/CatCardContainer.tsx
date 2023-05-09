@@ -24,9 +24,9 @@ export default function CatCardContainer({ heading }: CatCardContainerProps) {
                     <div className="container row row-cols-1 row-cols-md-2 row-cols-lg-3">
                         {overviewCategories.map((overviewCategories:any) => (
                             <CatCard
-                            catName={overviewCategories.overCategory}
+                            catName={overviewCategories.overCategoryName}
                             ocId={overviewCategories.ocId}
-                            catImg={"./assets/images/" + overviewCategories.imgSrc}
+                            catImg={"/assets/images/" + overviewCategories.imgSrc}
                             priceRange={overviewCategories.priceRange + " DKK"}
                             key={overviewCategories.ocId}
                         />

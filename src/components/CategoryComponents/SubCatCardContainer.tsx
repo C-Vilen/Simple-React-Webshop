@@ -12,16 +12,14 @@ export default function SubCatCardContainer({ heading, ocId }: SubCatCardContain
       fetch(`http://localhost:3000/categories/overcategories/${ocId}`)
         .then((response) => response.json())
         .then((data) => {
-          const { subCategories: receivedSubCategories, overCategory } = data;
+          const { subCategories: receivedSubCategories, overCategoryName } = data;
           const updatedSubCategories = receivedSubCategories.map((subCategory: any) => ({
             ...subCategory,
-            overCategory: overCategory,
+            overCategoryName: overCategoryName,
           }));
           setSubCategories(updatedSubCategories);
         });
-    }, []);
-    
-  
+    }, []);  
     return (
       <Fragment>
         <section className="py-5">
@@ -30,9 +28,9 @@ export default function SubCatCardContainer({ heading, ocId }: SubCatCardContain
             <div className="container row row-cols-1 row-cols-md-2 row-cols-lg-3">
               {subCategories.map((subCategory: any) => (
                 <CatCard
-                  catName={`${subCategory.overCategory} - ${subCategory.categoryName}`}
+                  catName={`${subCategory.subCategoryName}`}
                   ocId={subCategory.categoryId}
-                  catImg={"./assets/images/" + subCategory.imgSrc}
+                  catImg={"/assets/images/" + subCategory.imgSrc}
                   priceRange={subCategory.priceRange + " DKK"}
                   key={subCategory.categoryId}
                 />

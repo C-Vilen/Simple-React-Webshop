@@ -80,7 +80,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="All-Products" element={<OverviewProducts />} />
             <Route path="Categories" element={<OverviewCategory />} />
-            <Route path="Under-Category" element={<SubCategory heading={""} />} />
+            <Route path="Categories/:overCategoryName" element={<SubCategory />} />
             <Route path="Login" element={<Login />} />
             <Route path="Basket" element={<Basket />} />
             <Route
