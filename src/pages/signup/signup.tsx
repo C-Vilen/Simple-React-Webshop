@@ -48,14 +48,50 @@ export default function Signup() {
 
   const handleSignup = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
+
+    // Getting the form data
+    const formData = new FormData(e.currentTarget);
+    const firstName = formData.get('firstName') as string;
+    const lastName = formData.get('lastName') as string;
+    const password = formData.get('password') as string;
+
+    // Check if firstname is at 2-20 characters and not ending with " ":
+    if (firstName.length < 2) {
+      alert('Name must be at least 2 characters')
+      return;
+    }
+
+    if (firstName.length > 20) {
+      alert('First name cannot be more than 20 characters')
+      return;
+    }
+
+    // if(firstName.trim().endsWith(' ')){
+    //   alert('First name cannot end with blank spaces')
+    //   return;
+    // }
+
+    // Check if password is at least 4 characters
+    if (password.length < 6) {
+      alert('Passwors must be at least 4 characters')
+      return;
+    }
+
+    // Valid form date, which creates a customer object
+    const CustomerValues = {
+      firstname: formData.get('firstName') as string,
+      lastName: formData.get('lastName') as string,
+      email: formData.get('email') as string,
+      password: formData.get('password') as string,
+    };
+
     const customerJSON = JSON.stringify(CustomerValues);
     postCustomer(customerJSON);
-    setCustomerValues({
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-    }); // Reset form values after submission
+
+    // Reset form values after submission
+    e.currentTarget.reset();
+
+    // Navigate to the login page
     navigate("/Login");
   };
 
