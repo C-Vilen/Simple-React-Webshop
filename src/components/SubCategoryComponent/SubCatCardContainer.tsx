@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
-import CatCard from './CatCard';
+import SubCatCard from './SubCatCard';
 
 interface SubCatCardContainerProps {
   heading: string;
@@ -27,12 +27,14 @@ export default function SubCatCardContainer({ heading, ocId }: SubCatCardContain
           <div className="container px-4 px-lg-5">
             <div className="container row row-cols-1 row-cols-md-2 row-cols-lg-3">
               {subCategories.map((subCategory: any) => (
-                <CatCard
-                  catName={`${subCategory.subCategoryName}`}
-                  ocId={subCategory.categoryId}
+                <SubCatCard
+                  overCatName = {heading}
+                  subCatName={`${subCategory.subCategoryName}`}
+                  ocId={ocId}
+                  subcId={subCategory.subcId}
                   catImg={"/assets/images/" + subCategory.imgSrc}
                   priceRange={subCategory.priceRange + " DKK"}
-                  key={subCategory.categoryId}
+                  key={subCategory.subcId}
                 />
               ))}
             </div>
@@ -41,5 +43,3 @@ export default function SubCatCardContainer({ heading, ocId }: SubCatCardContain
       </Fragment>
     );
   }
-  
-  

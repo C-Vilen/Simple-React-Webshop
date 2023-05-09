@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Components
@@ -14,6 +14,7 @@ import Navbar from "./components/StandardComponents/CustomNavbar";
 import OverviewProducts from "./pages/overviewProducts/overviewProducts";
 import OverviewCategory from "./pages/overviewCategories/overviewCategory";
 import SubCategory from "./pages/overviewCategories/subCategory";
+import SpecificProducts from "./pages/specificProducts/specificProducts";
 // import { Customer, CustomerContext } from "./CustomerContext";
 
 export interface Customer {
@@ -81,6 +82,7 @@ function App() {
             <Route path="All-Products" element={<OverviewProducts />} />
             <Route path="Categories" element={<OverviewCategory />} />
             <Route path="Categories/:overCategoryName" element={<SubCategory />} />
+            <Route path="Categories/:overCategoryName/:subCategoryName" element={<SpecificProducts />} />
             <Route path="Login" element={<Login />} />
             <Route path="Basket" element={<Basket />} />
             <Route

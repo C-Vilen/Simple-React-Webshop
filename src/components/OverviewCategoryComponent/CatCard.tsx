@@ -1,10 +1,10 @@
 import { Fragment } from "react";
 import { Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface CatCardProps {
     catName: string;
-    ocId: string;
+    ocId: number;
     priceRange: string;
     catImg: string;
 }
@@ -13,7 +13,7 @@ export default function CatCard({ catName, ocId, catImg, priceRange }: CatCardPr
 
     // Sends route, ID and catName to subCategory page
     const navigate = useNavigate();
-    function navigateSubCatPage(overCatName: String, ocId: String) {
+    function navigateSubCatPage(overCatName: String, ocId: number) {
         // Removes the space from the overCategory name:
         const formattedCatName = overCatName.replace(/ /g, '-');
         navigate(`/Categories/${formattedCatName}`, {

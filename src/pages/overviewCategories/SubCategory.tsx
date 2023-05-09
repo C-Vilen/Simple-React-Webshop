@@ -5,9 +5,9 @@ import "../../styles/styles.css";
 //Import components
 import ProdCardContainer from "../../components/ProdCardContainer";
 import Footer from "../../components/StandardComponents/Footer";
-import { Fragment, useEffect, useState } from "react";
-import SubCatCardContainer from "../../components/CategoryComponents/SubCatCardContainer";
-import { useLocation, useParams } from "react-router-dom";
+import { Fragment } from "react";
+import SubCatCardContainer from "../../components/SubCategoryComponent/SubCatCardContainer";
+import { useLocation } from "react-router-dom";
 
 
 //export function
@@ -22,8 +22,8 @@ export default function SubCategory() {
       <main className="content">
         <SubCatCardContainer heading={overCatName} ocId={ocId} />
         <ProdCardContainer heading="" products={[]} />        
-      </main>
       <Footer />
+      </main>
     </Fragment>
   );
 }
