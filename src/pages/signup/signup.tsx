@@ -54,6 +54,7 @@ export default function Signup() {
     const firstName = formData.get('firstName') as string;
     const lastName = formData.get('lastName') as string;
     const password = formData.get('password') as string;
+    const email = formData.get('email') as string;
 
     // Check if firstname is at 2-20 characters and not ending with " ":
     if (firstName.length < 2) {
@@ -71,6 +72,12 @@ export default function Signup() {
       return;
     }
 
+    // Check if lastName is not empty
+    if (lastName.trim().length === 0) {
+     alert('Last name is required');
+      return;
+    }
+
     // Check if password is at least 4 characters
     if (password.length < 4) {
       alert('Passwors must be at least 4 characters')
@@ -80,6 +87,12 @@ export default function Signup() {
     if (password.includes(' ')) {
       alert('Password cannot contain blank spaces')
     }
+
+    // Check if email is not empty
+    if (email.trim().length === 0) {
+    alert('Email is required');
+    return;
+  }
 
     // Valid form date, which creates a customer object
     const CustomerValues = {
