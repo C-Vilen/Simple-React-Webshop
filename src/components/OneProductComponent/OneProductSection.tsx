@@ -1,4 +1,7 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { Link, useParams } from "react-router-dom";
 import { CustomerContext } from "../../App";
 import "./OneProductSection.css";
@@ -22,17 +25,22 @@ export default function OneProductSection({
   if (!context) {
     throw new Error("customer context is undefined");
   }
-  const { customer, updateCustomer } = context;
+  const { customer } = context;
   const { prodId: routeProdId } = useParams();
+  const [itemCount, setItemCount] = useState(1);
 
+  //add product(s) to basket
   async function buyProduct() {
-    const response = await fetch(
-      `http://localhost:3000/baskets/${customer.customerId}/${routeProdId}`,
-      {
-        mode: "cors",
-        method: "PUT",
-      }
-    );
+    for (let i = 0; i < itemCount; i++) {
+      await fetch(
+        `http://localhost:3000/baskets/${customer.customerId}/${routeProdId}`,
+        {
+          mode: "cors",
+          method: "PUT",
+        }
+      );
+    }
+    //updates the productCounter in navbar
     async function getBasketCount() {
       const response = await fetch(
         `http://localhost:3000/baskets/${customer.customerId}`,
@@ -45,6 +53,27 @@ export default function OneProductSection({
       updateProductCount(data.length);
     }
     getBasketCount();
+
+    //displays a toast with success message
+    toast.success("You just added the product to your basket!", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+    });
+  }
+
+  //increment the amount of products you want to add to the basket
+  function incrementCount() {
+    setItemCount(itemCount + 1);
+  }
+  //decrement the amount of products you want to add to the basket
+  function decrementCount() {
+    if (itemCount > 0) {
+      setItemCount(itemCount - 1);
+    }
   }
 
   return (
@@ -90,6 +119,25 @@ export default function OneProductSection({
                     </span>
                   </h3>
                 </div>
+                <div className="col-md-6 col-lg-6 align-self-center">
+                  <div className="container text-center">
+                    <div className="row justify-content-between align-items-center">
+                      <button
+                        type="button"
+                        className="btn-dark btn col-2"
+                        onClick={decrementCount}>
+                        -
+                      </button>
+                      <strong className="quantity col-3">{itemCount}</strong>
+                      <button
+                        type="button"
+                        className="btn-dark btn col-2"
+                        onClick={incrementCount}>
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
                 <div className="col col-12 align-self-end">
                   <button
                     id="AddProduct"
@@ -110,6 +158,7 @@ export default function OneProductSection({
           <hr></hr>
         </div>
       </section>
+      <ToastContainer />
     </Fragment>
   );
 }

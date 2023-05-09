@@ -128,6 +128,7 @@ export default function Signup() {
         </section>
         <Footer />
       </main>
+      <Footer />
     </Fragment>
   );
 }

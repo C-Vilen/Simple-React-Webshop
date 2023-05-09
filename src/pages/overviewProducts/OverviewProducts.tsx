@@ -1,11 +1,19 @@
-import React, { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment } from "react";
 import "../../styles/styles.css";
 import "../../styles/overviewProducts.css";
 import Footer from "../../components/StandardComponents/Footer";
 import ProdCardContainer from "../../components/ProdCardContainer";
 
+export interface ProductProperties {
+  imgSrc: string;
+  productName: string;
+  productPrice: string;
+  productId: string;
+  productDescription: string;
+}
+
 export default function OverviewProducts() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<ProductProperties[]>([]);
   //   const category = useParams();
 
   useEffect(() => {
@@ -13,6 +21,7 @@ export default function OverviewProducts() {
       .then((response) => response.json())
       .then((data) => setProducts(data));
   }, []);
+
   //category call dependent on params
   //   useEffect(() => {
   //     fetch(`http://localhost:3000/categories/${category}`)

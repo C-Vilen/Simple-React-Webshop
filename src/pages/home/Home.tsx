@@ -1,4 +1,4 @@
-import { Fragment, useContext, useEffect } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 
 // CSS import
 import "../../styles/index.css";
@@ -7,27 +7,25 @@ import "../../styles/styles.css";
 // Components
 import AboutSection from "../../components/AboutSection";
 import Footer from "../../components/StandardComponents/Footer";
-import CardCarrousel from '../../components/CardCarrousel';
-import Header from '../../components/Header';
-import { CustomerContext } from "../../App";
+import CardCarrousel from "../../components/CardCarrousel";
+import Header from "../../components/Header";
 import CatCardContainer from "../../components/OverviewCategoryComponent/CatCardContainer";
 
-
 export default function Home() {
-  const customer = useContext(CustomerContext);
+  const [products, setProducts] = useState([]);
+
   useEffect(() => {
-    console.log(customer);
-  });
+    fetch("http://localhost:3000/products/carrousel")
+      .then((response) => response.json())
+      .then((data) => setProducts(data));
+  }, []);
+
   return (
     <Fragment>
       <main className="content">
         <Header />
         <CatCardContainer heading="All Categories" />
-        <CardCarrousel items={[
-          { prodImg: "assets/images/profProductsImage.png", prodName: "A", prodPrice: "100" },
-          { prodImg: "assets/images/profProductsImage.png", prodName: "B", prodPrice: "10" },
-          { prodImg: "assets/images/profProductsImage.png", prodName: "C", prodPrice: "1" }
-        ]} />
+        <CardCarrousel products={products} heading={"Newly added Duckies"} />
         <AboutSection />
         <Footer />
       </main>
