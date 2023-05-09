@@ -66,15 +66,19 @@ export default function Signup() {
       return;
     }
 
-    // if(firstName.trim().endsWith(' ')){
-    //   alert('First name cannot end with blank spaces')
-    //   return;
-    // }
+    if(firstName.trim().endsWith(' ')){
+      alert('First name cannot end with blank spaces')
+      return;
+    }
 
     // Check if password is at least 4 characters
     if (password.length < 6) {
       alert('Passwors must be at least 4 characters')
       return;
+    }
+
+    if (password.includes(' ')) {
+      alert('Password cannot contain blank spaces')
     }
 
     // Valid form date, which creates a customer object
