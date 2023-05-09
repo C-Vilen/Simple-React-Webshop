@@ -138,12 +138,17 @@ export default function BasketItemContainer({
 
   return (
     <Fragment>
+      
       <div className="row cart-box">
         <div className="col-xl-6 order-xs-10 mb-4">
           <h4 className="d-flex justify-content-between align-items-center mb-3">
             <span className="text-muted">{outputName}</span>
           </h4>
           <ul className="list-group mb-3">
+          <li className="list-group-item d-flex justify-content-between cart-title-header ">
+              <span>Product</span>
+              <span>Price</span>
+            </li>
             {Object.keys(productCount).map((productName) => {
               const product = products.find(
                 (p) => p.productName === productName
