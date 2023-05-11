@@ -48,14 +48,67 @@ export default function Signup() {
 
   const handleSignup = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
+
+    // Getting the form data
+    const formData = new FormData(e.currentTarget);
+    const firstName = formData.get('firstName') as string;
+    const lastName = formData.get('lastName') as string;
+    const password = formData.get('password') as string;
+    const email = formData.get('email') as string;
+
+    // Check if firstname is at 2-20 characters and not ending with " ":
+    if (firstName.length < 2) {
+      alert('Name must be at least 2 characters')
+      return;
+    }
+
+    if (firstName.length > 20) {
+      alert('First name cannot be more than 20 characters')
+      return;
+    }
+
+    if(firstName.endsWith(' ')){
+      alert('First name cannot end with blank spaces')
+      return;
+    }
+
+    // Check if lastName is not empty
+    if (lastName.trim().length === 0) {
+     alert('Last name is required');
+      return;
+    }
+
+    // Check if password is at least 4 characters
+    if (password.length < 4) {
+      alert('Passwors must be at least 4 characters')
+      return;
+    }
+
+    if (password.includes(' ')) {
+      alert('Password cannot contain blank spaces')
+    }
+
+    // Check if email is not empty
+    if (email.trim().length === 0) {
+    alert('Email is required');
+    return;
+  }
+
+    // Valid form date, which creates a customer object
+    const CustomerValues = {
+      firstname: formData.get('firstName') as string,
+      lastName: formData.get('lastName') as string,
+      email: formData.get('email') as string,
+      password: formData.get('password') as string,
+    };
+
     const customerJSON = JSON.stringify(CustomerValues);
     postCustomer(customerJSON);
-    setCustomerValues({
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-    }); // Reset form values after submission
+
+    // Reset form values after submission
+    e.currentTarget.reset();
+
+    // Navigate to the login page
     navigate("/Login");
   };
 
@@ -67,7 +120,7 @@ export default function Signup() {
             <form onSubmit={handleSignup}>
               <div>
                 <img
-                  src="./assets/images/logo/duck_logo_placeholder.svg"
+                  src="/assets/images/logo/duck_logo_placeholder.svg"
                   width="72px"
                 />
                 <h1>Become a member!</h1>{" "}

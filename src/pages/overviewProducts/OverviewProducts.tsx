@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment } from "react";
 import "../../styles/styles.css";
 import "../../styles/overviewProducts.css";
 import Footer from "../../components/StandardComponents/Footer";
@@ -27,7 +27,7 @@ export default function OverviewProducts() {
   //     fetch(`http://localhost:3000/categories/${category}`)
   //       .then((response) => response.json())
   //       .then((data) => setProducts(data));
-  //   }, []);
+  //   }, []);ˇ
   return (
     <Fragment>
         <ProdCardContainer heading="All Products" products={products} />

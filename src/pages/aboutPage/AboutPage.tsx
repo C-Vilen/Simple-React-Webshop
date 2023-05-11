@@ -12,8 +12,8 @@ export default function AboutDuck() {
 		<Fragment>
 			<main className="content">
 				<AboutPageSection />
+				<Footer />
 			</main>
-			<Footer />
 		</Fragment>
 	);
 }

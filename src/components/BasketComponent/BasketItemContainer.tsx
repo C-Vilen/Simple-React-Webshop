@@ -4,9 +4,11 @@ import "react-toastify/dist/ReactToastify.css";
 
 import BasketItem from "./BasketItem";
 
+
 // CSS
 import "./Basket.css";
 import { CustomerContext } from "../../App";
+import { Link } from "react-router-dom";
 
 interface BasketItemContainerProps {
   customerName: String;
