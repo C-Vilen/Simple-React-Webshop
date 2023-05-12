@@ -18,6 +18,10 @@ width: 150px;
     font-weight: bold;
 }
 
+.increase-no {
+    align-self: flex-end;
+}
+
 .product-item {
     margin-top: 30px;
     border-bottom: solid rgba(128, 128, 128, 0.55) 1px;
@@ -52,8 +56,18 @@ width: 150px;
     background-color: #F2BD2C;
 }
 
+.cart-title-buttom {
+    background-color: grey;
+}
+
 .title-cart {
     color: grey;
     margin-left: 20%;
     margin-top: 80px;
+}
+
+.thisisredundant {
+    position: absolute; 
+    bottom: 5%;
+    right: 2%;
 }
