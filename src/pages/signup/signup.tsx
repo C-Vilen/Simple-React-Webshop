@@ -67,25 +67,46 @@ export default function Signup() {
       return;
     }
 
+    if (firstName.includes( '1'||'2'||'3'||'4'||'5'||'6'||'7'||'8'||'9' )) {
+      alert('First name cannot contain numbers')
+      return;
+    }
+
     if(firstName.endsWith(' ')){
       alert('First name cannot end with blank spaces')
       return;
     }
 
     // Check if lastName is not empty
-    if (lastName.trim().length === 0) {
+    if (lastName.length === 0) {
      alert('Last name is required');
       return;
     }
 
+    if (lastName.includes( '1'||'2'||'3'||'4'||'5'||'6'||'7'||'8'||'9' )) {
+      alert('Last name cannot contain numbers')
+      return;
+    }
+
+    if (lastName.endsWith(' ')) {
+      alert('Surname cannot end with blank spaces')
+      return;
+    }
+    
     // Check if password is at least 4 characters
     if (password.length < 4) {
-      alert('Passwors must be at least 4 characters')
+      alert('Password must contain at least 4 digits')
+      return;
+    }
+
+    if (!password.includes('1'||'2'||'3'||'4'||'5'||'6'||'7'||'8'||'9' )){
+      alert('Password must contain at least 1 number')
       return;
     }
 
     if (password.includes(' ')) {
       alert('Password cannot contain blank spaces')
+      return;
     }
 
     // Check if email is not empty
