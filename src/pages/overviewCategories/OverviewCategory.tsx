@@ -12,9 +12,9 @@ export default function OverviewCategory() {
   return (
     <Fragment>
       <main className="content">
-          <CatCardContainer heading="All Categories" />
-        <Footer />
+        <CatCardContainer heading="All Categories" />
       </main>
+      <Footer />
     </Fragment>
   );
 }

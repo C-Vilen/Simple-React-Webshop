@@ -21,8 +21,8 @@ export default function Basket(props: BasketProps) {
           basketAmount={0}
           updateProductCount={updateProductCount}
         />
-        <Footer />
       </main>
+      <Footer />
     </Fragment>
   );
 }
