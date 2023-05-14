@@ -108,7 +108,7 @@ export default function BasketItemContainer({
         draggable: true,
       });
     } else {
-      toast.error("You have no products in your basket", {
+      toast.error("You have no products in the basket", {
         position: "bottom-right",
         autoClose: 3000,
         hideProgressBar: true,

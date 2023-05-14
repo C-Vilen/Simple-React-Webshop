@@ -21,7 +21,17 @@
     background-color: grey;
 
 }
+.product-card-img{
+    min-width: 200px;
+    min-height: 280px;
+    max-width: 350px;
+    max-height: 250px;
+    border-radius: 4px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 15px;
 
+}
 .product-img{
     width: 250px;
     border-radius: 4px;

@@ -49,7 +49,7 @@ export default function ProdCard({
   return (
     <Fragment>
       <div className="card" id={prodId}>
-        <img className="product-img" src={prodImg} alt="..." />
+        <img className="product-card-img" src={prodImg} alt="..." />
         <div className="card-body">
           <div className="text-center">
             <h5 className="fw-bolder" id="productName">
