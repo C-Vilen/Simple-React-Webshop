@@ -17,6 +17,11 @@ export default function OverviewProducts(props: any) {
   const { updateProductCount } = props;
   //   const category = useParams();
 
+  //Scrolls to the top of the page, on first render
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     fetch("http://localhost:3000/products")
       .then((response) => response.json())

@@ -14,6 +14,10 @@ import CatCardContainer from "../../components/OverviewCategoryComponent/CatCard
 export default function Home() {
   const [products, setProducts] = useState([]);
 
+  //Scrolls to the top of the page, on first render
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     fetch("http://localhost:3000/products/carrousel")
       .then((response) => response.json())

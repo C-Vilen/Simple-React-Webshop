@@ -71,7 +71,7 @@ export default function OneProductSection({
   }
   //decrement the amount of products you want to add to the basket
   function decrementCount() {
-    if (itemCount > 0) {
+    if (itemCount > 1) {
       setItemCount(itemCount - 1);
     }
   }

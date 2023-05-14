@@ -5,7 +5,7 @@ import "../../styles/styles.css";
 //Import components
 import ProdCardContainer from "../../components/ProdCardContainer";
 import Footer from "../../components/StandardComponents/Footer";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import SubCatCardContainer from "../../components/SubCategoryComponent/SubCatCardContainer";
 import { useLocation } from "react-router-dom";
 
@@ -16,6 +16,10 @@ export default function SubCategory(props: any) {
   const { state } = useLocation();
   const ocId = state.ocId;
   const overCatName = state.overCatName;
+  //Scrolls to the top of the page, on first render
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Fragment>

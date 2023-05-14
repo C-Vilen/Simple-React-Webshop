@@ -12,6 +12,11 @@ export default function SpecificProducts(props: any) {
   const subcId = state.subcId;
   const subCatName = state.subCatName;
 
+  //Scrolls to the top of the page, on first render
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     fetch(`http://localhost:3000/categories/overcategories/${ocId}/${subcId}`)
       .then((response) => response.json())
