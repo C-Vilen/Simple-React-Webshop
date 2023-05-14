@@ -4,7 +4,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 import BasketItem from "./BasketItem";
 
-
 // CSS
 import "./Basket.css";
 import { CustomerContext } from "../../App";
@@ -90,23 +89,34 @@ export default function BasketItemContainer({
   }
 
   async function buyAll() {
-    try {
-      // deletes the data for the Guest account
-      await fetch(`http://localhost:3000/baskets/${customer.customerId}`, {
-        method: "DELETE",
+    if (itemCount > 0) {
+      try {
+        // deletes the data for the Guest account
+        await fetch(`http://localhost:3000/baskets/${customer.customerId}`, {
+          method: "DELETE",
+        });
+      } catch (error) {
+        console.error("Error deleting basket data:", error);
+      }
+      getBasketCount();
+      toast.success("You just bought all your products in the basket", {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
       });
-    } catch (error) {
-      console.error("Error deleting basket data:", error);
+    } else {
+      toast.error("You have no products in your basket", {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+      });
     }
-    getBasketCount();
-    toast.success("You just bought all your products in the basket", {
-      position: "bottom-right",
-      autoClose: 3000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-    });
   }
 
   //fetches the products from API
@@ -140,14 +150,13 @@ export default function BasketItemContainer({
 
   return (
     <Fragment>
-      
       <div className="row cart-box">
         <div className="col-xl-6 order-xs-10 mb-4">
           <h4 className="d-flex justify-content-between align-items-center mb-3">
             <span className="text-muted">{outputName}</span>
           </h4>
           <ul className="list-group mb-3">
-          <li className="list-group-item d-flex justify-content-between cart-title-header ">
+            <li className="list-group-item d-flex justify-content-between cart-title-header ">
               <span>Product</span>
               <span>Price</span>
             </li>
@@ -172,7 +181,7 @@ export default function BasketItemContainer({
             })}
 
             {/* Inserting items of products in the below div */}
-            <div id="product-update-script" ></div>
+            <div id="product-update-script"></div>
             <li className="list-group-item d-flex justify-content-between">
               <span>Total</span>
               <strong id="totalAmount">{totalAmount} DKK</strong>
