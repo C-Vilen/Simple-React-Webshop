@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import React, { useState } from "react";
 import "./signup.css";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +20,11 @@ export default function Signup() {
   });
 
   const navigate = useNavigate();
+
+  //Scrolls to the top of the page, on first render
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const postCustomer = async (customer: string) => {
     try {

@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 
 // CSS import
 import "../../styles/index.css";
@@ -13,6 +13,11 @@ interface BasketProps {
 }
 export default function Basket(props: BasketProps) {
   const { updateProductCount } = props;
+  //Scrolls to the top of the page, on first render
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Fragment>
       <main className="content">

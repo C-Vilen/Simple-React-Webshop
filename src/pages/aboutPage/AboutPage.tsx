@@ -1,19 +1,23 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 
 // CSS import
-import '../../styles/styles.css';
+import "../../styles/styles.css";
 
 // Components
 import Footer from "../../components/StandardComponents/Footer";
 import AboutPageSection from "../../components/AboutPageSection";
 
 export default function AboutDuck() {
-	return (
-		<Fragment>
-			<main className="content">
-				<AboutPageSection />
-				<Footer />
-			</main>
-		</Fragment>
-	);
+  //Scrolls to the top of the page, on first render
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  return (
+    <Fragment>
+      <main className="content">
+        <AboutPageSection />
+        <Footer />
+      </main>
+    </Fragment>
+  );
 }
