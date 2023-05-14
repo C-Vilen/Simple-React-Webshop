@@ -15,7 +15,6 @@ import OverviewProducts from "./pages/overviewProducts/OverviewProducts";
 import OverviewCategory from "./pages/overviewCategories/OverviewCategory";
 import SubCategory from "./pages/overviewCategories/SubCategory";
 
-
 export interface Customer {
   customerId: number;
   firstName: string;
@@ -93,10 +92,23 @@ export default function App() {
               />
             }>
             <Route index element={<Home />} />
-            <Route path="All-Products" element={<OverviewProducts />} />
+            <Route
+              path="All-Products"
+              element={
+                <OverviewProducts updateProductCount={updateProductCount} />
+              }
+            />
             <Route path="Categories" element={<OverviewCategory />} />
-            <Route path="Categories/:overCategoryName" element={<SubCategory />} />
-            <Route path="Categories/:overCategoryName/:subCategoryName" element={<SpecificProducts />} />
+            <Route
+              path="Categories/:overCategoryName"
+              element={<SubCategory />}
+            />
+            <Route
+              path="Categories/:overCategoryName/:subCategoryName"
+              element={
+                <SpecificProducts updateProductCount={updateProductCount} />
+              }
+            />
             <Route path="Login" element={<Login />} />
             <Route
               path="Basket"

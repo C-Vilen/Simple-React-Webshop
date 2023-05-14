@@ -5,11 +5,13 @@ import ProdCard from "./ProdCard";
 interface ProdCardContainerProps {
   heading: string;
   products: ProductProperties[];
+  updateProductCount: (count: number) => void;
 }
 
 export default function ProdCardContainer({
   heading,
   products,
+  updateProductCount,
 }: ProdCardContainerProps) {
   return (
     <Fragment>
@@ -24,6 +26,7 @@ export default function ProdCardContainer({
                   prodName={product.productName}
                   prodPrice={product.productPrice + " DKK"}
                   prodId={product.productId}
+                  updateProductCount={updateProductCount}
                 />
               </div>
             ))}

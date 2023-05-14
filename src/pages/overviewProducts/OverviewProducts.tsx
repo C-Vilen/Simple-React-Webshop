@@ -12,8 +12,9 @@ export interface ProductProperties {
   productDescription: string;
 }
 
-export default function OverviewProducts() {
+export default function OverviewProducts(props: any) {
   const [products, setProducts] = useState<ProductProperties[]>([]);
+  const { updateProductCount } = props;
   //   const category = useParams();
 
   useEffect(() => {
@@ -30,8 +31,12 @@ export default function OverviewProducts() {
   //   }, []);ˇ
   return (
     <Fragment>
-        <ProdCardContainer heading="All Products" products={products} />
-        <Footer />
+      <ProdCardContainer
+        heading="All Products"
+        products={products}
+        updateProductCount={updateProductCount}
+      />
+      <Footer />
     </Fragment>
   );
 }

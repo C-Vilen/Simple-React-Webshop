@@ -9,9 +9,9 @@ import { Fragment } from "react";
 import SubCatCardContainer from "../../components/SubCategoryComponent/SubCatCardContainer";
 import { useLocation } from "react-router-dom";
 
-
 //export function
-export default function SubCategory() {
+export default function SubCategory(props: any) {
+  const { updateProductCount } = props;
   // Getting overCategoryName and its ID from the overviewCategory page
   const { state } = useLocation();
   const ocId = state.ocId;
@@ -21,8 +21,12 @@ export default function SubCategory() {
     <Fragment>
       <main className="content">
         <SubCatCardContainer heading={overCatName} ocId={ocId} />
-        <ProdCardContainer heading="" products={[]} />        
-      <Footer />
+        <ProdCardContainer
+          heading=""
+          products={[]}
+          updateProductCount={updateProductCount}
+        />
+        <Footer />
       </main>
     </Fragment>
   );

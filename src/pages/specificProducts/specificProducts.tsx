@@ -4,25 +4,30 @@ import Footer from "../../components/StandardComponents/Footer";
 import ProdCardContainer from "../../components/ProdCardContainer";
 import { useLocation } from "react-router-dom";
 
-export default function SpecificProducts() {
-    const [specificProducts, setSpecificProducts] = useState([]);
-    const { state } = useLocation();
-    const ocId = state.ocId;
-    const subcId = state.subcId;
-    const subCatName = state.subCatName;
+export default function SpecificProducts(props: any) {
+  const { updateProductCount } = props;
+  const [specificProducts, setSpecificProducts] = useState([]);
+  const { state } = useLocation();
+  const ocId = state.ocId;
+  const subcId = state.subcId;
+  const subCatName = state.subCatName;
 
-    useEffect(() => {
-        fetch(`http://localhost:3000/categories/overcategories/${ocId}/${subcId}`)
-            .then((response) => response.json())
-            .then((data) => setSpecificProducts(data));
-    }, []);
+  useEffect(() => {
+    fetch(`http://localhost:3000/categories/overcategories/${ocId}/${subcId}`)
+      .then((response) => response.json())
+      .then((data) => setSpecificProducts(data));
+  }, []);
 
-    return (
-        <Fragment>
-            <main className="content">
-                <ProdCardContainer heading={subCatName + " products"} products={specificProducts} />
-                <Footer />
-            </main>
-        </Fragment>
-    );
+  return (
+    <Fragment>
+      <main className="content">
+        <ProdCardContainer
+          heading={subCatName + " products"}
+          products={specificProducts}
+          updateProductCount={updateProductCount}
+        />
+        <Footer />
+      </main>
+    </Fragment>
+  );
 }
