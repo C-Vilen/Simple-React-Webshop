@@ -7,7 +7,6 @@ import BasketItem from "./BasketItem";
 // CSS
 import "./Basket.css";
 import { CustomerContext } from "../../App";
-import { Link } from "react-router-dom";
 
 interface BasketItemContainerProps {
   customerName: String;
@@ -140,10 +139,10 @@ export default function BasketItemContainer({
 
   // Count the number of each product in the basket
   const productCount = products.reduce((acc: any, product: Product) => {
-    if (acc[product.productName]) {
-      acc[product.productName]++;
+    if (acc[product.productId]) {
+      acc[product.productId]++;
     } else {
-      acc[product.productName] = 1;
+      acc[product.productId] = 1;
     }
     return acc;
   }, {});
@@ -160,15 +159,19 @@ export default function BasketItemContainer({
               <span>Product</span>
               <span>Price</span>
             </li>
-            {Object.keys(productCount).map((productName) => {
+            {Object.keys(productCount).map((productId) => {
               const product = products.find(
-                (p) => p.productName === productName
+                (p) => p.productId === parseInt(productId)
               );
+              const productsWithSameId = products.filter(
+                (p) => p.productId === parseInt(productId)
+              );
+              const count = productsWithSameId.length;
               return product ? (
                 <BasketItem
-                  key={productName}
-                  prodName={productName}
-                  prodAmount={productCount[productName]}
+                  key={productId}
+                  prodName={product.productName}
+                  prodAmount={count}
                   prodPrice={product.productPrice}
                   prodImg={`./assets/images${product.imgSrc}`}
                   prodId={product.productId}
