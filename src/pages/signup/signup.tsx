@@ -212,7 +212,6 @@ export default function Signup() {
             </form>
           </section>
         </section>
-        <Footer />
       </main>
       <Footer />
     </Fragment>

@@ -22,6 +22,11 @@ export default function OneProduct(props: any) {
   const { prodId: routeProdId } = useParams();
   const { updateProductCount } = props;
 
+  //Scrolls to the top of the page, on first render
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     fetch(`http://localhost:3000/products/${routeProdId}`)
       .then((response) => response.json())

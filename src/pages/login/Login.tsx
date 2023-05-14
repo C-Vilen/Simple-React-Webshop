@@ -8,12 +8,12 @@ import LoginForm from "../../components/LoginComponent/LoginForm";
 import Footer from "../../components/StandardComponents/Footer";
 
 export default function Login() {
-    return (
-        <Fragment>
-            <main className="content">
-                <LoginForm />
-                <Footer />
-            </main>
-        </Fragment>
-    );
+  return (
+    <Fragment>
+      <main className="content">
+        <LoginForm />
+      </main>
+      <Footer />
+    </Fragment>
+  );
 }
