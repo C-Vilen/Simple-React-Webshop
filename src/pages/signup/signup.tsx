@@ -51,76 +51,88 @@ export default function Signup() {
 
     // Getting the form data
     const formData = new FormData(e.currentTarget);
-    const firstName = formData.get('firstName') as string;
-    const lastName = formData.get('lastName') as string;
-    const password = formData.get('password') as string;
-    const email = formData.get('email') as string;
+    const firstName = formData.get("firstName") as string;
+    const lastName = formData.get("lastName") as string;
+    const password = formData.get("password") as string;
+    const email = formData.get("email") as string;
 
     // Check if firstname is at 2-20 characters and not ending with " ":
     if (firstName.length < 2) {
-      alert('Name must be at least 2 characters')
+      alert("Name must be at least 2 characters");
       return;
     }
 
     if (firstName.length > 20) {
-      alert('First name cannot be more than 20 characters')
+      alert("First name cannot be more than 20 characters");
       return;
     }
 
-    if (firstName.includes( '1'||'2'||'3'||'4'||'5'||'6'||'7'||'8'||'9' )) {
-      alert('First name cannot contain numbers')
+    if (
+      firstName.includes(
+        "1" || "2" || "3" || "4" || "5" || "6" || "7" || "8" || "9"
+      )
+    ) {
+      alert("First name cannot contain numbers");
       return;
     }
 
-    if(firstName.endsWith(' ')){
-      alert('First name cannot end with blank spaces')
+    if (firstName.endsWith(" ")) {
+      alert("First name cannot end with blank spaces");
       return;
     }
 
     // Check if lastName is not empty
     if (lastName.length === 0) {
-     alert('Last name is required');
+      alert("Last name is required");
       return;
     }
 
-    if (lastName.includes( '1'||'2'||'3'||'4'||'5'||'6'||'7'||'8'||'9' )) {
-      alert('Last name cannot contain numbers')
+    if (
+      lastName.includes(
+        "1" || "2" || "3" || "4" || "5" || "6" || "7" || "8" || "9"
+      )
+    ) {
+      alert("Last name cannot contain numbers");
       return;
     }
 
-    if (lastName.endsWith(' ')) {
-      alert('Surname cannot end with blank spaces')
+    if (lastName.endsWith(" ")) {
+      alert("Surname cannot end with blank spaces");
       return;
     }
-    
+
     // Check if password is at least 4 characters
     if (password.length < 4) {
-      alert('Password must contain at least 4 digits')
+      alert("Password must contain at least 4 digits");
       return;
     }
 
-    if (!password.includes('1'||'2'||'3'||'4'||'5'||'6'||'7'||'8'||'9' )){
-      alert('Password must contain at least 1 number')
+    if (
+      !password.includes(
+        "1" || "2" || "3" || "4" || "5" || "6" || "7" || "8" || "9"
+      )
+    ) {
+      alert("Password must contain at least 1 number");
       return;
     }
 
-    if (password.includes(' ')) {
-      alert('Password cannot contain blank spaces')
+    if (password.includes(" ")) {
+      alert("Password cannot contain blank spaces");
       return;
     }
 
     // Check if email is not empty
     if (email.trim().length === 0) {
-    alert('Email is required');
-    return;
-  }
+      alert("Email is required");
+      return;
+    }
 
     // Valid form date, which creates a customer object
     const CustomerValues = {
-      firstname: formData.get('firstName') as string,
-      lastName: formData.get('lastName') as string,
-      email: formData.get('email') as string,
-      password: formData.get('password') as string,
+      firstName: formData.get("firstName") as string,
+      lastName: formData.get("lastName") as string,
+      email: formData.get("email") as string,
+      password: formData.get("password") as string,
     };
 
     const customerJSON = JSON.stringify(CustomerValues);
