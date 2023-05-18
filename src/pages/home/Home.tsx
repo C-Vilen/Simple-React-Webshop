@@ -8,7 +8,7 @@ import "../../styles/styles.css";
 import AboutSection from "../../components/AboutSection";
 import Footer from "../../components/StandardComponents/Footer";
 import CardCarrousel from "../../components/CardCarrousel";
-import Header from "../../components/Header";
+import HeaderImage from "../../components/HeaderImage";
 import CatCardContainer from "../../components/OverviewCategoryComponent/CatCardContainer";
 
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <Fragment>
       <main className="content">
-        <Header />
+        <HeaderImage />
         <CatCardContainer heading="All Categories" />
         <CardCarrousel products={products} heading={"Newly added Duckies"} />
         <AboutSection />

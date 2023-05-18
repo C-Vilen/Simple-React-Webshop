@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-export default function Header() {
+export default function HeaderImage() {
     return (
         <Fragment>
             <header>
