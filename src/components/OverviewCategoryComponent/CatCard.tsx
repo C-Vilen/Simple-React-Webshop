@@ -26,7 +26,7 @@ export default function CatCard({ catName, ocId, catImg, priceRange }: CatCardPr
             <div className="col">
                 <div className="card">
                     {/* Product image */}
-                    <img className="product-img" src={catImg} alt="..." />
+                    <img className="product-img" src={catImg} alt={catName + " image"} />
                     {/* Product details */}
                     <div className="card-body">
                         <div className="text-center">

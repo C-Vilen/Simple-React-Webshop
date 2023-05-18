@@ -52,7 +52,7 @@ export default function LoginForm() {
           <form action="" onSubmit={handleFormSubmit}>
             <img
               src="assets/images/form-duck.svg"
-              alt=""
+              alt="Form duck logo"
               width="72px"
             />
             <h1>Welcome, login here!</h1>

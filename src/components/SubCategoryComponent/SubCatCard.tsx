@@ -29,7 +29,7 @@ export default function SubCatCard({ overCatName, subCatName, ocId, subcId, catI
             <div className="col">
                 <div className="card">
                     {/* Product image */}
-                    <img className="product-img" src={catImg} alt="..." />
+                    <img className="product-img" src={catImg} alt="Category image" />
                     {/* Product details */}
                     <div className="card-body">
                         <div className="text-center">

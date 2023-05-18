@@ -160,6 +160,7 @@ export default function Signup() {
                 <img
                   src="assets/images/form-duck.svg"
                   width="72px"
+                  alt="404 sad duck"
                 />
                 <h1>Become a member!</h1>{" "}
               </div>

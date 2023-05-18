@@ -100,7 +100,7 @@ export default function OneProductSection({
                   className="product-img product-image"
                   id="product-Img"
                   src={"../assets/images/" + prodImg}
-                  alt="..."
+                  alt={prodName + " image"}
                 />
               </div>
             </div>

@@ -20,7 +20,7 @@ export default function CarouselProductCard({
                 //because lolz
                 style={{ backgroundImage: "linear-gradient(#fff,#F2BD2C, #fff)" }}
                 id={prodId}>
-                <img className="product-img" src={prodImg} alt="..." />
+                <img className="product-img" src={prodImg} alt={prodName + " image"} />
                 <div className="card-body">
                     <div className="text-center">
                         <h5 className="fw-bolder" id="productName">{prodName}</h5>

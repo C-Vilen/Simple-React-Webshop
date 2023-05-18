@@ -129,10 +129,12 @@ margin-top: auto;
 }
 .logo-img{
     width: 35px;
+    height: auto;
 }
 
 .basket-img{
     width: 40px;
+    height: auto;
 }
 
 .YellowButton{

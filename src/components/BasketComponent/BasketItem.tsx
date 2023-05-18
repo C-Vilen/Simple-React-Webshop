@@ -32,7 +32,7 @@ export default function BasketItem({
               <div>
               <strong>{prodName}</strong>
               </div>
-              <img src={prodImg} className="product-img-basket" />
+              <img src={prodImg} className="product-img-basket" alt={prodName + " image"}/>
             </div>
             <div className="col-md-6 col-lg-6 increase-no">
               <div className="container text-center">
