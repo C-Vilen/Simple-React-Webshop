@@ -1,15 +1,16 @@
 import { Fragment } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 
 export default function AboutFunction() {
     return (
         <Fragment>
-            <section className="about-section">
-			<h1>About Ductastic</h1>
-                <div className="row row-cols-1 row-cols-md-1 row-cols-lg-2">
-                    <div className="col">
-                        <img className="about-img" src="assets/images/GiantRubberDuck.webp" width={558} height={518} alt="Giant rubber duck"></img>
-                    </div>
-                    <div className="col">
+			<Container className="about-section">
+				<Row>
+					<Col><h1>About Ductastic</h1></Col>
+				</Row>
+				<Row>
+					<Col md={12} lg={6}><img className="about-img" src="assets/images/GiantRubberDuck.webp" width={558} height={518} alt="Giant rubber duck"></img></Col>
+					<Col>
 					<h6 style={{ fontSize: '30px' }}>Hi there duck lover!</h6>
 					<p>Welcome to Ducktastic, the most ducking awesome online store for rubber ducks 
 							and rubber duck related artefacts. We are John and Jane, a pair of duck fanatics who started this business 
@@ -39,9 +40,9 @@ export default function AboutFunction() {
 							We only know about ducks.
 						</p>
                         <a style={{color: "#ED5A00" }} href="https://en.wikipedia.org/wiki/Rubber_duck">Read more about rubber ducks</a>
-                    </div>
-                </div>
-            </section>
+					</Col>
+				</Row>
+			</Container>
         </Fragment>
     )
 }

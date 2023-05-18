@@ -16,8 +16,8 @@ export default function Login() {
     <Fragment>
       <main className="content">
         <LoginForm />
+        <Footer />
       </main>
-      <Footer />
     </Fragment>
   );
 }

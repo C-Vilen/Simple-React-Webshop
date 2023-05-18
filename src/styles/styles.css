@@ -64,25 +64,14 @@ a:hover {
 }
 
 /* View to 100 */
-
-html, body {
-    height: 100%;
-    margin: 0;
-  }
-  #root {
+.content {
+    min-height: calc(100vh - 50px);
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-  }
-  
-
-.content {
-    min-height: 100vh;
-
+    margin: 0;
 }
 
 /* Navigation bar*/
-
 .navbar-brand {
     font-family: 'Mynerve', cursive;
     font-style: oblique;
@@ -119,8 +108,8 @@ html, body {
 
 .footer {
     background-color: #E8EDDF;
-margin-top: auto;
-    height: 50px; /* set the height of your footer */
+    height: 50px;
+    margin-top: auto;
   }
 
 .log-in-basket{
