@@ -19,7 +19,7 @@ export default function CardCarousel({
             <h2 className="category-heading text-center">{heading}</h2>
             <Carousel variant="dark">
                 {products.map((product: any) => (
-                    <Carousel.Item>
+                    <Carousel.Item key={product.productId}>
                         <CarouselProductCard
                         prodImg={"./assets/images/" + product.imgSrc}
                         prodName={product.productName}
