@@ -51,7 +51,7 @@ export default function LoginForm() {
         <section className="login-section">
           <form action="" onSubmit={handleFormSubmit}>
             <img
-              src="../assets/images/logo/duck_logo_placeholder.svg"
+              src="assets/images/form-duck.svg"
               alt=""
               width="72px"
             />

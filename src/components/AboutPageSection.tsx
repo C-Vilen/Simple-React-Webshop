@@ -7,7 +7,7 @@ export default function AboutFunction() {
 			<h1>About Ductastic</h1>
                 <div className="row row-cols-1 row-cols-md-1 row-cols-lg-2">
                     <div className="col">
-                        <img className="about-img" src="assets/images/GiantRubberDuck.jpeg" alt=""></img>
+                        <img className="about-img" src="assets/images/GiantRubberDuck.webp" alt=""></img>
                     </div>
                     <div className="col">
 					<h6 style={{ fontSize: '30px' }}>Hi there duck lover!</h6>

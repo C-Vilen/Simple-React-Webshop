@@ -7,7 +7,7 @@ export default function AboutFunction() {
             <h3 className='text-center'>About rubber ducks?</h3>
                 <div className="row row-cols-1 row-cols-md-1 row-cols-lg-2">
                     <div className="col">
-                        <img className="about-img" src="assets/images/AboutRubberDuck.png" alt=""></img>
+                        <img className="about-img" src="assets/images/AboutRubberDuck.webp" alt=""></img>
                     </div>
                     <div className="col">
                         <p><span>Rubber ducks</span> are an iconic bath toy that has brought joy to

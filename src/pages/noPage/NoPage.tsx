@@ -13,7 +13,7 @@ export default function NoPage() {
                 <section className="noPage">
                     <h1>404: This URL doesn't exist.</h1>
                     <h4>Please try another URL.</h4>
-                    <img className='sadDuck' src="/assets/images/sad-duck.jpeg" alt=""></img>
+                    <img className='sadDuck' src="assets/images/sad-duck.webp" alt=""></img>
                 </section>
                 <Footer />
             </main>

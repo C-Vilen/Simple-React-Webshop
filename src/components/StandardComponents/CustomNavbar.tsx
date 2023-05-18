@@ -77,7 +77,7 @@ export default function CustomNavbar(props: any) {
         className="px-4 px-lg-5">
         <Container>
           <Navbar.Brand as={Link} to="/">
-            <img className="logo-img" src="/assets/images/Badeanden_logo-01.png" alt="" />
+            <img className="logo-img" src="assets/images/Badeanden_logo-01.webp" alt="" />
           </Navbar.Brand>
           <Navbar.Brand as={Link} to="/">
             Ducktastic

@@ -5,7 +5,7 @@ export default function Header() {
         <Fragment>
             <header>
                 <div className="header">
-                    <img className="header-img" src="assets/images/RB_coverImage.jpeg"></img>
+                    <img className="header-img" src="assets/images/RB_coverImage.webp"></img>
                 </div>
             </header>
         </Fragment>
