@@ -13,6 +13,7 @@ export default function ProdCardContainer({
   products,
   updateProductCount,
 }: ProdCardContainerProps) {
+
   return (
     <Fragment>
       <section className="py-5">

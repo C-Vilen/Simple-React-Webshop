@@ -3,6 +3,7 @@ import "../../styles/styles.css";
 import "../../styles/overviewProducts.css";
 import Footer from "../../components/StandardComponents/Footer";
 import ProdCardContainer from "../../components/ProdCardContainer";
+import FilterButtons from "../../components/FilterComponent/FilterButtons";
 
 export interface ProductProperties {
   imgSrc: string;
@@ -15,7 +16,6 @@ export interface ProductProperties {
 export default function OverviewProducts(props: any) {
   const [products, setProducts] = useState<ProductProperties[]>([]);
   const { updateProductCount } = props;
-  //   const category = useParams();
 
   //Scrolls to the top of the page, on first render
   useEffect(() => {
@@ -28,14 +28,9 @@ export default function OverviewProducts(props: any) {
       .then((data) => setProducts(data));
   }, []);
 
-  //category call dependent on params
-  //   useEffect(() => {
-  //     fetch(`http://localhost:3000/categories/${category}`)
-  //       .then((response) => response.json())
-  //       .then((data) => setProducts(data));
-  //   }, []);ˇ
   return (
     <Fragment>
+      <FilterButtons />
       <ProdCardContainer
         heading="All Products"
         products={products}
