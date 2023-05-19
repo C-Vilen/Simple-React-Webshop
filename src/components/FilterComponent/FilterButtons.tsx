@@ -24,8 +24,8 @@ export default function ProdCardContainer() {
       <div className={`container px-4 px-lg-5${isCollapsed ? ' collapsed' : ''}`}>
         <Container>
             <Row className="mt-2 justify-content-start gap-2 mx-auto">
-                <Col xs={5} sm={3}  md={2}><h4>Filter:</h4></Col>
-                <Col xs={5} sm={5}  md={true} className="align-self-center"><Button className="btn" variant="secondary" onClick={toggleCollapse}>Show/Hidden ↕</Button></Col>
+                <Col xs={6} sm={5}  md={3} xl={2}><h5>Categories:</h5></Col>
+                <Col xs={6} sm={5}  md={true} className="align-self-center"><Button className="btn" variant="secondary" onClick={toggleCollapse}>Show/Hidden ↕</Button></Col>
             </Row>
         </Container>
         {!isCollapsed && (
