@@ -16,7 +16,7 @@ export default function LoginForm() {
   if (!context) {
     throw new Error("customer context is undefined");
   }
-  const { customer, updateCustomer } = context;
+  const { updateCustomer } = context;
   useEffect(() => {
     async function fetchCustomers() {
       const response = await fetch("http://localhost:3000/customers", {
@@ -37,7 +37,6 @@ export default function LoginForm() {
 
     if (customerExists !== undefined) {
       updateCustomer(customerExists);
-      // updateCustomer(customerExists);
       setUserEmail("");
       setPassword("");
       navigate("/");

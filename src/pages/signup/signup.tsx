@@ -38,11 +38,11 @@ export default function Signup() {
       });
 
       if (!response.ok) {
+        alert("You have not been signed up. Please try again later");
         throw new Error("Failed to post customer data");
       }
     } catch (error) {
-      alert("You have not been signed up. Please try again later");
-      throw new Error("Could not connect to ServerAPI " + error);
+      throw new Error("error: " + error);
     }
   };
 
@@ -148,6 +148,8 @@ export default function Signup() {
 
     // Navigate to the login page
     navigate("/Login");
+    //reload page, to be able to login directly
+    window.location.reload();
   };
 
   return (
