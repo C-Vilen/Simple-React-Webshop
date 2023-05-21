@@ -83,41 +83,15 @@ export default function App() {
     <BrowserRouter>
       <CustomerContext.Provider value={{ customer, updateCustomer }}>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Navbar
-                productCount={productCount}
-                updateProductCount={updateProductCount}
-              />
-            }>
+          <Route path="/" element={<Navbar productCount={productCount} updateProductCount={updateProductCount}/>}>
             <Route index element={<Home />} />
-            <Route
-              path="All-Products"
-              element={
-                <OverviewProducts updateProductCount={updateProductCount} />
-              }
-            />
+            <Route path="All-Products" element={<OverviewProducts updateProductCount={updateProductCount} />}/>
             <Route path="Categories" element={<OverviewCategory />} />
-            <Route
-              path="Categories/:overCategoryName"
-              element={<SubCategory />}
-            />
-            <Route
-              path="Categories/:overCategoryName/:subCategoryName"
-              element={
-                <SpecificProducts updateProductCount={updateProductCount} />
-              }
-            />
+            <Route path="Categories/:overCategoryName" element={<SubCategory />}/>
+            <Route path="Categories/:overCategoryName/:subCategoryName" element={<SpecificProducts updateProductCount={updateProductCount} />}/>
             <Route path="Login" element={<Login />} />
-            <Route
-              path="Basket"
-              element={<Basket updateProductCount={updateProductCount} />}
-            />
-            <Route
-              path="Product/:prodId"
-              element={<OneProduct updateProductCount={updateProductCount} />}
-            />
+            <Route path="Basket" element={<Basket updateProductCount={updateProductCount} />}/>
+            <Route path="Product/:prodId" element={<OneProduct updateProductCount={updateProductCount} />}/>
             <Route path="*" element={<NoPage />} />
             <Route path="signup" element={<Signup />} />
             <Route path="About" element={<AboutPage />} />
