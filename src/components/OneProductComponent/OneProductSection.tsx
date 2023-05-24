@@ -120,7 +120,7 @@ export default function OneProductSection({
                     </span>
                   </h3>
                 </div>
-                <div className="col-md-6 col-lg-6 align-self-center">
+                <div className="col-md-10 col-lg-8">
                   <div className="container text-center">
                     <div className="row justify-content-between align-items-center">
                       <button
@@ -139,10 +139,10 @@ export default function OneProductSection({
                     </div>
                   </div>
                 </div>
-                <div className="col col-12 align-self-end">
+                <div className="col-md-10 col-lg-8 OneBuyButton">
                   <button
                     id="AddProduct"
-                    className="BlackButton btn mt-auto"
+                    className="BlackButton btn"
                     type="submit"
                     onClick={buyProduct}>
                     <i className="bi-cart-fill me-1"></i> Buy duck

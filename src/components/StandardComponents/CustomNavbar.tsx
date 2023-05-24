@@ -134,7 +134,7 @@ export default function CustomNavbar(props: any) {
             </Nav>
             {/* Dynamic login/logout link call to the function */}
             <Nav.Link className="customnavbar-name" disabled>
-              {customer?.firstName}
+              {"Hi, " + customer?.firstName}
             </Nav.Link>
             {showName()}
             <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/Basket">

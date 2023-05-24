@@ -21,7 +21,9 @@ export default function SpecificProducts(props: any) {
     fetch(`http://localhost:3000/categories/overcategories/${ocId}/${subcId}`)
       .then((response) => response.json())
       .then((data) => setSpecificProducts(data));
-  }, [specificProducts]);
+  }, 
+  // "specificProducts" is getting the missing dependencies: 'ocId' and 'subcId' from the dropdown navigation
+  [specificProducts]);
 
   return (
     <Fragment>

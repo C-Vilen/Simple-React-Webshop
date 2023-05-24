@@ -34,3 +34,9 @@ a:hover {
 .second-box {
     display: flex;
 }
+
+.OneBuyButton {
+    text-align: center;
+    margin-top: 5px;
+    align-self: center;
+}
