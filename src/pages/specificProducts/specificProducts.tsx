@@ -21,7 +21,7 @@ export default function SpecificProducts(props: any) {
     fetch(`http://localhost:3000/categories/overcategories/${ocId}/${subcId}`)
       .then((response) => response.json())
       .then((data) => setSpecificProducts(data));
-  }, []);
+  }, [specificProducts]);
 
   return (
     <Fragment>

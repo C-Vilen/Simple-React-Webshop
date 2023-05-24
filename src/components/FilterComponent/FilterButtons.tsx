@@ -7,12 +7,14 @@ export default function ProdCardContainer() {
   const navigate = useNavigate();
   const [isCollapsed, setIsCollapsed] = useState(true);
 
+  // Sends route, ID and catName to subCategory page
   function navigateSpecificProductPage(
     overCatName: string,
     subCatName: string,
     ocId: number,
     subcId: number
   ) {
+    // Removes the space from the overCategory name:
     const formattedOverCatName = overCatName.replace(/ /g, "-");
     const formattedSubCatName = subCatName.replace(/ /g, "-");
     navigate(`/Categories/${formattedOverCatName}/${formattedSubCatName}`, {
@@ -46,111 +48,15 @@ export default function ProdCardContainer() {
         {!isCollapsed && (
           <Container>
             <Row className="FilterButton justify-content-evenly gap-2 mx-auto">
-              <Col xs={5} sm={3} xxl={true}>
-                <Button
-                  className="btn btn-lg"
-                  variant="warning"
-                  onClick={() =>
-                    navigateSpecificProductPage(
-                      "Rubber-Ducks",
-                      "Carnival",
-                      1,
-                      1
-                    )
-                  }>
-                  Carnival
-                </Button>
-              </Col>
-              <Col xs={5} sm={3} xxl={true}>
-                <Button
-                  className="btn btn-lg"
-                  variant="warning"
-                  onClick={() =>
-                    navigateSpecificProductPage(
-                      "Rubber-Ducks",
-                      "Professions",
-                      1,
-                      2
-                    )
-                  }>
-                  Professions
-                </Button>
-              </Col>
-              <Col xs={5} sm={3} xxl={true}>
-                <Button
-                  className="btn btn-lg"
-                  variant="warning"
-                  onClick={() =>
-                    navigateSpecificProductPage(
-                      "Rubber-Ducks",
-                      "Alternative",
-                      1,
-                      3
-                    )
-                  }>
-                  Alternative
-                </Button>
-              </Col>
-              <Col xs={5} sm={3} xxl={true}>
-                <Button
-                  className="btn btn-lg"
-                  variant="warning"
-                  onClick={() =>
-                    navigateSpecificProductPage("Accessories", "Bags", 2, 4)
-                  }>
-                  Bags
-                </Button>
-              </Col>
-              <Col xs={5} sm={3} xxl={true}>
-                <Button
-                  className="btn btn-lg"
-                  variant="warning"
-                  onClick={() =>
-                    navigateSpecificProductPage("Accessories", "Jewlery", 2, 5)
-                  }>
-                  Jewlery
-                </Button>
-              </Col>
-              <Col xs={5} sm={3} xxl={true}>
-                <Button
-                  className="btn btn-lg"
-                  variant="warning"
-                  onClick={() =>
-                    navigateSpecificProductPage("Accessories", "Keyrings", 2, 6)
-                  }>
-                  Keyrings
-                </Button>
-              </Col>
-              <Col xs={5} sm={3} xxl={true}>
-                <Button
-                  className="btn btn-lg"
-                  variant="warning"
-                  onClick={() =>
-                    navigateSpecificProductPage("Clothes", "Hats", 3, 7)
-                  }>
-                  Hats
-                </Button>
-              </Col>
-              <Col xs={5} sm={3} xxl={true}>
-                <Button
-                  className="btn btn-lg"
-                  variant="warning"
-                  onClick={() =>
-                    navigateSpecificProductPage("Clothes", "Socks", 3, 8)
-                  }>
-                  Socks
-                </Button>
-              </Col>
-              <Col xs={5} sm={3} xxl={true}>
-                <Button
-                  className="btn btn-lg"
-                  variant="warning"
-                  onClick={() =>
-                    navigateSpecificProductPage("Clothes", "Ties", 3, 9)
-                  }>
-                  Ties
-                </Button>
-              </Col>
+              <Col xs={5} sm={3} xxl={true}><Button className="btn btn-lg" variant="warning" onClick={() =>navigateSpecificProductPage("Rubber-Ducks","Carnival",1,1)}>Carnival</Button></Col>
+              <Col xs={5} sm={3} xxl={true}><Button className="btn btn-lg" variant="warning" onClick={() =>navigateSpecificProductPage("Rubber-Ducks","Professions",1,2)}>Professions</Button></Col>
+              <Col xs={5} sm={3} xxl={true}><Button className="btn btn-lg" variant="warning" onClick={() =>navigateSpecificProductPage("Rubber-Ducks","Alternative",1,3)}>Alternative</Button></Col>
+              <Col xs={5} sm={3} xxl={true}><Button className="btn btn-lg" variant="warning" onClick={() =>navigateSpecificProductPage("Accessories", "Bags", 2, 4)}>Bags</Button></Col>
+              <Col xs={5} sm={3} xxl={true}><Button className="btn btn-lg" variant="warning" onClick={() =>navigateSpecificProductPage("Accessories", "Jewlery", 2, 5)}>Jewlery</Button></Col>
+              <Col xs={5} sm={3} xxl={true}><Button className="btn btn-lg" variant="warning" onClick={() =>navigateSpecificProductPage("Accessories", "Keyrings", 2, 6)}>Keyrings</Button></Col>
+              <Col xs={5} sm={3} xxl={true}><Button className="btn btn-lg" variant="warning" onClick={() =>navigateSpecificProductPage("Clothes", "Hats", 3, 7)}>Hats</Button></Col>
+              <Col xs={5} sm={3} xxl={true}><Button className="btn btn-lg" variant="warning" onClick={() =>navigateSpecificProductPage("Clothes", "Socks", 3, 8)}>Socks</Button></Col>
+              <Col xs={5} sm={3} xxl={true}><Button className="btn btn-lg" variant="warning" onClick={() =>navigateSpecificProductPage("Clothes", "Ties", 3, 9)}>Ties</Button></Col>
             </Row>
           </Container>
         )}
