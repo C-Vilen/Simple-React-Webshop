@@ -72,11 +72,7 @@ export default function Signup() {
       return;
     }
 
-    if (
-      firstName.includes(
-        "1" || "2" || "3" || "4" || "5" || "6" || "7" || "8" || "9"
-      )
-    ) {
+    if (firstName.includes("1" || "2" || "3" || "4" || "5" || "6" || "7" || "8" || "9")) {
       alert("First name cannot contain numbers");
       return;
     }
@@ -92,11 +88,7 @@ export default function Signup() {
       return;
     }
 
-    if (
-      lastName.includes(
-        "1" || "2" || "3" || "4" || "5" || "6" || "7" || "8" || "9"
-      )
-    ) {
+    if (lastName.includes("1" || "2" || "3" || "4" || "5" || "6" || "7" || "8" || "9")) {
       alert("Last name cannot contain numbers");
       return;
     }
@@ -112,11 +104,7 @@ export default function Signup() {
       return;
     }
 
-    if (
-      !password.includes(
-        "1" || "2" || "3" || "4" || "5" || "6" || "7" || "8" || "9"
-      )
-    ) {
+    if (!password.includes("1" || "2" || "3" || "4" || "5" || "6" || "7" || "8" || "9")) {
       alert("Password must contain at least 1 number");
       return;
     }
@@ -129,6 +117,11 @@ export default function Signup() {
     // Check if email is not empty
     if (email.trim().length === 0) {
       alert("Email is required");
+      return;
+    }
+
+    if (!email.includes("@" && (".dk" || ".com"))) {
+      alert("Please enter valid mail addresse");
       return;
     }
 

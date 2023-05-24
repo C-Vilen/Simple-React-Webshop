@@ -18,7 +18,6 @@ interface ProductInterface {
 
 export default function OneProduct(props: any) {
   const [product, setProducts] = useState<ProductInterface | null>(null);
-  //   const category = useParams();
   const { prodId: routeProdId } = useParams();
   const { updateProductCount } = props;
 
@@ -43,7 +42,6 @@ export default function OneProduct(props: any) {
             prodPrice={product.productPrice.toString()}
             prodDescription={product.productDescription}
             updateProductCount={updateProductCount}
-            // heading= "All Products"
           />
         )}
         <Footer />

@@ -1,7 +1,6 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Customer, CustomerContext } from "../../App";
-// import { Customer, CustomerContext } from "../../CustomerContext";
 
 // CSS imports
 import "./LoginForm.css";

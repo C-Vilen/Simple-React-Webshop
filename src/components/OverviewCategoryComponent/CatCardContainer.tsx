@@ -4,7 +4,6 @@ import CatCard from './CatCard';
 
 interface CatCardContainerProps {
     heading: String;
-
 }
 
 export default function CatCardContainer({ heading }: CatCardContainerProps) {

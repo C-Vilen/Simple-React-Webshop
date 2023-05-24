@@ -1,7 +1,6 @@
 import { Fragment, useContext, useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import BasketItem from "./BasketItem";
 
 // CSS
@@ -18,7 +17,6 @@ interface Product {
   productPrice: number;
   imgSrc: string;
   productId: number;
-  // add any other properties here
 }
 
 export default function BasketItemContainer({
@@ -30,8 +28,8 @@ export default function BasketItemContainer({
   if (!context) {
     throw new Error("customer context is undefined");
   }
-  const { customer } = context;
 
+  const { customer } = context;
   const [itemCount, setItemCount] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
   const [products, setProducts] = useState<Product[]>([]);
@@ -78,6 +76,7 @@ export default function BasketItemContainer({
     );
     getBasketCount();
   }
+  
   //Sums up all the productPrices
   function sumPrices(): number {
     const total = products.reduce(

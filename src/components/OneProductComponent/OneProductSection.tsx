@@ -69,6 +69,7 @@ export default function OneProductSection({
   function incrementCount() {
     setItemCount(itemCount + 1);
   }
+  
   //decrement the amount of products you want to add to the basket
   function decrementCount() {
     if (itemCount > 1) {

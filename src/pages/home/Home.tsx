@@ -1,4 +1,4 @@
-import { Fragment, useContext, useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 // CSS import
 import "../../styles/index.css";

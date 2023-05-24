@@ -17,7 +17,6 @@ export default function CarouselProductCard({
     return (
         <Fragment>
             <div className="card w-100 d-flex flex-column justify-content-center align-items-center "
-                //because lolz
                 style={{ backgroundImage: "linear-gradient(#fff,#F2BD2C, #fff)" }}
                 id={prodId}>
                 <img className="product-img" src={prodImg} alt={prodName + " image"} />
