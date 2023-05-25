@@ -87,9 +87,8 @@ export default function OneProductSection({
                 <Link to="/All-products">All products</Link>
               </li>
               <li className="active breadcrumb-item">
-                <a id="breadcrumb-update" href="#">
-                  {prodName}
-                </a>
+              <Link to=''>{prodName}</Link>
+
               </li>
             </ol>
           </nav>

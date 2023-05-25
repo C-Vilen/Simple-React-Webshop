@@ -24,7 +24,7 @@ export default function ProdCard({
   const { customer } = context;
 
   async function buyProduct() {
-    const response = await fetch(
+    await fetch(
       `http://localhost:3000/baskets/${customer.customerId}/${prodId}`,
       {
         mode: "cors",

@@ -37,7 +37,7 @@ export default function BasketItemContainer({
   useEffect(() => {
     setTotalAmount(sumPrices());
     getBasketCount();
-  });
+  },[sumPrices, getBasketCount]);
 
   //Helper function to update the count in Navbar
   async function getBasketCount() {
@@ -129,11 +129,6 @@ export default function BasketItemContainer({
     outputName = `${customer.firstName}'s basket`;
   } else {
     outputName = `${customerName}'s basket`;
-  }
-
-  let outputAmount = 0;
-  if (basketAmount > 0) {
-    outputAmount = basketAmount;
   }
 
   // Count the number of each product in the basket

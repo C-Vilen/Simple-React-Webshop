@@ -5,14 +5,14 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../../components/StandardComponents/Footer";
 
 export default function Signup() {
-  interface CustomerValues {
+  interface CustomerValuesInterface {
     firstName: string;
     lastName: string;
     email: string;
     password: string;
   }
 
-  const [CustomerValues, setCustomerValues] = useState<CustomerValues>({
+  const [CustomerValues, setCustomerValues] = useState<CustomerValuesInterface>({
     firstName: "",
     lastName: "",
     email: "",

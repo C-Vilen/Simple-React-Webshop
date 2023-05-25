@@ -1,5 +1,4 @@
 import { Fragment } from "react";
-import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 interface SubCatCardProps {
@@ -40,7 +39,7 @@ export default function SubCatCard({
       <div className="col">
         <div className="card">
           {/* Product image */}
-          <img className="product-img" src={catImg} alt="Category image" />
+          <img className="product-img" src={catImg} alt="Category" />
           {/* Product details */}
           <div className="card-body">
             <div className="text-center">

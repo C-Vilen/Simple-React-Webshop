@@ -1,6 +1,5 @@
-import { Fragment, useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { CustomerContext } from "../../App";
+import { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 // CSS
 import "./Basket.css";
