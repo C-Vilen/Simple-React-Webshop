@@ -1,4 +1,5 @@
 import { Fragment, useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { CustomerContext } from "../../App";
 
 // CSS
@@ -30,9 +31,15 @@ export default function BasketItem({
           <div className="row justify-content-between">
             <div className="col-md-6 col-lg-6">
               <div>
-              <strong>{prodName}</strong>
+                <strong>{prodName}</strong>
               </div>
-              <img src={prodImg} className="product-img-basket" alt={prodName + " image"}/>
+              <Link to={`/Product/${prodId}`}>
+                <img
+                  src={prodImg}
+                  className="product-img-basket"
+                  alt={prodName + " image"}
+                />
+              </Link>
             </div>
             <div className="col-md-6 col-lg-6 increase-no">
               <div className="container text-center">
@@ -54,14 +61,13 @@ export default function BasketItem({
                     className="col-3"
                     style={{ whiteSpace: "nowrap", overflow: "hidden" }}>
                     {" "}
-                    
                   </strong>
                 </div>
               </div>
             </div>
           </div>
         </div>
-                  <div className="thisisredundant">{prodPrice * prodAmount} DKK</div>
+        <div className="thisisredundant">{prodPrice * prodAmount} DKK</div>
       </li>
     </Fragment>
   );
