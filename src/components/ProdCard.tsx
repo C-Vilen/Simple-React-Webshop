@@ -60,22 +60,18 @@ export default function ProdCard({
             </span>
           </div>
         </div>
-        <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-          <div className="text-center">
+        <div className="card-footer p-4 pt-0 border-top-0 bg-transparent align-self-center">
+        <div className="text-center custom-inline">
+            <button
+              id="AddProduct"
+              className="btn YellowButton"
+              type="submit"
+              onClick={buyProduct}>
+              <i className=""></i> Buy now
+            </button>
             <Link className="btn BlackButton" to={`/Product/${prodId}`}>
               See product
             </Link>
-          </div>
-
-          <div className="text-center">
-            <button
-              id="AddProduct"
-              className="btn mt-auto"
-              type="submit"
-              onClick={buyProduct}>
-              <i className="bi-cart-fill me-1"></i> Buy now
-              <span className="badge bg-dark text-white ms-1 rounded-pill"></span>
-            </button>
           </div>
         </div>
       </div>
