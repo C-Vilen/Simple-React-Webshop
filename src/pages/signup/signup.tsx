@@ -26,6 +26,7 @@ export default function Signup() {
     window.scrollTo(0, 0);
   }, []);
 
+  //Post a customer to the database
   const postCustomer = async (customer: string) => {
     try {
       const response = await fetch("http://localhost:3000/customers", {
@@ -46,11 +47,13 @@ export default function Signup() {
     }
   };
 
+  //Updataing the state of current e.target
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
     setCustomerValues({ ...CustomerValues, [name]: value });
   };
 
+  //Sign up method for a new customer
   const handleSignup = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
@@ -61,70 +64,27 @@ export default function Signup() {
     const password = formData.get("password") as string;
     const email = formData.get("email") as string;
 
-    // Check if firstname is at 2-20 characters and not ending with " ":
-    if (firstName.length < 2) {
-      alert("Name must be at least 2 characters");
+   //Regular expressions for validation
+    const regEmail: RegExp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const regName: RegExp = /^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,20}$/;
+    const regPassword: RegExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+    //validation of input fields with regex
+    if (!regName.test(firstName)) {
+      alert("Please enter a valid first name");
       return;
     }
-
-    if (firstName.length > 20) {
-      alert("First name cannot be more than 20 characters");
+    if (!regName.test(lastName)) {
+      alert("Please enter a valid last name");
       return;
     }
-
-    if (firstName.includes("1" || "2" || "3" || "4" || "5" || "6" || "7" || "8" || "9")) {
-      alert("First name cannot contain numbers");
+    if (!regEmail.test(email)) {
+      alert("Please enter valid email address");
       return;
     }
-
-    if (firstName.endsWith(" ")) {
-      alert("First name cannot end with blank spaces");
+    if (!regPassword.test(password)) {
+      alert("Please enter a valid password. Your password must contain at least 1 capital letter, 1 number and the length of 8 characters");
       return;
     }
-
-    // Check if lastName is not empty
-    if (lastName.length === 0) {
-      alert("Last name is required");
-      return;
-    }
-
-    if (lastName.includes("1" || "2" || "3" || "4" || "5" || "6" || "7" || "8" || "9")) {
-      alert("Last name cannot contain numbers");
-      return;
-    }
-
-    if (lastName.endsWith(" ")) {
-      alert("Surname cannot end with blank spaces");
-      return;
-    }
-
-    // Check if password is at least 4 characters
-    if (password.length < 4) {
-      alert("Password must contain at least 4 digits");
-      return;
-    }
-
-    if (!password.includes("1" || "2" || "3" || "4" || "5" || "6" || "7" || "8" || "9")) {
-      alert("Password must contain at least 1 number");
-      return;
-    }
-
-    if (password.includes(" ")) {
-      alert("Password cannot contain blank spaces");
-      return;
-    }
-
-    // Check if email is not empty
-    if (email.trim().length === 0) {
-      alert("Email is required");
-      return;
-    }
-
-    if (!email.includes("@" && (".dk" || ".com"))) {
-      alert("Please enter valid mail addresse");
-      return;
-    }
-
     // Valid form date, which creates a customer object
     const CustomerValues = {
       firstName: formData.get("firstName") as string,
