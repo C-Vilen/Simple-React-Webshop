@@ -25,7 +25,7 @@ export default function ProdCardContainer({
                 <ProdCard
                   prodImg={"/assets/images/" + product.imgSrc}
                   prodName={product.productName}
-                  prodPrice={product.productPrice + " DKK"}
+                  prodPrice={product.productPrice}
                   prodId={product.productId}
                   updateProductCount={updateProductCount}
                 />
